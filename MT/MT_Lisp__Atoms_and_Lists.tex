@@ -1,0 +1,636 @@
+\chaptertitle{Lisp: Atoms and Lists}
+
+                          Lisp: Atoms and Lists
+                                    February, 1983
+
+
+IN previous columns I have written quite often about the field of artificial
+intelligence-the search for ways to program computers so that they might come to
+behave with flexibility, common sense, insight, creativity, self awareness, humor, and
+so on. The quest for AI started in earnest over two decades ago, and since then has
+bifurcated many times, so that today it is a very active and multifaceted research area.
+In the United States there are perhaps a couple of thousand people professionally
+involved in AI, and there are a similar number abroad. Although there is among these
+workers a considerable divergence of opinion concerning the best route to Al, one
+thing that is nearly unanimous is the choice of programming language. Most AI
+research efforts are carried out in a language called "Lisp". (The name is not quite an
+acronym; it stands for "list processing".)
+        Why is most AI work done in Lisp? There are many reasons, most of which
+are somewhat technical, but one of the best is quite simple: Lisp is crisp. Or as
+Marilyn Monroe said in The Seven-Year Itch, "I think it's jus-teeegant!" Every
+computer language has arbitrary features, and most languages are in fact overloaded
+with them. A few, however, such as Lisp and Algol, are built around a kernel that
+seems as natural as a branch of mathematics. The kernel of Lisp has a crystalline
+purity that not only appeals to the esthetic sense, but also makes Lisp a far more
+flexible language than most others. Because of Lisp's beauty and centrality in this
+important area of modern science, then, I have decided to devote a trio of columns to
+some of the basic ideas of Lisp.
+        The deep roots of Lisp lie principally in mathematical logic. Mathematical
+pioneers such as Thoralf Skolem, Kurt Godel, and Alonzo Church contributed
+seminal ideas to logic in the 1920's and 1930's that were incorporated decades later
+into Lisp. Computer programming in earnest began in the 1940's, but so-called
+"higher-level" programming languages (of which Lisp is one) came into existence
+only in the 1950's. The earliest list-processing language was not Lisp but IPL
+("Information Processing Language"), developed in the mid-1950's by Herbert Simon,
+Allen Newell, and J. C. Shaw. In the years 1956-58, John McCarthy, drawing on all
+these
+
+
+
+
+Lisp: Atoms and Lists                                                               396
+
+previous sources, came up with an elegant algebraic list-processing language he called
+Lisp. It caught on quickly with the young crowd around him at the newly-formed MIT
+Artificial Intelligence Project, was implemented on the IBM 704, spread to other AI
+groups, infected them, and . has stayed around all these years. Many dialects now
+exist, but all of them share that central elegant kernel.
+
+                                     *       *      *
+
+        Let us now move on to the way Lisp really works. One of the most appealing
+features of Lisp is that it is interactive, as contrasted with most other higher-level
+languages, which are noninteractive. What this means is the following. When you
+want to program in Lisp, you sit down at a terminal connected to a computer and you
+type the word "lisp" (or words to that effect). The next thing you will see on your
+screen is a so-called "prompt" -a characteristic symbol such as an arrow or asterisk. I
+like to think of this prompt as a greeting spoken by a special "Lisp genie", bowing
+low and saying to you, "Your wish is my command-and now, what is your next
+wish?" The genie then waits for you to type something to it. This genie is usually
+referred to as the Lisp interpreter, and it will do anything you want but you have to
+take great care in expressing your desires precisely, otherwise you may reap some
+disastrous effects. Shown below is the prompt, then gn that the Lisp genie is ready to
+do your bidding:
+
+:>
+
+The genie is asking us for our heart's desire, so let us type in a simple expression:
+
+:> (plus 2 2)
+
+and then a carriage return. (By the way, all Lisp expressions and words will be printed
+in Helvetica in this and the following two chapters.) Even non-Lispers can probably
+anticipate that the Lisp genie will print in return. the value 4. Then it will also print a
+fresh prompt, so that the screen will now appear this way:
+
+:> (plus 2 2)
+:>
+
+        The genie is now ready to carry out our next command-or, more politely
+stated, our next wish-should we have one. The carrying-out of a wish expressed as a
+Lisp statement is called evaluation of that statement. The preceding short interchange
+between human and computer exemplifies the
+
+
+
+
+Lisp: Atoms and Lists                                                                   397
+
+behavior of the Lisp interpreter: it reads a statement, evaluates it, prints the
+appropriate value, and then signals its readiness to read a new statement. For this
+reason, the central activity of the Lisp interpreter is referred to as the read-eval-print
+loop.
+        The existence of this Lisp genie (the Lisp interpreter) is what makes Lisp
+interactive. You get immediate feedback as soon as you have typed a "wish" -a
+complete statement-to Lisp. And the way to get a bunch of wishes carried out is to
+type one, then ask the genie to carry it out, then type another, ask the genie again, and
+so on.
+        By contrast, in many higher-level computer languages you must write out an
+entire program consisting of a vast number of wishes to be carried out in some
+specified order. What's worse is that later wishes usually depend strongly on the
+consequences of earlier wishes-and of course, you don't get to try them out one by
+one. The execution of such a program may, needless to say, lead to many unexpected
+results, because so many wishes have to mesh perfectly together. If you've made the
+slightest conceptual error in designing your wish list, then a total foul-up is likely-in
+fact, almost inevitable. Running a program of this sort is like launching a new space
+probe, untested: you can't possibly have anticipated all the things that might go
+wrong, and so all you can do is sit back and watch, hoping that it will work. If it fails,
+you go back and correct the one thing the failure revealed, and then try another
+launch. Such a gawky, indirect, expensive way of programming is in marked contrast
+to the direct, interactive, one-wish-at-atime style of Lisp, which allows "incremental"
+program development and debugging. This is another major reason for the popularity
+of Lisp.
+
+                                        *   *   *
+
+        What sorts of wishes can you type to the Lisp genie for evaluation, and what
+sorts of things will it print back to you? Well, to begin with, you can type arithmetical
+expressions expressed in a rather strange way, such as (times (plus 6 3) (difference 6
+3)). The answer to this is 27, since (plus 6 3) evaluates to 9, and (difference 6 3)
+evaluates to 3, and their product is 27. This notation, in which each operation is
+placed to the left of its operands, was invented by the Polish logician Jan >
+ukasiewicz before computers existed. Unfortunately for > ukasiewicz, his name was
+too formidable-looking for most speakers of English, and so this type of notation
+came to be called Polish notation. Here is a simple problem in this notation for you, in
+which you are to play the part of the Lisp genie:
+
+:> (quotient (plus 2113) (difference 23 (times 2 (difference 7 (plus 2 2)))))
+
+       Perhaps you have noticed that statements of Lisp involve parentheses. A
+profusion of parentheses is one of the hallmarks of Lisp. It is not uncommon to see an
+expression that terminates in a dozen right parentheses! This
+
+
+
+
+Lisp: Atoms and Lists                                                                 398
+
+makes many people shudder at first-and yet once you get used to their characteristic
+appearance, Lisp expressions become remarkably intuitive, even, charming, to the
+eye, especially when pretty printed, which means that a careful indentation scheme is
+followed that reveals their logical structure. All of the expressions in displays in this
+article have been pretty-printed.
+        The heart of Lisp is its manipulable structures. All programs in Lisp work by
+creating, modifying, and destroying structures. Structures come in two types: atomic
+and composite, or, as they are usually called, atoms and lists. Thus, every Lisp object
+is either an atom or a list (but not both). The only exception is the special object called
+nil, which is both an atom and a list. More about nil in a moment. What are some
+other typical Lisp atoms? Here are a few:
+
+                    hydrogen, helium, j-s-bach, 1729, 3.14159, pi,
+                         arf, foo, bar, baz, buttons-\&-bows
+
+        Lists are the flexible data structures of Lisp. A list is pretty much what it
+sounds like: a collection of some parts in a specific order. The parts of a list are
+usually called its elements or members. What can these members be? Well, not
+surprisingly, lists can have atoms as members. But just as easily, lists can contain lists
+as members, and those lists can in turn contain other lists as members, and so on,
+recursively. Oops! I jumped the gun with that word. But no harm done. You certainly
+understood what I meant, and it will prepare you for a more technical definition of the
+term to come later.
+        A list printed on your screen is recognizable by its parentheses. In Lisp,
+anything bounded by matching parentheses constitutes a list. So, for instance, (zonk
+blee strill (croak flonk)) is a four-element list whose last element is itself a two-
+element list. Another short list is (plus 2 2), illustrating the fact that Lisp statements
+themselves are lists. This is important because it means that the Lisp genie, by
+manipulating lists and atoms, can actually construct new wishes by itself. Thus the
+object of a wish can be the construction-and subsequent evaluation-of a new wish!
+        Then there is the empty list-the list with no elements at all. How is this written
+\_ down? You might think that an empty pair of parentheses-()would work. Indeed, it
+will work-but there is a second way of indicating the empty list, and that is by writing
+nil. The two notations are synonymous, although nil is more commonly written than
+() is. The empty list, nil, is a key concept of Lisp; in the universe of lists, it is what
+zero is in the universe of-numbers. To use another metaphor for nil, it is like the earth
+in which all structures are rooted. But for you to understand what this means, you will
+have to wait a bit.
+        The most commonly exploited feature of an atom is that it has (or can be
+given) a value. Some atoms have permanent values, while others are variables. As you
+might expect, the value of the atom 1729 is the integer
+
+
+
+
+Lisp: Atoms and Lists                                                                  399
+
+1729, and this is permanent. (I am distinguishing here between the atom whose print
+name or pname is the four-digit string 1729, and the eternal Platonic essence that
+happens to be the sum of two cubes in two different ways-i.e., the number 1729.) The
+value of nil is also permanent, and it is -nil! Only one other atom has itself as its
+permanent value, and that is the special atom t.
+        Aside from t, nil, and atoms whose names are numerals, atoms are generally
+variables, which means that you can assign values to them and later change their
+values at will. How is this done? Well, to assign the value 4 to the atom pie, you can
+type to the Lisp genie (setq pie 4). Or you could just as well type (setq pie (plus 2
+2))-or even (setq pie (plus 1 1 1 1)). In any of these cases, as soon as you type your
+carriage return, pie's value will become 4, and so it will remain forevermore-or at
+least until you do another setq operation on the atom pie.
+        Lisp would not be crisp if the only values atoms could have were numbers.
+Fortunately, however, an atom's value can be set to any kind of Lisp object -any atom
+or list whatsoever. For instance, we might want to make the value of the atom pi be a
+list such as (a b c) or perhaps (plus 2 2) instead of the number 4. To do the latter, we
+again use the setq operation. To illustrate, here follows a brief conversation with the
+genie:
+
+       :> (setq pie (plus 2 2)) 4
+       :> (setq pi '(plus 2 2)) (plus 2 2)
+
+         Notice the vast difference between the values assigned to the atoms pie and pi
+as a result of these two wishes asked of the Lisp genie, which differ merely in the
+presence or absence of a small but critical quote mark in front of the inner list (plus 2
+2). In the first wish, containing no quote mark, that inner (plus 2 2) must be evaluated.
+This returns 4, which is assigned to the variable pie as its new value. On the other
+hand, in the second wish, since the quote mark is there, the list (plus 2 2) is never
+executed as a command, but is treated merely as an inert lump of Lispstuff, much like
+meat on a butcher's shelf. It is ever so close to being "alive", yet it is dead. So the
+value of pi in this second case is the list (plus 2 2), a fragment of Lisp code. The
+following interchange with the genie confirms the values of these atoms.
+
+:> pie
+:> pi
+(plus 2 2)
+:> (eval pi)
+:>
+
+
+
+
+Lisp: Atoms and Lists                                                                400
+
+What is this last step? I wanted to show how you can ask the genie to evaluate the
+value of an expression, rather than simply printing the value of that expression.
+Ordinarily, the genie automatically performs just one level of evaluation, but by
+writing eval, you can get a second stage of evaluation carried out. (And of course, by
+using eval over and over again, you can carry this as far as you like.) This feature
+often proves invaluable, but it is a little too advanced to discuss further at this stage.
+
+         Every list but nil has at least one element. This first element is called the list's
+Car. Thus the car of (eval pi) is the atom eval. The cars of the lists (plus 2 2), (setq x
+17), (eval pi), and (car pi) are all names of operations, or, as they are more commonly
+called in Lisp, functions. The car of a list need not be the name of a function; it need
+not even be an atom. For instance, ((1)(2 2) (3 3 3)) is a perfectly fine list. Its car is
+the list (1), whose car in turn is not a function name but merely a numeral.
+         If you were to remove a list's car, what would remain? A shorter list. This -is
+called the list's cdr, a word that sounds about halfway between "kidder" and
+"could'er". (The words "car" and "cdr" are quaint relics from the first implementation
+of Lisp on the IBM 704. The letters in "car" stand for "Contents of the Address part of
+Register" and those in "cdr" for "Contents of the Decrement part of Register referring
+to specific hardware features of that machine, now long since irrelevant.) The cdr of
+(a b c d) is the list (b c d), whose cdr is (c d), whose cdr is (d), whose cdr is nil. And
+nil has no cdr, just as it has no car. Attempting to take the car or cdr of nil causes (or
+should cause) the Lisp genie to cough out an error message, just as attempting to
+divide by zero should evoke an error message.
+         Here is a little table showing the car and cdr of a few lists, just to make sure
+the notions are unambiguous.
+
+       list                    car                     cdr
+       ((a) b (c))             (a)                     (b (c))
+       (plus 2 2)              plus                    (22)
+       ((car x) (car y))       (car x)                 ((car y))
+       (nil nil nil nil)       nil                     (nil nil nil)
+       (nil)                   nil                     nil
+       nil                     **ERROR**               **ERROR**
+
+        Just as car and cdr are called functions, so the things that they operate on are
+called their arguments. Thus in the command (plus pie 2), plus is the function name,
+and the arguments are the atoms pie and 2. In evaluating this command (and most
+commands), the genie figures out the values of the arguments, and then applies the
+function to those values. Thus, since the
+
+
+
+
+Lisp: Atoms and Lists                                                                   401
+
+value of the atom pie is 4, and the value of the atom 2 is 2, the genie returns the atom
+6.
+
+                                        *   *   *
+
+        Suppose you have a list and you'd like to see a list just like it, only one
+element longer. For instance, suppose the value of the atom x is (cake cookie) and
+you'd like to create a new list called y just like x, except with an extra atom-say pie-at
+the front. You can then use the function called cons (short for "construct"), whose
+effect is to make a new list out of an old list and a suggested car. Here's a transcript of
+such a process:
+
+->(setq x '(cake cookie))
+(cake cookie)
+->(setq y (cons 'pie x))
+(pie cake cookie)
+-> x
+(cake cookie)
+
+        Two things are worth noticing here. I asked for the value of x to be printed out
+after the cons operation, so you could see that x itself was not changed by the cons.
+The cons operation created a new list and made that list be the value of y, but left x
+entirely alone. The other noteworthy fact is that I used that quote mark again, in front
+of the atom pie. What if I had not used it? Here's what would have happened.
+
+-> (setq z (cons pie x))
+(4 cake cookie)
+
+Remember, after all, that the atom pie still has the value 4, and whenever the genie
+sees an unquoted atom inside a wish, it will always use the value belonging to that
+atom, rather than the atom's name. (Always? Well, almost always. I'll explain in a
+moment. In the meantime, look for an exception - you've already encountered it.)
+         Now here are a few exercises-some a bit tricky-for you. Watch out for the
+quote marks! Oh, one last thing: I use the function reverse, which produces a list just
+like its argument, only with its elements in reverse order. For instance, the genie, upon
+being told (reverse '((a b) (c d e))) will write ((c d e) (a b)). The genie's lines in this
+dialogue are given afterward.
+
+-> (setq w (cons pie '(cdr z)))
+-> (setq v (cons 'pie (cdr z)))
+-> (setq u (reverse v))
+-> (cdr (cdr u))
+-> (car (cdr u))
+-> (cons (car (cdr u)) u)
+-> u
+
+
+
+
+Lisp: Atoms and Lists                                                                  402
+
+-> (reverse `(cons (car u) (reverse (cdr u))))
+-> (reverse (cons (car u) (reverse (cdr u))))
+-> u
+-> (cons 'cookie (cons 'cake (cons 'pie nil)))
+
+Answers (as printed by the genie):
+
+(4 cdr z)
+(pie cake cookie)
+(cookie cake pie)
+(pie)
+cake
+(cake cookie cake pie)
+(cookie cake pie)
+((reverse (cdr u)) (car u) cons)
+(cake pie cookie)
+(cookie cake pie)
+(cookie cake pie)
+
+         The last example, featuring repeated use of cons, is often called, in Lisp slang
+"coning up a list". You start with nil, and then do repeated cons operations. It is
+analogous to building a positive integer by starting at zero and hen performing the
+successor operation over and over again. However, whereas at any stage in the latter
+process there is a unique way of performing the successor operation, given any list
+there are infinitely many different items you can cons onto it, thus giving rise to a vast
+branching tree of lists instead of the unbranching number line. It is on account of this
+image of a tree growing out of the ground of nil and containing all possible lists that I
+earlier likened nil to "the earth in which all structures are rooted". ,
+         As I mentioned a moment ago, the genie doesn't always replace (unquoted)
+atoms by their values. There are cases where a function treats its arguments, though
+unquoted, as if quoted. Did you go back and find such a case? It's easy. The answer is
+the function setq. In particular, in a setq command, the first atom is taken straight-not
+evaluated. As a matter of fact, the q in setq stands for "quote", meaning that the first
+argument is treated as if quoted. Things can get quite tricky when you learn about set,
+a function similar to setq except that it does evaluate its first argument. Thus, if the
+value of the atom x is the atom k, then saying (set x 7) will not do anything to x-its
+value will remain the atom k-but the value of the atom k will now become 7. So
+watch closely:
+
+-> (setq a 'b)
+-> (setq b 'c)
+-> (setq c 'a)
+-> (set a c)
+-> (set c b)
+
+
+
+
+Lisp: Atoms and Lists                                                                 403
+
+Now tell me: What are the values of the atoms a, b, and c? Here comes the answer, so
+don't peek. They are, respectively: a, a, and a. This may seem a bit confusing. You
+may be reassured to know that in Lisp, set is not very commonly used, and such
+confusions do not arise that often.
+
+                                        *   *   *
+
+        Psychologically, one of the great powers of programming is the ability to
+define new compound operations in terms of old ones, and to do this over and over
+again, thus building up a vast repertoire of ever more complex operations. It is quite
+reminiscent of evolution, in which ever more complex molecules evolve out of less
+complex ones, in an ever-upward spiral of complexity and creativity. It is also quite
+reminiscent of the industrial revolution, in which people used very simple early
+machines to help them build more complex machines, then used those in turn to build
+even more complex machines, and so on, once again in an ever-upward spiral of
+complexity and creativity. At each stage, whether in evolution or revolution, the
+products get more flexible and more intricate, more "intelligent" and yet more
+vulnerable to delicate "bugs" or breakdowns.
+        Likewise with programming in Lisp, only here the "molecules" or "machines"
+are now Lisp functions defined in terms of previously known Lisp functions. Suppose,
+for instance, that you wish to have a function that will always return the last element
+of a list, just as car always returns the first element of a list. Lisp does not come
+equipped with such a function, but you can easily create one. Do you see how? To get
+the last element of a list called lyst, you simply do a reverse on lyst and then take the
+car of that: (car (reverse lyst)). To dub this operation with the name rac (car
+backwards), we use the def function, as follows:
+
+-> (def rac (lambda (lyst) (car (reverse lyst))))
+
+Using def this way creates a function definition. In it, the word lambda followed by
+(lyst) indicates that the function we are defining has only one parameter, or dummy
+variable, to be called lyst. (It could have been called anything; I just happen to like the
+atom lyst.) In general, the list of parameters (dummy variables) must immediately
+follow the word lambda. After this "def wish" has been carried out, the rac function
+is as well understood by the genie as is car. Thus (rac '(your brains)) will yield the
+atom brains. And we can use rac itself in definitions of yet further functions. The
+whole thing snowballs rather miraculously, and you can quickly become
+overwhelmed by the power you wield.
+Here is a simple example. Suppose you have a situation where you know you are
+going to run into many big long lists and you know it will often be useful to form, for
+each such long list, a short list that contains just its car and rac. We can define a one-
+parameter function to do this for you:
+
+
+
+
+Lisp: Atoms and Lists                                                                  404
+
+-> (def readers-digest-condensed-version
+  (lambda (biglonglist)
+   (cons (car biglonglist) (cons (rac biglonglist) nil))))
+
+Thus if we apply our new function readers-digest-condensed-version to the entire
+text of James Joyce's Finnegans Wake (treating it as a big long list of words), we will
+obtain the shorter list (riverrun the). Unfortunately, reapplying the condensation
+operator to this new list will not simplify it any further.
+It would be nice as well as useful if we could create an inverse operation to readers-
+digest-condensed-version called rejoyce that, given any two words, would create a
+novel beginning and ending with them, respectively -and such that James Joyce would
+have written it (had he thought of it). Thus execution of the Lisp statement (rejoyce
+'Stately 'Yes) would result in the Lisp genie generating from scratch the entire novel
+Ulysses. Writing this function is left as an exercise for the reader. To test your
+program, see what it does with (rejoyce 'karma 'dharma).
+
+                                       *   *   *
+
+        One goal that has seemed to some people to be both desirable and feasible
+using Lisp and related programming languages is (1) to make every single statement
+return a value and (2) to have it be through this returned value and only through it that
+the statement has any effect. The idea of (1) is that values are handed "upward" from
+the innermost function calls to the outermost ones, until the full statement's value is
+returned to you. The idea of (2) is that during all these calls, no atom has its value
+changed at all (unless the atom is a dummy variable). In all dialects of Lisp known to
+me, (1) is true, but (2) is not necessarily true.
+        Thus if x is bound to (a b c d e) and you say (car (cdr (reverse x))), the first
+thing that happens is that (reverse x) is calculated; then this value is handed "up" to
+the cdr function, which calculates the cdr of that list; finally, this shorter list is
+handed to the car function, which extracts one element-namely the atom d-and
+returns it. In the meantime, the atom x has suffered no damage; it is still bound to (a b
+c d e).
+It might seem that an expression such as (reverse x) would change the value of x by
+reversing it, just as carrying out the oral command "Turn your sweater inside out" will
+affect the sweater. But actually, carrying out the wish (reverse x) no more changes
+the value of x than carrying out the wish (plus 2 2) changes the value of 2. Instead,
+executing (reverse x) causes a new (unnamed) list to come into being, just like x, only
+reversed. And that list is the value of the statement; it is what the statement returns.
+The value of x itself, however, is untouched. Similarly, evaluating (cons 5 pi) will not
+change the list named pi in the slightest; it merely returns a new list with 5 as its car
+and whatever pi's value is as its cdr.
+
+
+
+
+Lisp: Atoms and Lists                                                                405
+
+         Such behavior is to be contrasted with that of functions that leave "side
+effects" in their wake. Such side effects are usually in the form of changed variable
+bindings, although there are other possibilities, such as causing input or output to take
+place. A typical "harmful" command is a setq, and proponents of the "applicative"
+school of programming-the school that says you should never make any side effects
+whatsoever-are profoundly disturbed by the mere mention of setq. For them, all
+results must come about purely by the way that functions compute their values and
+hand them to other functions.
+         The only bindings that the advocates of the applicative style approve of are
+transitory "lambda bindings"-those that arise when a function is applied to its
+arguments. Whenever any function is called, that function's dummy variables
+temporarily assume "lambda bindings". These bindings are just like those caused by a
+setq, except that they are fleeting. That is, the moment the function is finished
+computing, they go away-vanishing without a trace. For example, during the
+computation of (rac '(a b c)), the lambda binding of the dummy variable lyst is the
+list (a b c); but as soon as the answer c is passed along to the function or person that
+requested the rac, the value of the atom lyst used in getting that answer is totally
+forgotten. The Lisp interpreter will tell you that lyst is an "unbound atom" if you ask
+for its value. Applicative programmers much prefer lambda bindings to ordinary setq
+bindings.
+I personally am not a fanatic about avoiding setq's and other functions that cause side
+effects. Though I find the applicative style to be jus-telegant, I find it impractical
+when it comes to the construction of large Al-style programs. Therefore I shall not
+advocate the applicative style here, though I shall adhere to it when possible. Strictly
+speaking, in applicative programming, you cannot even define new functions, since a
+def statement causes a permanent change to take place in the genie's memory-namely,
+the permanent storage in memory of the function definition. So the ideal applicative
+approach would have functions, like variable bindings, being created only
+temporarily, and their definitions would be discarded the moment after they had been
+used. But this is extreme "applicativism".
+         For your edification, here are a few more simple function definitions.
+
+-> (def rdc (lambda (lyst) (reverse (cdr (reverse lyst)))))
+-> (def snot (lambda (x lyst) (reverse (cons x (reverse lyst)))))
+-> (def twice (lambda (n) (plus n n)))
+
+The functions rdc and snoc are analogous to cdr and cons, only backwards. Thus, the
+rdc of (a b c d e) is (a b c d), and if you type (snoc 5 '(1 2 3 4)), you will get (1 2 3 4
+5) as your answer.
+
+                                        *   *   *
+
+
+
+
+Lisp: Atoms and Lists                                                                  406
+
+All, of this is mildly interesting so far, but if you want to see the genie do anything
+truly surprising, you have to allow it to make some decisions based on things that
+happen along the way. These are sometimes called “conditional wishes". A typical
+example would be the following:
+
+-> (mod ((eq x 1) 'land) ((eq x 2) 'sea))
+
+The value returned by this statement will be the atom land if x has value 1, and the
+atom sea if x has value 2. Otherwise, the value returned will be nil (i.e., if x is 5). The
+atom eq (pronounced "eek") is the name of ..a common Lisp function that returns the
+atom t (standing for "true") if its two arguments have the same value, and nil (for "no"
+or "false") if they do not.
+        A cond statement is a list whose car is the function name cond, followed by
+any number of cond clauses, each of which is a two-element list. The first element of
+each clause is called its condition, the second element its result. The clauses'
+conditions are checked out by the Lisp genie one by one, in order; as soon as it finds a
+clause whose condition is "true" (meaning that the condition returns anything other
+than nil!), it begins calculating that clause's result, whose value gets returned as the
+value of the whole cond statement. None of the further clauses is even so much as
+glanced at! This may sound more complex than it ought to. The real idea is no more
+complex than saying that it looks for the first condition that is satisfied, then it returns
+the corresponding result.
+        Often one wants to have a catch-all clause at the end whose condition is sure
+to be satisfied, so that, if all other conditions fail, at least this one will be true and the
+accompanying result, rather than nil, will be returned. It is easy as pie to make a
+condition whose value is non-nil; just choose it to be t for instance, as in the
+following:
+
+       (Cond ((eq x 1) 'land)
+       ((eq x 2) 'sea)
+       (t 'air))
+
+
+'Depending on what the value of x is, we will get either land, sea, or air as the value
+of this cond, but we'll never get nil. Now here are a few sample cond statements for
+you to play genie to:
+
+-> (cond ((eq (oval pi) pie) (oval (snot pie pi)))
+       (t (eval (snoc (rac pi) pi))))
+-> (cond ((eq 2 2) 2) ((eq 3 3) 3))
+-> (cond (nil 'no-no-no)
+       ((eq '(car nil) '(cdr nil)) 'hmmm)
+       (t 'yes-yes-yes))
+
+
+
+
+Lisp: Atoms and Lists                                                                    407
+
+The answers are: 8, 2, and yes-yes-yes. Did you notice that (car nil) and (cdr nil)
+were quoted?
+I shall close this portion of the column by displaying a patterned family of function
+definitions, so obvious in their pattern that you would think that the Lisp genie would
+just sort of "get the hang of it" after seeing the first few .... Unfortunately, though,
+Lisp genies are frustratingly dense (or at least they play at being dense), and they will
+not jump to any conclusion unless it has been completely spelled out. Look first at the
+family:
+
+-> (def square (lambda (k) (times k k)))
+-> (def cube (lambda (k) (times k (square k))))
+-> (def 4th-power (lambda (k) (times k (cube k))))
+-> (def 5th-power (lambda (k) (times k (4th-power k))))
+-> (def 6th-power (lambda (k) (times k (5th-power k))))
+-> .
+-> .
+-> .
+-> .
+
+My question for you is this: Can you invent a definition for a two parameter function
+that subsumes all of these in one fell swoop? More concretely, the question is: How
+would one go about defining a two-parameter function called power such that, for
+instance, (power 9 3) yields 729 on being evaluated, and (power 7 4) yields 2,401 ? I
+have supplied you, in this column, with all the necessary tools to do this, provided you
+exercise some ingenuity.
+
+                                        *   *   *
+
+I thought I would end this column with a newsbreak about a freshly discovered beast-
+the homely Glazunkian porpuquine, so called because it is found only on the island of
+Glazunkia (claimed by Upper Bitbo, though it is just off the coast of Burronymede).
+And what is a porpuquine, you ask? Why, it's a strange breed of porcupine, whose
+quills-of which, for some reason, there are always exactly nine (in Outer Glazunkia)
+or seven (in Inner Glazunkia)-are smaller porpuquines. Oho! This would certainly
+seem to be an infinite regress! But no. It's just that I forgot to mention that there is a
+smallest size of porpuquine: the zero-inch type, which, amazingly enough, is totally
+bald of quills. So, quite luckily (or perhaps unluckily, depending on your point of
+view), that puts a stop to the threatened infinite regress. This remarkable beast is
+shown in a rare photograph in Figure 17-1.
+        Students of zoology might be interested to learn that the quills on 5-inch
+porpuquines are always 4-inch porpuquines, and so on down the line. And students of
+anthropology might be equally intrigued to know that the residents of Glazunkia (both
+Outer and Inner) utilize the nose (yes, the nose) of the zero-inch porpuquine as a unit
+of barter-an odd thing to our
+
+
+
+
+Lisp: Atoms and Lists                                                                 408
+
+FIGURE 17-1. The homely Inner Glazunkian porpuquine, Porpuquinus
+verdimontianus. The size of this particular specimen has not been ascertained,
+although it appears to be at least a 4-incher. The buying power of a porpuquine is the
+number of zero-inch noses on it. Larger noses, oddly enough, are worth nothing.
+[Photograph by David J. Moser. ]
+
+minds; but then, who are you and I to question the ancient wisdom of the Outer and
+Inner Glazunkians? Thus, since a largish porpuquine-say a 3-incher or 4-incher-
+contains many, many such tiny noses, it is a most valuable commodity. The value of a
+porpuquine is sometimes referred to as its "buying power", or just "power" for short.
+For instance, a 2-incher found in Inner Glazunkia is almost twice as powerful as a 2-
+incher found in Outer Glazunkia. Or did I get it backward? It's rather confusing!
+        Anyway, why am I telling you all this? Oh, I just thought you'd like to hear
+about it. Besides, who knows? You just might wind up visiting Glazunkia .(Inner or
+Outer) one of these fine days. And then all of this could come in mighty handy.
+
+
+
+
+Lisp: Atoms and Lists                                                             409
+

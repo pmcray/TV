@@ -1,0 +1,30 @@
+\nonstopmode
+\fontfam[EB Garamond]
+\font\sans="[NotoSans-Regular]" at 10pt
+\font\sansbold="[NotoSans-Bold]" at 10pt
+
+% Dialogues
+\long\def\achilles{\smallskip \noindent {\sansbold ACHILLES:}\enspace \sans}
+\long\def\tortoise{\smallskip \noindent {\sansbold TORTOISE:}\enspace \sans}
+\long\def\zeno{\smallskip \noindent {\sansbold Zeno:}\enspace \sans}
+\long\def\dialogueauthor #1{\smallskip \noindent {\sansbold #1:}\enspace \sans}
+
+% Chapters and Sections
+\long\def\chapter #1{\vfill\eject \centerline{\typosize[16/20]\bf Chapter #1}\bigskip}
+\long\def\chaptertitle #1{\centerline{\typosize[18/22]\bf #1}\bigskip}
+\long\def\sectiontitle #1{\bigskip\centerline{\typosize[14/17]\bf #1}\medskip}
+\long\def\section #1{\medskip\noindent{\bf #1}\smallskip\noindent}
+
+% Rules
+\long\def\rule #1: #2\par{\medskip\noindent{\bf RULE #1:} #2\par\smallskip}
+
+% Special text
+\long\def\intro{\it \narrower \noindent}
+\long\def\endintro{\rm \narrower \medskip}
+
+\def\separator{\bigskip\centerline{* \quad * \quad *}\bigskip}
+
+\hsize=15cm
+\vsize=23cm
+\hoffset=1.2in
+\voffset=1.2in

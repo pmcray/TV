@@ -1,0 +1,333 @@
+% --- Fonts ---
+% Load Termes (Times) as the main text font
+\fontfam[Termes] 
+
+% --- Legacy Compatibility (The Shim) ---
+\def\twelvesl{\it}  % Old 'slanted' -> Italic
+\def\twelveit{\it}  % Old 'italic' -> Italic
+\def\twelvebf{\bf}  % Old 'bold' -> Bold
+\def\twelverm{\rm}  % Old 'roman' -> Normal / Reset to Termes
+
+% Fix for Sans Serif (ss):
+% Switch to Heros (Helvetica) whenever 'ss' is requested.
+\def\twelvess{\fontfam[Heros]} 
+\def\seventeenss{\typosize[17/21]\fontfam[Heros]}
+
+% Fix for Typewriter (tt):
+% Switch to Cursor (Courier) whenever 'tt' is requested.
+\def\twelvett{\fontfam[Cursor]} 
+
+% --- Legacy Compatibility (The Shim) ---
+...
+\def\tentt{\fontfam[Cursor]} 
+
+% FIX FOR VERTICAL SPACING ALERTS:
+\raggedbottom
+
+% FIX FOR \ttfam CRASH:
+% Define \ttfam as 0. This stops the crash.
+% (Note: Numbers in math mode might look like Roman text instead of Typewriter, 
+% but the document will compile).
+\chardef\ttfam=0
+
+% Set base font size to 10pt with 12pt line spacing
+\typosize[10/12]
+
+% --- Language (UK English) ---
+\enlang \uselanguage{ukenglish}
+
+% --- Page Dimensions & Margins ---
+\margins/2 (129,198) (15,15,18.5,18.5)mm
+
+% --- Paragraph Settings ---
+\parskip=0pt
+\parindent=12pt
+\tolerance=1414
+\hbadness=1414
+\emergencystretch=5pt
+
+% --- Fonts (The Faber Voice) ---
+% Faber uses Garamond/Bembo. Termes (Times) is okay, but Garamond is the "Disguise".
+% Un-comment the next line if you installed EB Garamond, otherwise stick to Termes.
+\fontfam[EBGaramond] 
+%\fontfam[Termes] 
+
+% Define the Display Font (Albertus) for Titles/Chapters
+% \font\Albertus=[Ferry-Regular] at 18pt
+\font\Albertus=[texgyreheros-bold] at 18pt
+
+% --- Legacy Compatibility Shims (KEPT AS IS) ---
+\def\twelvesl{\it}  
+\def\twelveit{\it}  
+\def\twelvebf{\bf}  
+\def\twelverm{\rm}  
+\def\twelvess{\fontfam[Heros]} 
+\def\seventeenss{\typosize[17/21]\fontfam[Heros]}
+\def\twelvett{\fontfam[Cursor]} 
+\def\tentt{\fontfam[Cursor]} 
+\chardef\ttfam=0 
+\raggedbottom
+
+% --- Front Matter Layout Macros ---
+
+% Semantic vertical spacing (strictly metric)
+\def\frontmattergap{\vskip 10mm}
+\def\titlegap{\vskip 25mm}
+\def\publishergap{\vfill}
+\def\copyrightgap{\vskip 4mm}
+
+% A clean macro for intentionally blank pages
+\def\blankpage{\null\vfill\eject}
+
+% An environment that automatically centers all lines within it
+\def\startcentered{%
+   \begingroup
+   \leftskip=0pt plus 1fill
+   \rightskip=0pt plus 1fill
+   \parindent=0pt
+   \obeylines
+}
+\def\stopcentered{%
+   \par
+   \endgroup
+   \vfill\eject
+}
+
+% --- Typography Settings ---
+\typosize[10/13] % Slightly more air (13pt leading) feels more "bookish"
+\parskip=0pt
+\parindent=1.5em % Classic fiction indent
+\tolerance=2500
+\emergencystretch=20pt
+\hfuzz=1pt % Prevents TeX from complaining about tiny overlaps
+\hbadness=1414
+
+% --- Language ---
+\enlang \uselanguage{ukenglish}
+
+% --- Page Dimensions (The "Golden Canon") ---
+% Your previous margins (15mm) were a bit tight. 
+% Faber books use deep bottom margins and wider outer edges.
+\margins/2 (129,198) (18,18,22,25)mm
+
+% --- Headers & Footers (The Faber Look) ---
+\def\booktitle{ELEVEN SHORT STORIES ABOUT LOVE} % <--- VERIFY THIS
+\def\authorname{PAUL M.~CRAY}
+
+\nopagenumbers % Turn off default numbers so we can build custom ones
+
+\headline={%
+   \ifodd\pageno 
+      \hfil {\caps \booktitle} \hfil % Recto: Title
+   \else
+      \hfil {\caps \authorname} \hfil % Verso: Author
+   \fi
+}
+
+\footline={\hfil \the\pageno \hfil} % Page number at bottom center
+
+% --- Chapter Styling Hook ---
+% IMPORTANT: How do your tm1.tex files start?
+% If they start with \chap or \chapter, we can style them here.
+% If they use a custom command like \mychapter, tell me!
+
+% --- First Paragraph Indent Suppressor ---
+\def\suppressindent{%
+   \par\nobreak
+   \everypar={\setbox0=\lastbox \everypar={}}%
+}
+
+\def\printchap#1{%
+   \vfil\break
+   \begingroup
+      \hyphenpenalty=10000 
+      \null\vskip 30mm 
+      \centerline{\Albertus\typosize[18/22] #1} 
+      \vskip 15mm
+      \nobreak
+   \endgroup
+   \noindent
+}
+
+% --- Chapter Styling Hook ---
+\def\printchap#1#2{%
+   \vfil\break
+   \begingroup
+      \hyphenpenalty=10000 
+      \null\vskip 30mm 
+      \centerline{\Albertus #1} 
+      \vskip 5mm
+      \centerline{\twelvett #2} 
+      \vskip 15mm
+      \nobreak
+   \endgroup
+   \suppressindent
+}
+
+% --- Draft Mode Switch ---
+\newif\ifdraft
+\drafttrue % Change to \draftfalse when you want to print the final book
+
+% --- Chapter Metadata ---
+\def\chaptermeta#1{%
+   \ifdraft
+      \vskip 2mm
+      \centerline{\twelvess #1}
+      \vskip 4mm
+   \fi
+   \suppressindent
+}
+
+% --- Telegram Environment ---
+\def\telegramgap{\vskip 4mm} % Standard metric gap for inserts
+
+\def\starttelegram{%
+   \par\telegramgap
+   \begingroup
+   \twelvett % Or whatever typewriter font you defined
+   \obeylines
+   \leftskip=0pt plus 1fill
+   \rightskip=0pt plus 1fill
+   \parindent=0pt
+}
+\def\stoptelegram{%
+   \par
+   \endgroup
+   \telegramgap
+   \noindent % Ensures the text following the telegram isn't indented
+}
+
+% --- Email & Text Message Environment ---
+\def\messagegap{\vskip 4mm}
+
+\def\startmessage{%
+   \par\messagegap
+   \begingroup
+   \twelvett % Switches to your Cursor (Courier) font
+   \leftskip=12mm % Indents the block from the left margin
+   \rightskip=12mm plus 1fill % Indents from the right AND makes it ragged-right
+   \parindent=0pt % Removes the first-line indent for message blocks
+   \parskip=2mm % Adds a little breathing room between paragraphs within the same message
+}
+\def\stopmessage{%
+   \par
+   \endgroup
+   \messagegap
+   \noindent % Ensures the narrative text following the message isn't indented
+}
+
+% --- Postcard Environment ---
+\def\postcardgap{\vskip 6mm}
+
+\def\startpostcard{%
+   \par\postcardgap
+   \begingroup
+   \fontfam[Chorus]\it % TeX Gyre Chorus (requires \it to activate the Chancery script)
+   \typosize[13/16] % Make it slightly larger as handwriting needs more breathing room
+   \leftskip=15mm % Indent further than the emails to look like a physical card centered on the page
+   \rightskip=15mm plus 1fill % Ragged right for natural handwriting flow
+   \parindent=0pt
+   \parskip=3mm
+}
+\def\stoppostcard{%
+   \par
+   \endgroup
+   \postcardgap
+   \noindent
+}
+
+% --- Receipt Environment ---
+\def\receiptgap{\vskip 6mm}
+
+\def\startreceipt{%
+   \par\receiptgap
+   \moveright 4mm \vbox\bgroup % Shifts the 85mm box slightly off the left margin
+   \hsize=85mm 
+   \typosize[9/11] 
+   \fontfam[Cursor] 
+   \parindent=0pt
+}
+
+\def\stopreceipt{%
+   \egroup 
+   \receiptgap
+   \noindent
+}
+
+% Helper macro: Description gets 45mm, leaving a full 40mm for the price
+\def\receiptitem#1#2{%
+   \line{\vtop{\hsize=45mm \raggedright #1}\hfil #2}%
+   \vskip 1mm
+}
+
+\def\receiptdash{\vskip 2mm \line{\xleaders\hbox{-}\hfil} \vskip 2mm}
+
+% --- Document Content ---
+\begingroup
+  % Front matter usually has no headers/numbers
+  \headline={} 
+  \footline={}
+  \input 11SSAL_front_matter.tex
+\endgroup
+
+% --- Scene Break (Whitespace Only) ---
+\def\scenebreak{%
+   \par % End the current paragraph
+   \penalty-50 % Tells TeX this is a good place to break a page if it needs to
+   \vskip 10mm plus 3mm minus 2mm % Flexible metric spacing (avoids bad vertical stretching)
+   \suppressindent % Automatically removes the indent from the next paragraph
+}
+
+% --- Major Scene Break (With Asterisks) ---
+\def\majorbreak{%
+   \par
+   \penalty-50
+   \vskip 6mm plus 2mm minus 1mm
+   \centerline{* \quad * \quad *} % Three cleanly spaced asterisks
+   \vskip 6mm plus 2mm minus 1mm
+   \suppressindent
+}
+
+% --- Business Card Environment ---
+\def\cardgap{\vskip 8mm}
+
+\def\startcard{%
+   \par\cardgap
+   \begingroup
+   \fontfam[Heros] % Sans-serif (matches your \twelvess definition)
+   \typosize[9/12] % Dropping it a point below body text gives it a neat, contained look
+   \obeylines % Respects your physical line breaks
+   \leftskip=0pt plus 1fill % Pushes from the left
+   \rightskip=0pt plus 1fill % Pushes from the right (creating an auto-center)
+   \parindent=0pt
+}
+
+\def\stopcard{%
+   \par
+   \endgroup
+   \cardgap
+   \noindent
+}
+
+% --- UI Button Font & Macro ---
+% Loads Heros directly as a single font (not a whole family context)
+\font\buttonfont=[texgyreheros-regular] at 9pt 
+
+% The macro to use inline
+\def\button#1{{\buttonfont #1}}
+
+\pageno=1
+
+\input 11SSAL_chapter1.tex
+\input 11SSAL_chapter2.tex
+\input 11SSAL_chapter3.tex
+\input 11SSAL_chapter4.tex
+\input 11SSAL_chapter5.tex
+\input 11SSAL_chapter6.tex
+\input 11SSAL_chapter7.tex
+\input 11SSAL_chapter8.tex
+\input 11SSAL_chapter9.tex
+\input 11SSAL_chapter10.tex
+\input 11SSAL_chapter11.tex
+
+\bye

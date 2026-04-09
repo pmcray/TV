@@ -1,0 +1,167 @@
+% --- THE VISIBILITIES: MAIN FILE ---
+% Royal Octavo Format (156mm x 234mm)
+% Aesthetic: Douglas Hofstadter (GEB/MT)
+% Conventions: British (UK English)
+
+\input hofstadter.opm 
+
+% --- Founts ---
+\fontfam[EBGaramond] 
+\font\Albertus=[texgyreheros-bold] at 18pt
+\font\sans="[texgyreheros-regular]" at 10pt
+\font\sansbold="[texgyreheros-bold]" at 10pt
+\font\tt="[texgyrecursor-regular]" at 10pt
+
+% --- British Typographic Settings ---
+\enlang \uselanguage{ukenglish}
+\typosize[11/13.5] 
+\parskip=0pt
+\parindent=1.5em 
+\tolerance=2500
+\emergencystretch=20pt
+\hfuzz=1pt 
+\hbadness=1414
+
+% --- Page Dimensions (Royal Octavo) ---
+\pdfpagewidth=156mm \pdfpageheight=234mm
+\margins/2 (156,234) (20,20,24,28)mm 
+
+% --- Legacy Compatibility Shims ---
+\def\twelvesl{\it\typosize[12/14]}  
+\def\twmoveit{\it\typosize[12/14]}  
+\def\twelveit{\it\typosize[12/14]}  
+\def\twelvebf{\bf\typosize[12/14]}  
+\def\twelverm{\rm\typosize[12/14]}  
+\def\twelvess{\sans\typosize[12/14]} 
+\def\seventeenss{\sansbold\typosize[17/21]}
+\def\twelvett{\tt\typosize[12/14]} 
+\def\tentt{\tt\typosize[10/12]} 
+\chardef\ttfam=0 
+\raggedbottom
+
+% --- Headers & Footers ---
+\def\booktitle{THE VISIBILITIES} 
+\def\authorname{PAUL M.~CRAY}
+
+\nopagenumbers 
+
+\headline={%
+   \ifodd\pageno 
+      \hfil {\caps \booktitle} \hfil 
+   \else
+      \hfil {\caps \authorname} \hfil 
+   \fi
+}
+
+\footline={\hfil \the\pageno \hfil} 
+
+% --- Layout Macros ---
+\def\frontmattergap{\vskip 15mm}
+\def\titlegap{\vskip 30mm}
+\def\publishergap{\vfill}
+\def\copyrightgap{\vskip 4mm}
+\def\blankpage{\null\vfill\eject}
+
+\def\startcentered{%
+   \begingroup
+   \leftskip=0pt plus 1fill
+   \rightskip=0pt plus 1fill
+   \parindent=0pt
+}
+\def\stopcentered{\par\endgroup\vfill\eject}
+
+\def\suppressindent{\par\nobreak\everypar={\setbox0=\lastbox \everypar={}}}
+
+% --- OpTeX Redefinitions for ToC ---
+% Redefining internal OpTeX print macros to match our style
+\def\_printchap#1{%
+   \vfill\eject
+   \ifodd\pageno \else \blankpage \fi 
+   \blankpage 
+   \null\vskip 50mm
+   {\leftskip=0pt plus 1fill \rightskip=0pt plus 1fill \parindent=0pt
+    {\Albertus\typosize[26/30] #1} \par}
+   \vskip 25mm
+}
+
+\def\_printsec#1{%
+   \vfill\eject
+   \ifodd\pageno \blankpage \fi 
+   \begingroup
+      \null\vskip 12mm
+      {\leftskip=0pt plus 1fill \rightskip=0pt plus 1fill \parindent=0pt
+       #1 \par}
+      \vskip 12mm
+   \endgroup
+   \suppressindent
+}
+
+% CUSTOM MACROS THAT CALL STANDARD OpTeX \chap AND \sec
+\def\parttitle #1#2#3{%
+   \chap {#1}
+   \begingroup
+      \leftskip=35mm \rightskip=25mm \it
+      #2
+      \smallskip
+      \rm \noindent --- #3 \par
+   \endgroup
+   \vfill\eject
+}
+
+\def\daytitle #1#2#3#4{%
+   \sec {{\tt #1 #2} \par \vskip 6mm {\Albertus\typosize[18/22] #3} \par \vskip 10mm {\it Section #4}}
+}
+
+\def\endday{%
+   \vfill\eject
+   \ifodd\pageno \else \errmessage{Day section exceeded 2 pages!} \fi
+   \vfill\eject
+}
+
+% --- Document Content ---
+\begingroup
+  \headline={} 
+  \footline={}
+  \input TV_front_matter.tex
+\endgroup
+
+\vfill\eject
+\chaptertitle{Contents}
+\maketoc
+
+\pageno=1
+
+% --- MONTHS ---
+\input TV_january.tex
+\input TV_february.tex
+\input TV_march.tex
+\input TV_april.tex
+\input TV_may.tex
+\input TV_june.tex
+\input TV_july.tex
+\input TV_august.tex
+\input TV_september.tex
+\input TV_october.tex
+\input TV_november.tex
+\input TV_december.tex
+
+% --- BACK MATTER ---
+\parttitle{BACK MATTER}{"The map is not the territory."}{Alfred Korzybski}
+
+\chaptertitle{Annotated Bibliography}
+{\bf Gödel, Escher, Bach Bibliography} \par\smallskip
+\input GEB/GEB_Bibliography.tex
+\bigskip
+{\bf Metamagical Themas Bibliography} \par\smallskip
+\input MT/MT_Bibliography.tex
+
+\chaptertitle{Appendix A: The Visibility Protocol}
+\suppressindent
+{\tt [REDACTED]}
+This appendix contains the operational details of the scattering experiments performed at Salford. Due to the sensitive nature of the results, certain sections have been picowaved for extra security.
+
+\chaptertitle{Appendix B: On the Lore of the Seen}
+\suppressindent
+A brief history of the words we use to describe that which we cannot see, from the Old English {\it unsewen} to the modern quantum {\it unobserved}.
+
+\bye

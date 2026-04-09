@@ -1,0 +1,52 @@
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=optex 2025.12.3)  7 APR 2026 23:04
+ restricted system commands enabled.
+**The_Visibilities.tex
+(./The_Visibilities.tex
+This is OpTeX (Olsak's Plain TeX), version <1.18 May 2025>
+(./hofstadter.opm
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/f-ebgaramond.opm
+luaotfload | conf : Root cache directory is "/home/pmc/.texlive2025/texmf-var/lu
+atex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-res
+olved path "/usr/local/texlive/2025/texmf-dist/tex/luatex/luaotfload/fontloader-
+2023-12-28.lua".
+"luaotfload@noligature"=\attribute3
+luaotfload | init : Context OpenType loader version 3.134
+"luaotfload_color_attribute"=\attribute4
+luaotfload | conf : Root cache directory is "/home/pmc/.texlive2025/texmf-var/lu
+atex-cache/generic/names".
+"luaotfload.letterspace_done"=\attribute5
+luaotfload | db : Font names database loaded from /home/pmc/.texlive2025/texmf-v
+ar/luatex-cache/generic/names/luaotfload-names.luc.gz
+FONT: [EB Garamond] -- \EBGaramond (Based on Garamond)
+ mods:{\medium \semibold \caps \swash } vars:{\rm \bf \it \bi \initials } math:
+{Garamond-Math}
+Modifiers:
+ \caps ...... caps & small caps
+ \swash ..... alternative capitals for \it , \bi , only non-accented letters
+ \medium .... medium weight
+ \semibold .. semibold weight (only \bf , \bi are changed)
+ Variant:
+ \initials .. Initials, only letters ADFGLNOQT
+ 
+MATH-FONT: "[Garamond-Math]" -- unicode math prepared.
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/unimath-codes.opm
+@:[unimath-codes] Uni math codes <2025-02-09>
+\_umathnumA=\count298
+\_umathnumB=\count299
+
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/mathclass.opm)
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/unimath-table.opm))))
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2])</usr/share/fonts/truetype/noto/NotoSans-Regular.ttf></usr/share/fonts/truet
+ype/noto/NotoSans-Bold.ttf></usr/local/texlive/2025/texmf-dist/fonts/opentype/pu
+blic/ebgaramond/EBGaramond-Regular.otf></usr/local/texlive/2025/texmf-dist/fonts
+/opentype/public/ebgaramond/EBGaramond-Italic.otf></usr/local/texlive/2025/texmf
+-dist/fonts/opentype/public/ebgaramond/EBGaramond-Bold.otf>
+Output written on The_Visibilities.pdf (2 pages, 32158 bytes).
+
+PDF statistics: 46 PDF objects out of 1000 (max. 8388607)
+ 26 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 100000000)
+

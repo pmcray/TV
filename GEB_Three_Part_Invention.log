@@ -1,0 +1,59 @@
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=optex 2025.12.3)  8 APR 2026 11:51
+ restricted system commands enabled.
+**GEB/GEB_Three_Part_Invention.tex
+(./GEB/GEB_Three_Part_Invention.tex
+This is OpTeX (Olsak's Plain TeX), version <1.18 May 2025>
+(./hofstadter.opm
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/f-ebgaramond.opm
+luaotfload | conf : Root cache directory is "/home/pmc/.texlive2025/texmf-var/lu
+atex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-res
+olved path "/usr/local/texlive/2025/texmf-dist/tex/luatex/luaotfload/fontloader-
+2023-12-28.lua".
+"luaotfload@noligature"=\attribute3
+luaotfload | init : Context OpenType loader version 3.134
+"luaotfload_color_attribute"=\attribute4
+luaotfload | conf : Root cache directory is "/home/pmc/.texlive2025/texmf-var/lu
+atex-cache/generic/names".
+"luaotfload.letterspace_done"=\attribute5
+luaotfload | db : Font names database loaded from /home/pmc/.texlive2025/texmf-v
+ar/luatex-cache/generic/names/luaotfload-names.luc.gz
+FONT: [EB Garamond] -- \EBGaramond (Based on Garamond)
+ mods:{\medium \semibold \caps \swash } vars:{\rm \bf \it \bi \initials } math:
+{Garamond-Math}
+Modifiers:
+ \caps ...... caps & small caps
+ \swash ..... alternative capitals for \it , \bi , only non-accented letters
+ \medium .... medium weight
+ \semibold .. semibold weight (only \bf , \bi are changed)
+ Variant:
+ \initials .. Initials, only letters ADFGLNOQT
+ 
+MATH-FONT: "[Garamond-Math]" -- unicode math prepared.
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/unimath-codes.opm
+@:[unimath-codes] Uni math codes <2025-02-09>
+\_umathnumA=\count298
+\_umathnumB=\count299
+
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/mathclass.opm)
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/unimath-table.opm))))
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2] [3])
+Runaway argument?
+If you possess a string whose last letter is I, you can add on a U at\ETC.
+! File ended while scanning use of \rule.
+<inserted text> 
+                \_par 
+<*> GEB/GEB_Three_Part_Invention.tex
+                                    
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+! Emergency stop.
+<*> GEB/GEB_Three_Part_Invention.tex
+                                    
+*** (job aborted, no legal \end found)
+
+!  ==> Fatal error occurred, no output PDF file produced!

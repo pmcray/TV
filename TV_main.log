@@ -1,0 +1,872 @@
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=optex 2025.12.3)  8 APR 2026 17:51
+ restricted system commands enabled.
+**TV_main.tex
+(./TV_main.tex This is OpTeX (Olsak's Plain TeX), version <1.18 May 2025>
+(./TV_main.ref)
+\openout1 = TV_main.ref
+ (./hofstadter.opm
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/f-ebgaramond.opm
+luaotfload | conf : Root cache directory is "/home/pmc/.texlive2025/texmf-var/lu
+atex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-res
+olved path "/usr/local/texlive/2025/texmf-dist/tex/luatex/luaotfload/fontloader-
+2023-12-28.lua".
+"luaotfload@noligature"=\attribute3
+luaotfload | init : Context OpenType loader version 3.134
+"luaotfload_color_attribute"=\attribute4
+luaotfload | conf : Root cache directory is "/home/pmc/.texlive2025/texmf-var/lu
+atex-cache/generic/names".
+"luaotfload.letterspace_done"=\attribute5
+luaotfload | db : Font names database loaded from /home/pmc/.texlive2025/texmf-v
+ar/luatex-cache/generic/names/luaotfload-names.luc.gz
+FONT: [EB Garamond] -- \EBGaramond (Based on Garamond)
+ mods:{\medium \semibold \caps \swash } vars:{\rm \bf \it \bi \initials } math:
+{Garamond-Math}
+Modifiers:
+ \caps ...... caps & small caps
+ \swash ..... alternative capitals for \it , \bi , only non-accented letters
+ \medium .... medium weight
+ \semibold .. semibold weight (only \bf , \bi are changed)
+ Variant:
+ \initials .. Initials, only letters ADFGLNOQT
+ 
+MATH-FONT: "[Garamond-Math]" -- unicode math prepared.
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/unimath-codes.opm
+@:[unimath-codes] Uni math codes <2025-02-09>
+\_umathnumA=\count298
+\_umathnumB=\count299
+
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/mathclass.opm)
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/unimath-table.opm))))
+(/usr/local/texlive/2025/texmf-dist/tex/optex/base/f-ebgaramond.opm)
+Loading hyphenation for UKenglish: \language=2 (en-gb)
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-en-
+gb.tex) (./TV_front_matter.tex [1{/usr/local/texlive/2025/texmf-var/fonts/map/pd
+ftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8] [9] [10])
+WARNING l.130: \maketoc -- data unavailable, TeX me again.
+(./TV_january.tex [1] [2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ []\_tenrm THE FIRST 
+
+\hbox(18.044+0.546)x330.05199, glue set 11.91481, direction TLT
+.\glue(\leftskip) 99.58464
+.\localpar
+..\localinterlinepenalty=0
+..\localbrokenpenalty=0
+..\localleftbox=null
+..\localrightbox=null
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\_tenrm T
+.\_tenrm H
+.\_tenrm E
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm F
+.\_tenrm I
+.\_tenrm R
+.\_tenrm S
+.\_tenrm T
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenrm VIS-IB-IL-ITY 
+
+\hbox(18.044+0.416)x330.05199, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenrm V
+.\_tenrm I
+.\_tenrm S
+.\discretionary (penalty 50)
+..< \_tenrm -
+.\_tenrm I
+.\_tenrm B
+.\discretionary (penalty 50)
+..< \_tenrm -
+.\_tenrm I
+.\_tenrm L
+.\discretionary (penalty 50)
+..< \_tenrm -
+.\_tenrm I
+.\_tenrm T
+.\_tenrm Y
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 2932) in paragraph at lines 1--1
+ \_tenit al-ways into the 
+
+\hbox(18.434+7.54)x330.05199, glue set 3.08643, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenit a
+.\kern-0.52 (font)
+.\_tenit l
+.\discretionary (penalty 50)
+..< \_tenit -
+.\_tenit w
+.\_tenit a
+.\kern-0.52 (font)
+.\_tenit y
+.\_tenit s
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit i
+.\kern-0.39 (font)
+.\_tenit n
+.\_tenit t
+.\_tenit o
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit t
+.\kern-0.52 (font)
+.\_tenit h
+.\_tenit e
+.\glue(\rightskip) 71.13188
+
+[4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19]
+[20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34]
+[35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64]
+[65] [66]) (./TV_february.tex [67] [68] [69] [70] [71] [72] [73] [74] [75]
+[76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90]
+[91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101] [102] [103] [104]
+[105] [106] [107] [108] [109] [110] [111] [112] [113] [114] [115] [116]
+[117] [118] [119] [120] [121] [122] [123] [124] [125] [126]) (./TV_march.tex
+[127]
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ []\_tenrm THE IN-VIS- 
+
+\hbox(18.044+0.442)x330.05199, glue set 10.05295, direction TLT
+.\glue(\leftskip) 99.58464
+.\localpar
+..\localinterlinepenalty=0
+..\localbrokenpenalty=0
+..\localleftbox=null
+..\localrightbox=null
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\_tenrm T
+.\_tenrm H
+.\_tenrm E
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm I
+.\_tenrm N
+.\discretionary (penalty 50)
+..< \_tenrm -
+.\_tenrm V
+.\_tenrm I
+.\_tenrm S
+.\_tenrm -
+.\discretionary (penalty 50)
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenrm IBLE WINDS 
+
+\hbox(17.264+0.442)x330.05199, glue set 5.86876, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenrm I
+.\_tenrm B
+.\_tenrm L
+.\_tenrm E
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm W
+.\_tenrm I
+.\_tenrm N
+.\_tenrm D
+.\_tenrm S
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenit The winds of 
+
+\hbox(18.382+7.54)x330.05199, glue set 6.77643, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenit T
+.\_tenit h
+.\_tenit e
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit w
+.\_tenit i
+.\kern-0.39 (font)
+.\_tenit n
+.\_tenit d
+.\_tenit s
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit o
+.\_tenit f
+.\glue(\rightskip) 71.13188
+
+[128] [129] [130] [131] [132] [133] [134] [135] [136] [137] [138] [139]
+[140] [141] [142] [143] [144] [145] [146] [147] [148] [149] [150] [151]
+[152] [153] [154] [155] [156] [157] [158] [159] [160] [161] [162] [163]
+[164] [165] [166] [167] [168] [169] [170] [171] [172] [173] [174] [175]
+[176] [177] [178] [179] [180] [181] [182] [183] [184] [185] [186] [187]
+[188] [189] [190]) (./TV_april.tex [191]
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ []\_tenrm THE DATA 
+
+\hbox(18.044+0.182)x330.05199, glue set 12.93582, direction TLT
+.\glue(\leftskip) 99.58464
+.\localpar
+..\localinterlinepenalty=0
+..\localbrokenpenalty=0
+..\localleftbox=null
+..\localrightbox=null
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\_tenrm T
+.\_tenrm H
+.\_tenrm E
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm D
+.\kern-0.78 (font)
+.\_tenrm A
+.\kern-2.47 (font)
+.\_tenrm T
+.\kern-2.21 (font)
+.\_tenrm A
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenit of data wash 
+
+\hbox(18.382+7.54)x330.05199, glue set 6.87141, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenit o
+.\_tenit f
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit d
+.\_tenit a
+.\_tenit t
+.\_tenit a
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit w
+.\_tenit a
+.\_tenit s
+.\kern-0.39 (font)
+.\_tenit h
+.\glue(\rightskip) 71.13188
+
+[192] [193] [194] [195] [196] [197] [198] [199] [200] [201] [202] [203]
+[204] [205] [206] [207] [208] [209] [210] [211] [212] [213] [214] [215]
+[216] [217] [218] [219] [220] [221] [222] [223] [224] [225] [226] [227]
+[228] [229] [230] [231] [232] [233] [234] [235] [236] [237] [238] [239]
+[240] [241] [242] [243] [244] [245] [246] [247] [248] [249] [250] [251]
+[252]) (./TV_may.tex [253]
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ []\_tenrm THE HID- 
+
+\hbox(18.044+0.182)x330.05199, glue set 17.11002, direction TLT
+.\glue(\leftskip) 99.58464
+.\localpar
+..\localinterlinepenalty=0
+..\localbrokenpenalty=0
+..\localleftbox=null
+..\localrightbox=null
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\_tenrm T
+.\_tenrm H
+.\_tenrm E
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm H
+.\_tenrm I
+.\_tenrm D
+.\_tenrm -
+.\discretionary (penalty 50)
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenrm DEN ROOTS 
+
+\hbox(18.044+0.546)x330.05199, glue set 4.67757, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenrm D
+.\_tenrm E
+.\_tenrm N
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm R
+.\_tenrm O
+.\_tenrm O
+.\kern-0.52 (font)
+.\_tenrm T
+.\_tenrm S
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 1721) in paragraph at lines 1--1
+ \_tenit Blos-som-ing pat- 
+
+\hbox(18.434+7.54)x330.05199, glue set 2.58287, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenit B
+.\_tenit l
+.\_tenit o
+.\_tenit s
+.\discretionary (penalty 50)
+..< \_tenit -
+.\_tenit s
+.\_tenit o
+.\_tenit m
+.\discretionary (penalty 50)
+..< \_tenit -
+.\_tenit i
+.\kern-0.39 (font)
+.\_tenit n
+.\_tenit g
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit p
+.\_tenit a
+.\_tenit t
+.\_tenit -
+.\discretionary (penalty 50)
+.\glue(\rightskip) 71.13188
+
+[254] [255] [256] [257] [258] [259] [260] [261] [262] [263] [264] [265]
+[266] [267] [268] [269] [270] [271] [272] [273] [274] [275] [276] [277]
+[278] [279] [280] [281] [282] [283] [284] [285] [286] [287] [288] [289]
+[290] [291] [292] [293] [294] [295] [296] [297] [298] [299] [300] [301]
+[302] [303] [304] [305] [306] [307] [308] [309] [310] [311] [312] [313]
+[314] [315] [316]) (./TV_june.tex [317]
+Overfull \hbox (27.55943pt too wide) in paragraph at lines 1--1
+ []\_tenrm THE SHORTEST |
+
+\hbox(18.044+0.546)x330.05199, glue set - 1.0, direction TLT
+.\glue(\leftskip) 99.58464
+.\localpar
+..\localinterlinepenalty=0
+..\localbrokenpenalty=0
+..\localleftbox=null
+..\localrightbox=null
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\_tenrm T
+.\_tenrm H
+.\_tenrm E
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm S
+.\_tenrm H
+.\_tenrm O
+.\_tenrm R
+.\kern-2.6 (font)
+.\_tenrm T
+.\_tenrm E
+.\_tenrm S
+.\_tenrm T
+.\glue(\rightskip) 71.13188
+.\rule(*+*)x5.0
+
+
+Underfull \hbox (badness 2503) in paragraph at lines 1--1
+ \_tenit longest day sees 
+
+\hbox(18.434+7.54)x330.05199, glue set 2.92644, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenit l
+.\_tenit o
+.\_tenit n
+.\_tenit g
+.\_tenit e
+.\_tenit s
+.\_tenit t
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit d
+.\_tenit a
+.\kern-0.52 (font)
+.\_tenit y
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit s
+.\_tenit e
+.\_tenit e
+.\_tenit s
+.\glue(\rightskip) 71.13188
+
+[318] [319] [320] [321] [322] [323] [324] [325] [326] [327] [328] [329]
+[330] [331] [332] [333] [334] [335] [336] [337] [338] [339] [340] [341]
+[342] [343] [344] [345] [346] [347] [348] [349] [350] [351] [352] [353]
+[354] [355] [356] [357] [358] [359] [360] [361] [362] [363] [364] [365]
+[366] [367] [368] [369] [370] [371] [372] [373] [374] [375] [376] [377]
+[378]) (./TV_july.tex [379]
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ []\_tenrm THE HEAT 
+
+\hbox(18.044+0.13)x330.05199, glue set 12.5054, direction TLT
+.\glue(\leftskip) 99.58464
+.\localpar
+..\localinterlinepenalty=0
+..\localbrokenpenalty=0
+..\localleftbox=null
+..\localrightbox=null
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\_tenrm T
+.\_tenrm H
+.\_tenrm E
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm H
+.\_tenrm E
+.\_tenrm A
+.\kern-2.47 (font)
+.\_tenrm T
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenit re-veals the 
+
+\hbox(18.434+0.468)x330.05199, glue set 23.23282, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenit r
+.\_tenit e
+.\discretionary (penalty 50)
+..< \_tenit -
+.\_tenit v
+.\_tenit e
+.\_tenit a
+.\kern-0.52 (font)
+.\_tenit l
+.\_tenit s
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit t
+.\kern-0.52 (font)
+.\_tenit h
+.\_tenit e
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenit mirage of the 
+
+\hbox(18.382+7.54)x330.05199, glue set 6.36142, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenit m
+.\_tenit i
+.\kern-0.39 (font)
+.\_tenit r
+.\kern-1.04 (font)
+.\_tenit a
+.\_tenit g
+.\_tenit e
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit o
+.\_tenit f
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit t
+.\kern-0.52 (font)
+.\_tenit h
+.\_tenit e
+.\glue(\rightskip) 71.13188
+
+[380] [381] [382] [383] [384] [385] [386] [387] [388] [389] [390] [391]
+[392] [393] [394] [395] [396] [397] [398] [399] [400] [401] [402] [403]
+[404] [405] [406] [407] [408] [409] [410] [411] [412] [413] [414] [415]
+[416] [417] [418] [419] [420] [421] [422] [423] [424] [425] [426] [427]
+[428] [429] [430] [431] [432] [433] [434] [435] [436] [437] [438] [439]
+[440] [441] [442]) (./TV_august.tex [443]
+Overfull \hbox (18.40744pt too wide) in paragraph at lines 1--1
+ []\_tenrm THE STRANGE |
+
+\hbox(18.044+0.546)x330.05199, glue set - 1.0, direction TLT
+.\glue(\leftskip) 99.58464
+.\localpar
+..\localinterlinepenalty=0
+..\localbrokenpenalty=0
+..\localleftbox=null
+..\localrightbox=null
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\_tenrm T
+.\_tenrm H
+.\_tenrm E
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm S
+.\_tenrm T
+.\_tenrm R
+.\kern1.04 (font)
+.\_tenrm A
+.\_tenrm N
+.\_tenrm G
+.\_tenrm E
+.\glue(\rightskip) 71.13188
+.\rule(*+*)x5.0
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenrm HAR-VEST 
+
+\hbox(18.044+0.546)x330.05199, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenrm H
+.\_tenrm A
+.\_tenrm R
+.\discretionary (penalty 50)
+..< \_tenrm -
+..= \kern-2.99 (font)
+.\_tenrm V
+.\_tenrm E
+.\_tenrm S
+.\_tenrm T
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenit Har-vest-ing the 
+
+\hbox(18.382+7.54)x330.05199, glue set 6.86287, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenit H
+.\_tenit a
+.\kern-0.52 (font)
+.\_tenit r
+.\discretionary (penalty 50)
+..< \_tenit -
+.\_tenit v
+.\_tenit e
+.\_tenit s
+.\_tenit t
+.\discretionary (penalty 50)
+..< \_tenit -
+.\_tenit i
+.\kern-0.39 (font)
+.\_tenit n
+.\_tenit g
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit t
+.\kern-0.52 (font)
+.\_tenit h
+.\_tenit e
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenit fruits of a 
+
+\hbox(18.356+7.54)x330.05199, glue set 12.32642, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenit f
+.\_tenit r
+.\_tenit u
+.\_tenit i
+.\_tenit t
+.\_tenit s
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit o
+.\_tenit f
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit a
+.\glue(\rightskip) 71.13188
+
+[444] [445] [446] [447] [448] [449] [450] [451] [452] [453] [454] [455]
+[456] [457] [458] [459] [460] [461] [462] [463] [464] [465] [466] [467]
+[468] [469] [470] [471] [472] [473] [474] [475] [476] [477] [478] [479]
+[480] [481] [482] [483] [484] [485] [486] [487] [488] [489] [490] [491]
+[492] [493] [494] [495] [496] [497] [498] [499] [500] [501] [502] [503]
+[504] [505] [506]) (./TV_september.tex [507]
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ []\_tenrm THE MEN- 
+
+\hbox(18.044+0.442)x330.05199, glue set 13.57648, direction TLT
+.\glue(\leftskip) 99.58464
+.\localpar
+..\localinterlinepenalty=0
+..\localbrokenpenalty=0
+..\localleftbox=null
+..\localrightbox=null
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\_tenrm T
+.\_tenrm H
+.\_tenrm E
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm M
+.\_tenrm E
+.\_tenrm N
+.\_tenrm -
+.\discretionary (penalty 50)
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenrm TAL EQUI- 
+
+\hbox(18.044+6.448)x330.05199, glue set 13.92682, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenrm T
+.\kern-2.21 (font)
+.\_tenrm A
+.\_tenrm L
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm E
+.\_tenrm Q
+.\_tenrm U
+.\_tenrm I
+.\_tenrm -
+.\discretionary (penalty 50)
+.\glue(\rightskip) 71.13188
+
+[508] [509] [510] [511] [512] [513] [514] [515] [516] [517] [518] [519]
+[520] [521] [522] [523] [524] [525] [526] [527] [528] [529] [530] [531]
+[532] [533] [534] [535] [536] [537] [538] [539] [540] [541] [542] [543]
+[544] [545] [546] [547] [548] [549] [550] [551] [552] [553] [554] [555]
+[556] [557] [558] [559] [560] [561] [562] [563] [564] [565] [566] [567]
+[568]) (./TV_october.tex [569]
+Overfull \hbox (12.11545pt too wide) in paragraph at lines 1--1
+ []\_tenrm THE LENGTH- |
+
+\hbox(18.044+0.442)x330.05199, glue set - 1.0, direction TLT
+.\glue(\leftskip) 99.58464
+.\localpar
+..\localinterlinepenalty=0
+..\localbrokenpenalty=0
+..\localleftbox=null
+..\localrightbox=null
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\_tenrm T
+.\_tenrm H
+.\_tenrm E
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm L
+.\_tenrm E
+.\_tenrm N
+.\_tenrm G
+.\_tenrm T
+.\_tenrm H
+.\_tenrm -
+.\discretionary (penalty 50)
+.\glue(\rightskip) 71.13188
+.\rule(*+*)x5.0
+
+
+Overfull \hbox (9.15144pt too wide) in paragraph at lines 1--1
+ \_tenrm EN-ING LIGHT |
+
+\hbox(18.044+0.442)x330.05199, glue set - 1.0, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenrm E
+.\_tenrm N
+.\discretionary (penalty 50)
+..< \_tenrm -
+.\_tenrm I
+.\_tenrm N
+.\_tenrm G
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm L
+.\_tenrm I
+.\_tenrm G
+.\_tenrm H
+.\_tenrm T
+.\glue(\rightskip) 71.13188
+.\rule(*+*)x5.0
+
+
+Overfull \hbox (17.10918pt too wide) in paragraph at lines 1--1
+ \_tenit Shad-ows lengthen, |
+
+\hbox(18.434+7.54)x330.05199, glue set - 1.0, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenit S
+.\_tenit h
+.\_tenit a
+.\_tenit d
+.\discretionary (penalty 50)
+..< \_tenit -
+.\_tenit o
+.\_tenit w
+.\_tenit s
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit l
+.\_tenit e
+.\_tenit n
+.\_tenit g
+.\_tenit t
+.\kern-0.52 (font)
+.\_tenit h
+.\_tenit e
+.\_tenit n
+.\_tenit ,
+.\glue(\rightskip) 71.13188
+.\rule(*+*)x5.0
+
+
+Underfull \hbox (badness 2326) in paragraph at lines 1--1
+ \_tenit but the light is 
+
+\hbox(18.434+7.54)x330.05199, glue set 2.85762, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenit b
+.\_tenit u
+.\_tenit t
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit t
+.\kern-0.52 (font)
+.\_tenit h
+.\_tenit e
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit l
+.\_tenit i
+.\_tenit g
+.\kern-0.65 (font)
+.\_tenit h
+.\_tenit t
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit i
+.\_tenit s
+.\glue(\rightskip) 71.13188
+
+[570] [571] [572] [573] [574] [575] [576] [577] [578] [579] [580] [581]
+[582] [583] [584] [585] [586] [587] [588] [589] [590] [591] [592] [593]
+[594] [595] [596] [597] [598] [599] [600] [601] [602] [603] [604] [605]
+[606] [607] [608] [609] [610] [611] [612] [613] [614] [615] [616] [617]
+[618] [619] [620] [621] [622] [623] [624] [625] [626] [627] [628] [629]
+[630] [631] [632]) (./TV_november.tex [633]
+Underfull \hbox (badness 2409) in paragraph at lines 1--1
+ \_tenit is just vis-ib-il-ity 
+
+\hbox(18.434+7.54)x330.05199, glue set 2.89143, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenit i
+.\_tenit s
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit j
+.\_tenit u
+.\_tenit s
+.\_tenit t
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenit v
+.\_tenit i
+.\_tenit s
+.\discretionary (penalty 50)
+..< \_tenit -
+.\_tenit i
+.\kern-0.65 (font)
+.\_tenit b
+.\discretionary (penalty 50)
+..< \_tenit -
+.\_tenit i
+.\kern-0.65 (font)
+.\_tenit l
+.\discretionary (penalty 50)
+..< \_tenit -
+.\_tenit i
+.\_tenit t
+.\_tenit y
+.\glue(\rightskip) 71.13188
+
+[634] [635] [636] [637] [638] [639] [640] [641] [642] [643] [644] [645]
+[646] [647] [648] [649] [650] [651] [652] [653] [654] [655] [656] [657]
+[658] [659] [660] [661] [662] [663] [664] [665] [666] [667] [668] [669]
+[670] [671] [672] [673] [674] [675] [676] [677] [678] [679] [680] [681]
+[682] [683] [684] [685] [686] [687] [688] [689] [690] [691] [692] [693]
+[694]) (./TV_december.tex [695]
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ []\_tenrm THE CLOS- 
+
+\hbox(18.044+0.416)x330.05199, glue set 10.92381, direction TLT
+.\glue(\leftskip) 99.58464
+.\localpar
+..\localinterlinepenalty=0
+..\localbrokenpenalty=0
+..\localleftbox=null
+..\localrightbox=null
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\_tenrm T
+.\_tenrm H
+.\_tenrm E
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm C
+.\_tenrm L
+.\_tenrm O
+.\_tenrm S
+.\_tenrm -
+.\discretionary (penalty 50)
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenrm ING CIRCLE 
+
+\hbox(17.238+0.546)x330.05199, glue set 4.46735, direction TLT
+.\glue(\leftskip) 99.58464
+.\_tenrm I
+.\_tenrm N
+.\_tenrm G
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm C
+.\_tenrm I
+.\_tenrm R
+.\_tenrm C
+.\_tenrm L
+.\_tenrm E
+.\glue(\rightskip) 71.13188
+
+[696] [697] [698] [699] [700] [701] [702] [703] [704] [705] [706] [707]
+[708] [709] [710] [711] [712] [713] [714] [715] [716] [717] [718] [719]
+[720] [721] [722] [723] [724] [725] [726] [727] [728] [729] [730] [731]
+[732] [733] [734] [735] [736] [737] [738] [739] [740] [741] [742] [743]
+[744] [745] [746] [747] [748] [749] [750] [751] [752] [753] [754] [755]
+[756] [757] [758]) [759]
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ []\_tenrm BACK MAT- 
+
+\hbox(18.044+0.39)x330.05199, glue set 9.10199, direction TLT
+.\glue(\leftskip) 99.58464
+.\localpar
+..\localinterlinepenalty=0
+..\localbrokenpenalty=0
+..\localleftbox=null
+..\localrightbox=null
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\_tenrm B
+.\_tenrm A
+.\kern-0.78 (font)
+.\_tenrm C
+.\_tenrm K
+.\glue(\spaceskip) 5.2 plus 2.5974 minus 1.73506
+.\_tenrm M
+.\_tenrm A
+.\kern-2.47 (font)
+.\_tenrm T
+.\kern-1.56 (font)
+.\_tenrm -
+.\discretionary (penalty 50)
+.\glue(\rightskip) 71.13188
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+ \_tenrm --- Al-fred 
+
+\hbox(18.356+0.494)x330.05199, glue set 25.08281, direction TLT
+.\glue(\leftskip) 99.58464
+.\localpar
+..\localinterlinepenalty=0
+..\localbrokenpenalty=0
+..\localleftbox=null
+..\localrightbox=null
+.\_tenrm —
+.\glue(\spaceskip) 5.2 plus 2.6 minus 1.73334
+.\_tenrm A
+.\_tenrm l
+.\discretionary (penalty 50)
+..< \_tenrm -
+.\_tenrm f
+.\_tenrm r
+.\_tenrm e
+.\kern-0.26 (font)
+.\_tenrm d
+.\glue(\rightskip) 71.13188
+
+[760] (./GEB/GEB_Bibliography.tex [761] [762] [763] [764] [765] [766] [767]
+[768] [769] [770] [771] [772] [773] [774] [775] [776] [777])
+(./MT/MT_Bibliography.tex [778] [779] [780] [781] [782] [783] [784] [785]
+[786] [787] [788] [789] [790] [791] [792] [793] [794] [795] [796] [797]
+[798] [799] [800] [801] [802] [803] [804]) [805])</usr/local/texlive/2025/texmf-
+dist/fonts/opentype/public/tex-gyre/texgyreheros-bold.otf></usr/local/texlive/20
+25/texmf-dist/fonts/opentype/public/tex-gyre/texgyrecursor-regular.otf></usr/loc
+al/texlive/2025/texmf-dist/fonts/opentype/public/tex-gyre/texgyreheros-regular.o
+tf></usr/local/texlive/2025/texmf-dist/fonts/opentype/public/ebgaramond/EBGaramo
+nd-Bold.otf></usr/local/texlive/2025/texmf-dist/fonts/opentype/public/ebgaramond
+/EBGaramond-Italic.otf></usr/local/texlive/2025/texmf-dist/fonts/opentype/public
+/ebgaramond/EBGaramond-Regular.otf>
+Output written on TV_main.pdf (815 pages, 645783 bytes).
+
+PDF statistics: 2600 PDF objects out of 2984 (max. 8388607)
+ 1747 compressed objects within 18 object streams
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 100000000)
+

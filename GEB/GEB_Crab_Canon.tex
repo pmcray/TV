@@ -1,0 +1,1281 @@
+\chaptertitle{Crab Canon}
+
+Tortoise: Oh, really? I guess there's nothing better for you than walking.
+Achilles: And it's a perfect day for a walk. I think I'll be walking home soon.
+Tortoise: That echoes my thoughts.
+Achilles: So nice to run into you.
+Tortoise: Why, same to you.
+Achilles: Good day, Mr. T
+
+
+
+
+Crab Canon                                                                        211
+
+
+                 Typographical Number Theory
+
+                 The Crab Canon and Indirect Self-Reference
+THREE EXAMPLES OF indirect self-reference are found in the Crab Canon. Achilles
+and the Tortoise both describe artistic creations they know-and, quite accidentally, those
+creations happen to have the same structure as the Dialogue they're in. (Imagine my
+surprise, when I, the author, noticed this!) Also, the Crab describes a biological structure
+and that, too, has the same property. Of course, one could read the Dialogue and
+understand it and somehow fail to notice that it, too, has the form of a crab canon. This
+would be understanding it on one level, but not on another. To see the self-reference, one
+has to look at the form, as well as the content, of the Dialogue.
+        Gödel’s construction depends on describing the form, as well as the content, of
+strings of the formal system we shall define in this Chapter -- Typographical Number
+Theory (TNT). The unexpected twist is that, because of the subtle mapping which Gödel
+discovered, the form of strings can be described in the formal system itself. Let us
+acquaint ourselves with this strange system with the capacity for wrapping around.
+
+What We Want to Be Able to Express in TNT
+We'll begin by citing some typical sentences belonging to number theory; then we will
+try to find a set of basic notions in terms of which all our sentences can be rephrased.
+Those notions will then be given individual symbols. Incidentally, it should be stated at
+the outset that the term "number theory" will refer only to properties of positive integers
+and zero (and sets of such integers). These numbers are called the natural numbers.
+Negative numbers play no role in this theory. Thus the word "number", when used, will
+mean exclusively a natural number. And it is important -- vital-for you to keep separate in
+your mind the formal system (TNT) and the rather ill-defined but comfortable old branch
+of mathematics that is number theory itself; this I shall call "N".
+Some typical sentences of N-number theory-are:
+
+(1)    5 is prime.
+(2)    2 is not a square.
+(3)    1729 is a sum of two cubes.
+(4)    No sum of two positive cubes is itself a cube.
+(5)    There are infinitely many prime numbers.
+(6)    6 is even.
+
+
+
+
+Typographical Number Theory                                                             212
+
+Now it may seem that we will need a symbol for each notion such as "prime” or "cube"
+or "positive" -- but those notions are really not primitive. Primeness, for instance, has to
+do with the factors which a number has, which in turn has to do with multiplication.
+Cubeness as well is defined in terms multiplication. Let us rephrase the sentences, then,
+in terms of what seem to be more elementary notions.
+
+   (1) There do not exist numbers a and b, both greater than 1. such that 5 equals a
+       times b.
+
+   (2) There does not exist a number b, such that b times b equals 2.
+
+   (3) There exist numbers b and c such that b times b times b, plus c times c times c,
+       equals 1729.
+
+   (4') For all numbers b and c, greater than 0, there is no number a such that a times a
+        times a equals b times b times b plus c times c times c.
+
+   (5) For each number a, there exists a number b, greater than a, with the property
+       that there do not exist numbers c and d, both greater than 1, such that b equals c
+       times d.
+
+   (6') There exists a number e such that 2 times e equals 6.
+
+This analysis has gotten us a long ways towards the basic elements of language of
+number theory. It is clear that a few phrases reappear over a over:
+
+            for all numbers b
+            there exists a number b, such that
+            greater than
+            equals
+            times
+            plus
+            0, 1, 2, . .
+
+Most of these will be granted individual symbols. An exception is "greater than", which
+can be further reduced. In fact, the sentence "a is greater than b" becomes
+
+       there exists a number c, not equal to 0, such that a equals b plus c.
+
+                                       Numerals
+We will not have a distinct symbol for each natural number. Instead, we have a very
+simple, uniform way of giving a compound symbol to e natural number -- very much as
+we did in the pq-system. Here is notation for natural numbers:
+
+
+
+
+Typographical Number Theory                                                             213
+
+                  zero:               0
+                  one:               SO
+                  two:              SSO
+                  three:           SSSO
+
+                            etc.
+
+The symbol S has an interpretation-"the successor of". Hence, the interpretation of SSO
+is literally "the successor of the successor of zero". Strings of this form are called
+numerals.
+
+                                   Variables and Terms
+Clearly, we need a way of referring to unspecified, or variable, numbers. For that, we will
+use the letters a, b, c, d, e. But five will not be enough. We need an unlimited supply of
+them, just as we had of atoms in the Propositional Calculus. We will use a similar method
+for making more variables: tacking on any number of primes. (Note: Of course the
+symbol "'-read "prime"-is not to be confused with prime numbers!) For instance:
+
+                               e
+                               d'
+                               c"
+                               b´´´...
+                               a´´´´
+
+are all variables.
+         In a way it is a luxury to use the first five letters of the alphabet when we could
+get away with just a and the prime. Later on, I will actually drop b, c, d, and e, which will
+result in a sort of "austere" version of TNT-austere in the sense that it is a little harder to
+decipher complex formulas. But for now we'll be luxurious.
+         Now what about addition and multiplication? Very simple: we will use the
+ordinary symbols `+' and `•'. However, we will also introduce a parenthesizing
+requirement (we are now slowly slipping into the rules which define well-formed strings
+of TNT). To write "b plus c" and "b times c", for instance, we use the strings
+
+                                            (b+c)
+                                            (b • c)
+
+There is no laxness about such parentheses; to violate the convention is to produce a non-
+well-formed formula. ("Formula"? I use the term instead of "string" because it is
+conventional to do so. A formula is no more and no less than a string of TNT.)
+
+Incidentally, addition and multiplication are always to be thought of as binary operations-
+that is, they unite precisely two numbers, never three or more. Hence, if you wish to
+translate "1 plus 2 plus 3", you have to decide which of the following two expressions
+you want:
+
+
+Typographical Number Theory                                                                214
+
+                                    (SO+(SSO+SSSO))
+                                    ((SO+SSO)+SSSO)
+
+The next notion we'll symbolize is equals. That is very simple: we use ´=´.The advantage
+of taking over the standard symbol used N -- nonformal number theory -- iis obvious:
+easy legibility. The disadvantage is very much like the disadvantage of using the words
+"point" a "line" in a formal treatment of geometry: unless one is very conscious a careful,
+one may blur the distinction between the familiar meaning and strictly rule-governed
+behavior of the formal symbol. In discuss geometry, I distinguished between the
+everyday word and the formal to by capitalizing the formal term: thus, in elliptical
+geometry, a POINT was 1 union of two ordinary points. Here, there is no such
+distinction; hen mental effort is needed not to confuse a symbol with all of the association
+is laden with. As I said earlier, with reference to the pq-system: the string --- is not the
+number 3, but it acts isomorphically to 3, at least in the context of additions. Similar
+remarks go for the string SSSO.
+
+                        Atoms and Propositional Symbols
+All the symbols of the Propositional Calculus except the letters used making atoms (P, Q,
+and R) will be used in TNT, and they retain their interpretations. The role of atoms will
+be played by strings which, when interpreted, are statements of equality, such as
+SO=SSO or (SO • SO) Now, we have the equipment to do a fair amount of translation of
+simple sentences into the notation of TNT:
+
+            2 plus 3 equals 4:                (SSO+SSSO)=SSSSO
+            2 plus 2 is not equal to 3:       ~(SSO+SSO)=SSSO
+            If 1 equals 0, then 0 equals 1:   <SO=OJO=SO>
+
+The first of these strings is an atom; the rest are compound formulas (Warning: The `and'
+in the phrase "I and 1 make 2" is just another word for `plus', and must be represented by
+`+' (and the requisite parentheses).)
+
+                          Free Variables and Quantifiers
+All the well-formed formulas above have the property that their interpretations are
+sentences which are either true or false. There are, however, well-formed formulas which
+do-not have that property, such as this one
+
+                                       (b+SO)=SSO
+
+Its interpretation is "b plus 1 equals 2". Since b is unspecified, there is way to assign a
+truth value to the statement. It is like an out-of-context statement with a pronoun, such as
+"she is clumsy". It is neither true nor false; it is waiting for you to put it into a context.
+Because it is neither true nor false, such a formula is called open, and the variable b is
+called a free variable.
+
+
+
+Typographical Number Theory                                                               215
+
+        One way of changing an open formula into a closed formula, or sentence, is by
+prefixing it with a quantifier-either the phrase "there exists a number b such that , or the
+phrase "for all numbers b". In the first instance, you get the sentence
+
+       There exists a number b such that b plus 1 equals 2.
+
+Clearly this is true. In the second instance, you get the sentence
+
+       For all numbers b, b plus 1 equals 2.
+
+Clearly this is false. We now introduce symbols for both of these quantifiers. These
+sentences are translated into TNT-notation as follows:
+
+                     ℑb:(b+SO)=SSO              ('ℑ' stands for `exists'.)
+                     Vb:(b+SO)=SSO              ('V' stands for `all'.)
+
+It is very important to note that these statements are no longer about unspecified
+numbers; the first one is an assertion of existence, and the second one is a universal
+assertion. They would mean the same thing, even if written with c instead of b:
+
+                                     ℑc:(c+SO)=SSO `
+                                     Vc:(c+SO)=SSO
+
+A variable which is under the dominion of a quantifier is called a quantified variable. The
+following two formulas illustrate the difference between free variables and quantified
+variables:
+
+                       (b.b)=SSO               (open)
+                       ---ℑb:(b•b)=SSO         (closed; a sentence of TNT)
+
+The first one expresses a property which might be possessed by some natural number. Of
+course, no natural number has that property. And that is precisely what is expressed by
+the second one. It is very crucial to understand this difference between a string with a free
+variable, which expresses a property, and a string where the variable is quantified, which
+expresses a truth or falsity. The English translation of a formula with at least one free
+variable-an open formula-is called a predicate. It is a sentence without a subject (or a
+sentence whose subject is an out-of-context pronoun). For instance,
+
+                             "is a sentence without a subject"
+
+                                  "would be an anomaly"
+
+                      "runs backwards and forwards simultaneously"
+
+                         "improvised a six-part fugue on demand"
+
+are nonarithmetical predicates. They express properties which specific entities might or
+might not possess. One could as well stick on a "dummy
+
+
+
+
+Typographical Number Theory                                                              216
+
+subject", such as "so-and-so". A string with free variables is like a predicate with "so-
+and-so" as its subject. For instance,
+
+                                       (SO+SO)=b
+
+is like saying "1 plus 1 equals so-and-so". This is a predicate in the variable b. It
+expresses a property which the number b might have. If one wet substitute various
+numerals for b, one would get a succession of forms most of which would express
+falsehoods. Here is another example of difference between open formulas and sentences:
+
+                                  `Vb:`Vc:(b+c)=(c+b)
+
+The above formula is a sentence representing, of course, the commutativity of addition.
+On the other hand,
+
+                                     `Vc:(b+c)=(c+b)
+
+is an open formula, since b is free. It expresses a property which unspecified number b
+might or might not have -- namely of commuting with all numbers c.
+
+                       Translating Our Sample Sentences
+This completes the vocabulary with which we will express all num theoretical statements!
+It takes considerable practice to get the hang of expressing complicated statements of N
+in this notation, and converse] figuring out the meaning of well-formed formulas. For this
+reason return to the six sample sentences given at the beginning, and work their
+translations into TNT. By the way, don't think that the translations given below are
+unique-far from it. There are many -- infinitely many -- ways to express each one.
+         Let us begin with the last one: "6 is even". This we rephrased in to of more
+primitive notions as "There exists a number e such that 2 times e equals 6". This one is
+easy
+       :
+                                 ℑe:(SSO. e)=SSSSSSO
+
+Note the necessity of the quantifier; it simply would not do to write
+
+                                   (SSO . e)=SSSSSSO
+
+alone. This string's interpretation is of course neither true nor false; it expresses a
+property which the number e might have.
+        It is curious that, since we know multiplication is commutative might easily have
+written
+
+                                 ℑe:(e - SSO)=SSSSSSO
+
+instead. Or, knowing that equality is a symmetrical relation, we might 1 chosen to write
+the sides of the equation in the opposite order:
+
+
+Typographical Number Theory                                                           217
+
+                                 ℑe:SSSSSSO=(SSO • e)
+
+Now these three translations of "6 is even" are quite different strings, and it is by no
+means obvious that theoremhood of any one of them is tied to theoremhood of any of the
+others. (Similarly, the fact that --p-q--- was a theorem had very little to do with the fact
+that its "equivalent" string -p--q--- was a theorem. The equivalence lies in our minds,
+since, as humans, we almost automatically think about interpretations, not structural
+properties of formulas.)
+        We can dispense with sentence 2: "2 is not a square", almost immediately:
+
+                                     -ℑb:(b • b)=SSO
+
+However, once again, we find an ambiguity. What if we had chosen to write it this way?
+
+                                    Vb: -(b • b) =SSO
+
+The first way says, "It is not the case that there exists a number b with the property that
+b's square is 2", while the second way says, "For all numbers b, it is not the case that b's
+square is 2." Once again, to us, they are conceptually equivalent-but to TNT, they are
+distinct strings.
+        Let us proceed to sentence 3: "1729 is a sum of two cubes." This one will involve
+two existential quantifiers, one after the other, as follows:
+
+              ℑb:ℑc:SSSSSS…………SSSSSO=(((b • b) • b)+((c • c) • c))
+
+                              1729 of them
+
+There are alternatives galore. Reverse the order of the quantifiers; switch the sides of the
+equation; change the variables to d and e; reverse the addition; write the multiplications
+differently; etc., etc. However, I prefer the following two translations of the sentence:
+
+            ℑb:ℑc:(((SSSSSSSSSSO.SSSSSSSSSSO).SSSSSSSSSSO)+
+     ((SSSSSSSSSO • SSSSSSSSSO) • SSSSSSSSSO))=(((b • b) • b)+((c • c) • c))
+
+                                            and
+
+         ℑb:ℑc:(((SSSSSSSSSSSSO.SSSSSSSSSSSSO). SSSSSSSSSSSSO)+
+                     ((SO •SO) • SO))=(((b •b) •b)+((c • c) •c))
+
+Do you see why?
+
+                                   Tricks of the Trade
+
+Now let us tackle the related sentence 4: "No sum of two positive cubes is itself a cube".
+Suppose that we wished merely to state that 7 is not a sum of two positive cubes. The
+easiest way to do this is by negating the formula
+
+
+Typographical Number Theory                                                             218
+
+which asserts that 7 is a sum of two positive cubes. This will be just like the preceding
+sentence involving 1729, except that we have to add in the proviso of the cubes being
+positive. We can do this with a trick: prefix variables with the symbol S, as follows:
+
+                  ℑb:ℑc:SSSSSSSO=(((Sb • Sb) • Sb)+((Sc • Sc) -Sc))
+
+You see, we are cubing not b and c, but their successors, which must be positive, since
+the smallest value which either b or c can take on is zero. Hence the right-hand side
+represents a sum of two positive cubes. In( tally, notice that the phrase "there exist
+numbers b and c such that…..”) when translated, does not involve the symbol `n' which
+stands for ‘and’. That symbol is used for connecting entire well-formed strings, not for
+joining two quantifiers.
+        Now that we have translated "7 is a sum of two positive cubes", we wish to negate
+it. That simply involves prefixing the whole thing by a single (Note: you should not
+negate each quantifier, even though the desired phrase runs "There do not exist numbers
+b and c such that ...".) Thus we get:
+
+                  -ℑb:ℑc:SSSSSSSO=(((Sb • Sb) • Sb)+((Sc -Sc) -Sc))
+
+Now our original goal was to assert this property not of the number of all cubes.
+Therefore, let us replace the numeral SSSSSSSO by the ((a-a)-a), which is the translation
+of "a cubed":
+
+                   ℑb:ℑc:((a •a) •a)=(((Sb •Sb) • Sb)+((Sc -Sc) -Sc))
+    -
+At this stage, we are in possession of an open formula, since a is still free. This formula
+expresses a property which a number a might or might not have-and it is our purpose to
+assert that all numbers do have that property. That is simple -- just prefix the whole thing
+with a universal quantifier
+
+                Va:-ℑb:ℑc:((a -a) • a)=(((Sb • Sb) • Sb) +((Sc -Sc) -Sc))
+
+An equally good translation would be this:
+
+                   --ℑa:ℑb:ℑc:((a-a) a)=(((Sb•Sb)•Sb)+((Sc•Sc)•Sc))
+
+In austere TNT, we could use a' instead of b, and a" instead of c, and the formula would
+become:
+
+         --ℑa: ℑa': ℑa":((a • a) • a) =(((Sa' • Sa') • Sa') +((Sa" • Sa") • Sa"))
+
+What about sentence 1: "5 is prime"? We had reworded it in this way "There do not exist
+numbers a and b, both greater than 1, such equals a times b". We can slightly modify it,
+as follows: "There do not exist numbers a and b such that 5 equals a plus 2, times b plus
+2". This is another trick-since a and b are restricted to natural number values, this is an
+adequate way to say the same thing. Now "b plus 2" could be translated into
+
+
+Typographical Number Theory                                                             219
+
+(b+SSO), but there is a shorter way to write it -- namely, SSb. Likewise, "c plus 2" can
+be written SSc. Now, our translation is extremely concise:
+
+                               ℑb: ℑc:SSSSSO=(SSb • SSc)
+
+Without the initial tilde, it would be an assertion that two natural numbers do exist,
+which, when augmented by 2, have a product equal to 5. With the tilde in front, that
+whole statement is denied, resulting in an assertion that 5 is prime.
+       If we wanted to assert that d plus e plus 1, rather than 5, is prime, the most
+economical way would be to replace the numeral for 5 by the string (d+Se):
+
+                                ℑb: ℑc:(d+Se)=(SSb SSc)
+
+Once again, an open formula, one whose interpretation is neither a true nor a false
+sentence, but just an assertion about two unspecified numbers, d and e. Notice that the
+number represented by the string (d+Se) is necessarily greater than d, since one has
+added to d an unspecified but definitely positive amount. Therefore, if we existentially
+quantify over the variable e, we will have a formula which asserts that:
+
+There exists a number which is greater than d and which is prime.
+
+                             ℑe:- ℑb:3c:(d+Se)=(SSb • SSc)
+
+Well, all we have left to do now is to assert that this property actually obtains, no matter
+what d is. The way to do that is to universally quantify over the variable d:
+
+                            Vd:3e:-3b:3c:(d+Se)=(SSb •SSc)
+
+That's the translation of sentence 5!
+
+
+                            Translation Puzzles for You
+This completes the exercise of translating all six typical number-theoretical sentences.
+However, it does not necessarily make you an expert in the notation of TNT. There are
+still some tricky issues to be mastered. The following six well-formed formulas will test
+your understanding of TNT notation. What do they mean? Which ones are true (under
+interpretation, of course), and which ones are false? (Hint: the way to tackle this exercise
+is to move leftwards. First, translate the atom; next, figure out what adding a single
+quantifier or a tilde does; then move leftwards, adding another quantifier or tilde; then
+move leftwards again, and do the same.)
+
+                                   -Vc: ℑb:(SSO • b)=c
+
+                                   Vc:- ℑb:(SSO • b)=c
+
+
+
+Typographical Number Theory                                                             220
+
+                                   Vc: ℑb:---(SSO • b)=c
+                                   ~ℑb:Vc:(SSO • b)=c
+                                   ℑb:- Vc:(SSO • b)=c
+                                   ℑb: Vc:-(SSO • b)=c
+
+(Second hint: Either four of them are true and two false, or four false and two true.)
+
+                       How to Distinguish True from False?
+At this juncture, it is worthwhile pausing for breath and contempt what it would mean to
+have a formal system that could sift out the true from the false ones. This system would
+treat all these strings-which look like statements-as designs having form, but no content.
+An( system would be like a sieve through which could pass only designs v special style-
+the "style of truth". If you yourself have gone through ti formulas above, and have
+separated the true from the false by this about meaning, you will appreciate the subtlety
+that any system would to have, that could do the same thing-but typographically! The
+bout separating the set of true statements from the set of false statements written in the
+TNT-notation) is anything but straight; it is a boundary with many treacherous curves
+(recall Fig. 18), a boundary of which mathematicians have delineated stretches, here and
+there, working over hundreds years. Just think what a coup it would be to have a
+typographical m( which was guaranteed to place any formula on the proper side o border!
+
+                           The Rules of Well-Formedness
+It is useful to have a table of Rules of Formation for well-formed formulas This is
+provided below. There are some preliminary stages, defining numerals, variables, and
+terms. Those three classes of strings are ingredients of well-formed formulas, but are not
+in themselves well-formed. The smallest well-formed formulas are the atoms; then there
+are ways of compounding atoms. Many of these rules are recursive lengthening rules, in
+that they take as input an item of a given class and produce a longer item of the class. In
+this table, I use `x' and 'y' to stand for well-formed formulas, and `s', `t', and `u' to stand
+for other kinds of TNT-strings. Needless to say, none of these five symbols is itself a
+symbol of TNT.
+
+NUMERALS.
+    0 is a numeral.
+    A numeral preceded by S is also a numeral.
+    Examples: 0 SO S50 SSSO SSSSO SSSSSO
+
+
+
+
+Typographical Number Theory                                                                221
+
+VARIABLES.
+         a is a variable. If we're not being austere, so are b, c, d and e. A variable followed
+         by a prime is also a variable.
+         Examples: a b' c" d"' a""
+TERMS.
+         All numerals and variables are terms.
+         A term preceded by S is also a term.
+         If s and t are terms, then so are (s+ t) and (s • t).
+         Examples: 0 b SSa' (SO • (SSO+c)) S(Sa • (Sb • Sc))
+
+         TERMS may be divided into two categories:
+
+                 (1) DEFINITE terms. These contain no variables.
+                     Examples: 0 (SO+SO) SS((SSO.SSO)+(SO.SO))
+                 (2) INDEFINITE terms. These contain variables.
+                    Examples: b Sa (b+SO) (((SO+SO)+SO)+e)
+        The above rules tell how to make parts of well-formed formulas; the remaining
+rules tell how to make complete well-formed formulas.
+ATOMS.
+         If s and t are terms, then s = t is an atom.
+         Examples: SO=0 (SS0+SS0)=5SSS0 5(b+c)=((c•d).e)
+         If an atom contains a variable u, then u is free in it. Thus there are
+         four free variables in the last example.
+NEGATIONS.
+         A well-formed formula preceded by a tilde is well-formed.
+         Examples: ~S0=0 ~ℑb:(b+b)=SO -<O=0⊃S0=O> ~b=SO
+         The quantification status of a variable (which says whether the variable is
+                free or quantified) does not change under negation.
+COMPOUNDS.
+         If x and y are well-formed formulas, and provided that no variable which is free in
+         one is quantified in the other, then the following are all well-formed formulas:
+         < x∧ y>, < x∨ y>, < x⊃ y>.
+         Examples: <O=O∧~-0=0> <b=b∨~ℑc:c=b>
+         <SO=O⊃Vc:~ℑb:(b+b)=c>
+         The quantification status of a variable doesn't change here.
+QUANTI FI CATIONS.
+       If u is a variable, and x is a well-formed formula in which u is free then the
+following strings are well-formed formulas:
+         ℑu: x and Vu: x.
+         Examples: Vb:<b=b∨~ℑc:c=b>           ∨c:~ℑb:(b+b)=c ~ℑc:Sc=d
+OPEN FORMULAS contain at least one free variable.
+         Examples: --c=c b=b <Vb:b=bn---c=c>
+CLOSED FORMULAS (SENTENCES) contain no free variables.
+         Examples: 50=0     ~Vd:d=0      ℑc:<Vb:b=b∧~c=c>
+
+
+
+
+Typographical Number Theory                                                                222
+
+This completes the table of Rules of Formation for the well-formed formulas of TNT.
+
+                        A Few More Translation Exercises
+And now, a few practice exercises for you, to test your understanding of the notation of
+TNT. Try to translate the first four of the following N-sentences into TNT-sentences, and
+the last one into an open formed formula.
+
+                                All natural numbers are equal to 4.
+
+                     There is no natural number which equals its own square.
+
+                       Different natural numbers have different successors.
+
+                              If 1 equals 0, then every number is odd.
+
+                                         b is a power of 2.
+
+The last one you may find a little tricky. But it is nothing, compared to this one:
+
+       b is a power of 10.
+
+Strangely, this one takes great cleverness to render in our notation. I would caution you to
+try it only if you are willing to spend hours and hours on it -- and if you know quite a bit
+of number theory!
+
+                             A Non typographical System
+This concludes the exposition of the notation of TNT; however, we still left with the
+problem of making TNT into the ambitious system which we have described. Success
+would justify the interpretations which we given to the various symbols. Until we have
+done that, however, particular interpretations are no more justified than the "horse-apple
+happy" interpretations were for the pq-system's symbols.
+        Someone might suggest the following way of constructing TNT: (1|) Do not have
+any rules of inference; they are unnecessary, because (2) We take as axioms all true
+statements of number theory (as written in TNT-notation). What a simple prescription!
+Unfortunately it is as empty as instantaneous reaction says it is. Part (2) is, of course, not
+a typographical description of strings. The whole purpose of TNT is to figure out if and
+how it is possible to- characterize the true strings typographically.
+
+                    The Five Axioms and First Rules of TNT
+Thus we will follow a more difficult route than the suggestion above; we will have
+axioms and rules of inference. Firstly, as was promised, all of the rules of the
+Propositional Calculus are taken over into TNT. Therefore one theorem of TNT will be
+this one:
+
+
+                                      <S0=0∨~S0=0>
+
+
+Typographical Number Theory                                                               223
+
+which can be derived in the same way as <P∨-P> was derived.
+       Before we give more rules, let us give the five axioms of TNT:
+
+Axiom 1: Va:~Sa=O
+
+Axiom 2: Va:(a+O)=a
+
+Axiom 3: Va:Vb:(a+Sb)=S(a+b)
+
+Axiom 4: Va:(a-O)=O
+
+Axiom 5: Va:Vb:(a-Sb)=((a-b)+a)
+
+(In the austere versions, use a' instead of b.) All of them are very simple to understand.
+Axiom 1 states a special fact about the number 0; Axioms 2 and 3 are concerned with the
+nature of addition; Axioms 4 and 5 are concerned with the nature of multiplication, and in
+particular with its relation to addition.
+
+                             The Five Peano Postulates
+By the way, the interpretation of Axiom 1-"Zero is not the successor of any natural
+number"-is one of five famous properties of natural numbers first explicitly recognized
+by the mathematician and logician Giuseppe Peano, in 1889. In setting out his postulates,
+Peano was following the path of Euclid in this way: he made no attempt to formalize the
+principles of reasoning, but tried to give a small set of properties of natural numbers from
+which everything else could be derived by reasoning. Peano's attempt might thus be
+considered "semiformal". Peano's work had a significant influence, and thus it would be
+good to show Peano's five postulates. Since the notion of "natural number" is the one
+which Peano was attempting to define, we will not use the familiar term "natural
+number", which is laden with connotation. We will replace it with the undefined term
+djinn, a word which comes fresh and free of connotations to our mind. Then Peano's five
+postulates place five restrictions on djinns. There are two other undefined terms: Genie,
+and meta. I will let you figure out for yourself what usual concept each of them is
+supposed to represent. The five Peano postulates:
+
+   (1) Genie is a djinn.
+   (2) Every djinn has a mesa (which is also a djinn).
+   (3) Genie is not the mesa of any djinn. (4) Different djinns have different metas.
+   (5) If Genie has X, and each djinn relays X to its mesa, then all djinns get X.
+
+In light of the lamps of the Little Harmonic Labyrinth, we should name the set of all
+djinns "GOD". This harks back to a celebrated statement by the German mathematician
+and logician Leopold Kronecker, archenemy of Georg Cantor: "God made the natural
+numbers; all the rest is the work of man."
+
+
+
+
+Typographical Number Theory                                                             224
+
+         You may recognize Peano's fifth postulate as the principle of mathematical
+induction-another term for a hereditary argument. Peano he that his five restrictions on
+the concepts "Genie", "djinn", and "mesa" so strong that if two different people formed
+images in their minds o concepts, the two images would have completely isomorphic
+structures. example, everybody's image would include an infinite number of distinct
+djinns. And presumably everybody would agree that no djinn coins with its own meta, or
+its meta's meta, etc.
+         Peano hoped to have pinned down the essence of natural numbers in his five
+postulates. Mathematicians generally grant that he succeeded that does not lessen the
+importance of the question, "How is a true statement about natural numbers to be
+distinguished from a false one?" At answer this question, mathematicians turned to totally
+formal systems, as TNT. However, you will see the influence of Peano in TNT, because
+all of his postulates are incorporated in TNT in one way or another.
+
+            New Rules of TNT: Specification and Generalization
+Now we come to the new rules of TNT. Many of these rules will allow reach in and
+change the internal structure of the atoms of TNT. In sense they deal with more
+"microscopic" properties of strings than the of the Propositional Calculus, which treat
+atoms as indivisible units. example, it would be nice if we could extract the string -SO=O
+from the first axiom. To do this we would need a rule which permits us to di universal
+quantifier, and at the same time to change the internal strut of the string which remains, if
+we wish. Here is such a rule:
+
+RULE OF SPECIFICATION: Suppose u is a variable which occurs inside string x. If the
+string Vu:x is a theorem, then so is x, and so an strings made from x by replacing u,
+wherever it occurs, by one the same term.
+
+       (Restriction: The term which replaces u must not contain any vat that is quantified
+       in x.)
+
+The rule of specification allows the desired string to be extracted Axiom 1. It is a one-
+step derivation:
+
+                          Va -Sa=0                       axiom 1
+                          ~S0=0                          specification
+
+Notice that the rule of specification will allow some formulas which co: free variables
+(i.e., open formulas) to become theorems. For example following strings could also be
+derived from Axiom 1, by specification:
+
+                                           Sa=0
+                                       ~S(c+SSO)=0
+
+There is another rule, the rule of generalization, which allows us to put
+
+
+Typographical Number Theory                                                              225
+
+back the universal quantifier on theorems which contain variables that became free as a
+result of usage of specification. Acting on the lower string, for example, generalization
+would give:
+
+                                   Vc:~S(c+SSO)=O
+
+Generalization undoes the action of specification, and vice versa. Usually, generalization
+is applied after several intermediate steps have transformed the open formula in various
+ways. Here is the exact statement of the rule:
+
+RULE OF GENERALIZATION: Suppose x is a theorem in which u, a variable, occurs
+free. Then Vu:x is a theorem.
+
+       ( Restriction: No generalization is allowed in a fantasy on any variable which
+       appeared free in the fantasy's premise.)
+
+The need for restrictions on these two rules will shortly be demonstrated explicitly.
+Incidentally, this generalization is the same generalization as was mentioned in Chapter
+II, in Euclid's proof about the infinitude of primes. Already we can see how the symbol-
+manipulating rules are starting to approximate the kind of reasoning which a
+mathematician uses.
+
+                            The Existential Quantifier
+These past two rules told how to take off universal quantifiers and put them back on; the
+next two rules tell how to handle existential quantifiers.
+
+RULE OF INTERCHANGE: Suppose u is a variable. Then the strings Vu:- and -3u: are
+interchangeable anywhere inside any theorem.
+
+For example, let us apply this rule to Axiom 1:
+
+                                Va:-Sa=O   axiom 1
+                               ~ℑa:Sa=O  interchange
+
+By the way, you might notice that both these strings are perfectly natural renditions, in
+TNT, of the sentence "Zero is not the successor of any natural number". Therefore it is
+good that they can be turned into each other with ease.
+       The next rule is, if anything, even more intuitive. It corresponds to the very
+simple kind of inference we make when we go from "2 is prime" to "There exists a
+prime". The name of this rule is self-explanatory:
+
+RULE OF EXISTENCE: Suppose a term (which may contain variables as long as they
+are free) appears once, or multiply, in a theorem. Then any (or several, or all) of the
+appearances of the term may be replaced by a variable which otherwise does not occur in
+the theorem, and the corresponding existential quantifier must be placed in front.
+
+Let us apply the rule to --as usual--Axiom 1:
+
+
+
+Typographical Number Theory                                                           226
+
+                                   Va:-Sa=O     axiom 1
+                                   ℑb:Va:-Sa=b existence
+
+You might now try to shunt symbols, according to rules so far giver produce the theorem
+~Vb: ℑa:Sa=b.
+
+                      Rules of Equality and Successorship
+We have given rules for manipulating quantifiers, but so far none for symbols `=' and 'S'.
+We rectify that situation now. In what follows, r, s, t all stand for arbitrary terms.
+RULES OF EQUALITY:
+
+       SYMMETRY: If r = s is a theorem, then so is s = r.
+       TRANSITIVITY: If r = s and s = t are theorems, then so is r = t.
+
+RULFS OF SUCCESSORSHIP:
+
+       ADD S: If r = t is a theorem, then Sr = St is a theorem.
+
+       DROP S: If Sr = St is a theorem, then r = t is a theorem.
+
+Now we are equipped with rules that can give us a fantastic variet theorems. For
+example, the following derivations yield theorems which pretty fundamental:
+
+(1)    Va: Vb:(a+Sb)=S(a+b)                         axiom 3
+(2)    Vb:(SO+Sb)=S(SO+b)                           specification (SO for a)
+(3)    (SO+SO)=S(SO+O)                              specification (0 for b)
+(4)    Va:(a+O)=a                                   axiom 2
+(5)    (SO+O)=SO                                    specification (SO for a)
+(6)    S(SO+O)=SSO                                  add S
+(7)    (SO+SO)=SSO                                  transitivity (lines 3,6)
+
+                               *      *    *    *      *
+
+(1)    Va: Vb:(a-Sb)=((a-b)+a)                      axiom 5
+(2)    Vb:(SO•Sb)=((SO•b)+SO)                       specification (SO for a)
+(3)    (SO.SO)=((SO.O)+SO)                          specification (0 for b)
+(4)    Va: Vb:(a+Sb)=S(a+b)                                 axiom 3
+(5)    Vb:((SO.O)+Sb)=S((5O O)+b)                   specification ((SO-0) for a)
+(6)    ((SO .0)+SO)=S((SO.0)+0)                     specification (0 for b)
+(7)    Va:(a+O)=a                                   axiom 2
+(8)    ((SO.O)+0)=(SO.O)                            specification ((S0.0) for a)
+(9)    Va:(a.0)=0                                   axiom 4
+(10)   (S0-0)=0                                     specification (SO for a)
+(11)   ((SO.O)+O)=O                                 transitivity (lines 8,10)
+(12)   S((SO.0)+0)=SO                               add S
+(13)   ((SO -0)+SO)=SO                              transitivity (lines 6,12)
+(14)   (SO.SO)=SO                                   transitivity (lines 3,13)
+
+
+Typographical Number Theory                                                           227
+
+                                     Illegal Shortcuts
+Now here is an interesting question: "How can we make a derivation for the string 0=0?"
+It seems that the obvious route to go would be first to derive the string Va:a=a, and then
+to use specification. So, what about the following "derivation" of Va:a=a ... What is
+wrong with it? Can you fix it up?
+
+       (1)     Va:(a+0)=a              axiom 2
+       (2)     Va:a=(a+0)              symmetry
+       (3)     Va:a=a                  transitivity (lines 2,1)
+
+I gave this mini-exercise to point out one simple fact: that one should not jump too fast in
+manipulating symbols (such as `=') which are familiar. One must follow the rules, and not
+one's knowledge of the passive meanings of the symbols. Of course, this latter type of
+knowledge is invaluable in guiding the route of a derivation.
+
+             Why Specification and Generalization Are Restricted
+Now let us see why there are restrictions necessary on both specification and
+generalization. Here are two derivations. In each of them, one of the restrictions is
+violated. Look at the disastrous results they produce:
+
+(1)    [                               push
+(2)        a=0                         premise
+(3)        Va:a=0                      generalization (Wrong!)
+(4)        Sa=O                        specification
+(5)    ]                               pop
+(6)    <a=O⊃Sa=O>                              fantasy rule
+(7)    Va:<a=O⊃Sa=O>                   generalization
+(8)    <O=O⊃SO=0>                      specification
+(9)    0=0                             previous theorem
+(10)   S0=0                            detachment (lines 9,8)
+
+This is the first disaster. The other one is via faulty specification.
+
+(1)    Va:a=a                          previous theorem
+(2)    Sa=Sa                           specification
+(3)    ℑb:b=Sa                         existence
+(4)    Va: ℑb:b=Sa                     generalization
+(5)    ℑb:b=Sb                         specification (Wrong!)
+
+So now you can see why those restrictions are needed.
+       Here is a simple puzzle: translate (if you have not already done so) Peano's fourth
+postulate into TNT-notation, and then derive that string as a theorem.
+
+
+
+
+Typographical Number Theory                                                             228
+
+                                 Something Is Missing
+Now if you experiment around for a while with the rules and axioms of TNT so far
+presented, you will find that you can produce the following pyramidal family of theorems
+(a set of strings all cast from an identical mold, differing from one another only in that the
+numerals 0, SO, SSO, and s have been stuffed in):
+
+                                        (0+0)=0
+                                      (O+SO)=S0
+                                     (O+SSO)=SSO
+                                    (O+SSSO)=SSSO
+                                   (O+SSSSO)=SSSSO
+
+                                             etc.
+
+As a matter of fact, each of the theorems in this family can be derived the one directly
+above it, in only a couple of lines. Thus it is a so "cascade" of theorems, each one
+triggering the next. (These theorem very reminiscent of the pq-theorems, where the
+middle and right-] groups of hyphens grew simultaneously.)
+         Now there is one string which we can easily write down, and v summarizes the
+passive meaning of them all, taken together. That un sally quantified summarizing string
+is this:
+
+                                        Va:(O+a)=a
+
+Yet with the rules so far given, this string eludes production. Ti produce it yourself if you
+don't believe me.
+        You may think that we should immediately remedy the situation the following
+
+(PROPOSED) RULE OF ALL: If all the strings in a pyramidal family are theorems, then
+so is the universally quantified string which summarizes them.
+
+The problem with this rule is that it cannot be used in the M-mode. people who are
+thinking about the system can ever know that an infinite set of strings are all theorems.
+Thus this is not a rule that can be stuck i any formal system.
+
+                ω-Incomplete Systems and Undecidable Strings
+
+So we find ourselves in a strange situation, in which we can typographically produce
+theorems about the addition of any specific numbers, but even a simple string as the one
+above, which expresses a property of addition in general, is not a theorem. You might
+think that is not all that strange, we were in precisely that situation with the pq-system.
+However, the pq-system had no pretensions about what it ought to be able to do; and ii
+fact
+
+
+
+
+Typographical Number Theory                                                               229
+
+there was no way to express general statements about addition in its symbolism, let alone
+prove them. The equipment simply was not there, and it did not even occur to us to think
+that the system was defective. Here, however, the expressive capability is far stronger,
+and we have correspondingly higher expectations of TNT than of the pq-system. If the
+string above is not a theorem, then we will have good reason to consider TNT to be
+defective. As a matter of fact, there is a name for systems with this kind of defect-they
+are called ω-incomplete. (The prefix 'ω'-'omega'- comes from the fact that the totality of
+natural numbers is sometimes denoted by `ω'.) Here is the exact definition:
+
+   A system is ω-incomplete if all the strings in a pyramidal family are theorems, but
+   the universally quantified summarizing string is not a theorem.
+
+   Incidentally, the negation of the above summarizing string
+
+                                     ~Va:(O+a)=a
+
+-is also a nontheorem of TNT. This means that the original string is undecidable within
+the system. If one or the other were a theorem, then we would say that it was decidable.
+Although it may sound like a mystical term, there is nothing mystical about
+undecidability within a given system. It is only a sign that the system could be extended.
+For example, within absolute geometry, Euclid's fifth postulate is undecidable. It has to
+be added as an extra postulate of geometry, to yield Euclidean geometry; or conversely,
+its negation can be added, to yield non-Euclidean geometry. If you think back to
+geometry, you will remember why this curious thing happens. It is because the four
+postulates of absolute geometry simply do not pin down the meanings of the terms
+"point" and "line", and there is room for different extensions of the notions. The points
+and lines of Euclidean geometry provide one kind of extension of the notions of "point"
+and "line"; the POINTS and LINES of non-Euclidean geometry, another. However, using
+the pre-flavored words "point" and "line" tended, for two millennia, to make people
+believe that those words were necessarily univalent, capable of only one meaning.
+
+                                Non-Euclidean TNT
+We are now faced with a similar situation, involving TNT. We have adopted a notation
+which prejudices us in certain ways. For instance, usage of the symbol `+'tends to make
+us think that every theorem with a plus sign in it ought to say something known and
+familiar and "sensible" about the known and familiar operation we call "addition".
+Therefore it would run against the grain to propose adding the following "sixth axiom":
+
+                                      ~Va:(0+a)=a
+
+
+
+
+Typographical Number Theory                                                           230
+
+It doesn't jibe with what we believe about addition. But it is one possible extension of
+TNT, as we have so far formulated TNT. The system which uses this as its sixth axiom is
+a consistent system, in the sense of not has, two theorems of the form x and - x. However,
+when you juxtapose this "sixth axiom" with the pyramidal family of theorems shown
+above, you will probably be bothered by a seeming inconsistency between the family and
+the new axiom. But this kind of inconsistency is riot so damaging as the other kind
+(where x and x are both theorems). In fact, it is not a true inconsistency, because there is
+a way of interpreting the symbols so that everything comes out all right.
+
+                   ω-Inconsistency Is Not the Same as Inconsistency
+
+This kind of inconsistency, created by the opposition of (1) a pyramidal family of
+theorems which collectively assert that all natural numbers have some property, and (2) a
+single theorem which seems to assert that not all numbers have it, is given the name of w-
+inconsistency. An w-inconsistent system is more like the at-the-outset-distasteful-but-in-
+the-end-accept non-Euclidean geometry. In order to form a mental model of what is
+going on, you have to imagine that there are some "extra", unsuspected numbers--let us
+not call them "natural", but supernatural numbers-which have no numerals. Therefore,
+facts about them cannot be represented in the pyramidal family. (This is a little bit like
+Achilles' conception GOD-as a sort of "superdjinn", a being greater than any of the djinn
+This was scoffed at by the Genie, but it is a reasonable image, and may I you to imagine
+supernatural numbers.)
+         What this tells us is that the axioms and rules of TNT, as so presented, do not
+fully pin down the interpretations for the symbol TNT. There is still room for variation in
+one's mental model of the notions they stand for. Each of the various possible extensions
+would pin d, some of the notions further; but in different ways. Which symbols we begin
+to take on "distasteful" passive meanings, if we added the "s axiom" given above? Would
+all of the symbols become tainted, or we some of them still mean what we want them to
+mean? I will let you tt about that. We will encounter a similar question in Chapter XIV,
+discuss the matter then. In any case, we will not follow this extension r but instead go on
+to try to repair the w-incompleteness of TNT.
+
+                                     The Last Rule
+
+The problem with the "Rule of All" was that it required knowing that all lines of an
+infinite pyramidal family are theorems -- too much for a finite being. But suppose that
+each line of the pyramid can be derived from its predecessor in a patterned way. Then
+there would be a finite reason accounting for the fact that all the strings in the pyramid
+are theorems. The trick then, is to find the pattern that causes the cascade, and show that
+
+
+
+
+Typographical Number Theory                                                             231
+
+pattern is a theorem in itself. That is like proving that each djinn passes a message to its
+meta, as in the children's game of "Telephone". The other thing left to show is that Genie
+starts the cascading message-that is, to establish that the first line of the pyramid is a
+theorem. Then you know that GOD will get the message!
+        In the particular pyramid we were looking at, there is a pattern, captured by lines
+4-9 of the derivation below.
+
+   (1) Va:Vb:(a+Sb)=S(a+b)                   axiom 3
+   (2) Vb:(O+Sb)=S(O+b)                      specification
+   (3) (O+Sb)=S(O+b)                         specification
+   (4) [                                     push
+   (5) (O+b)=b                               premise
+   (6) S(O+b)=Sb                             add S
+   (7) (O+Sb)=S(O+b)                         carry over line 3
+   (8) (O+Sb)=Sb                             transitivity
+   (9) ]                                     pop
+
+The premise is (O+b)=b; the outcome is (O+Sb)=Sb.
+        The first line of the pyramid is also a theorem; it follows directly from Axiom 2.
+All we need now is a rule which lets us deduce that the string which summarizes the
+entire pyramid is itself a theorem. Such a rule will he a formalized statement of the fifth
+Peano postulate.
+        To express that rule, we need a little notation. Let us abbreviate a well-formed
+formula in which the variable a is free by the following notation:
+
+                                           X{a}
+
+(There may be other free variables, too, but that is irrelevant.) Then the notation X{Sa/a}
+will stand for that string but with every occurrence of a replaced by Sa. Likewise, X{0/a}
+would stand for the same string, with each appearance of a replaced by 0.
+        A specific example would be to let X{a} stand for the string in question: (O+a)=a.
+Then X{Sa/a} would represent the string (O+Sa)=Sa, and X{0/a} would represent
+(0+0)=0. (Warning: This notation is not part of TNT; it is for our convenience in talking
+about TNT.)
+        With this new notation, we can state the last rule of TNT quite precisely:
+
+RULE OF INDUCTION: Suppose u is a variable, and X{u} is a well-formed formula in
+     which u occurs free. If both Vu:< X{u}⊃ X{Su/u}> and X{0/u} are theorems,
+     then Vu: X{u} is also a theorem.
+
+This is about as close as we can come to putting Peano's fifth postulate into TNT. Now
+let us use it to show that Va:(O+a)=a is indeed a theorem in TNT. Emerging from the
+fantasy in our derivation above, we can apply the fantasy rule, to give us
+
+(10)   <(O+b)=b⊃(O+Sb)=Sb>                   fantasy rule
+(11)   Vb:<(O+b)=b⊃(O+Sb)=Sb>                generalization
+
+
+Typographical Number Theory                                                             232
+
+This is the first of the two input theorems required by the induction The other
+requirement is the first line of the pyramid, which we have. Therefore, we can apply the
+rule of induction, to deduce what we wanted.
+
+                                     `Vb:(O+b)=b
+
+Specification and generalization will allow us to change the variable from b to a; thus
+Va:(O+a)=a is no longer an undecidable string of TNT..
+
+                                  A Long Derivation
+
+Now I wish to present one longer derivation in TNT, so that you ca what one is like, and
+also because it proves a significant, if simple, fact of number theory.
+
+(1) Va: Vb:(a+Sb)=S(a+b)                                  axiom 3
+(2) Vb:(d+Sb)=S(d+b)                                      specification
+(3) (d+SSc)=S(d+Sc)                                       specificatic
+(4) b:(Sd+Sb)=S(Sd+b)                                     specification (line 1)
+(5) (Sd+Sc)-S(Sd+c)                                       specification
+ 6) S(Sd+c)=(Sd+Sc)                                       symmetry
+(7) [                                                     push
+(8)    Vd:(d+Sc)=(Sd+c)                                   premise
+(9)    (d+Sc)=(Sd+c)                                      specification
+(10) S(d+Sc)=S(Sd+c)                                      add S
+(11) (d+SSc)=S(d+Sc)                                      carry over 3
+(12) (d+SSc)=S(Sd+c)                                      transitivity
+(13) S(Sd+c)=(Sd+Sc)                                      carry over 6
+(14) (d+SSc)=(Sd+Sc)                                      transitivity
+(15) Vd:(d+SSc)=(Sd+Sc)                                   generalization
+(16) ]                                                    pop
+(17) <Vd:(d+5c)=(Sd+c)⊃Vd:(d+SSc)=(Sd+Sc)>                fantasy rule
+(18) Vc:< Vd:(d+Sc)=(Sd+c) ⊃Vd:(d+SSc)=(Sd+Sc)>           generalization
+
+                                    *   *   *   *   *
+(19) (d+S0)=5(d+0)                                        specification (line 2)
+(20) Va:(a+0)=a                                           axiom 1
+(21) (d+0)=d                                              specification
+(22) S(d+0)=Sd                                            add S
+(23) (d+SO)=Sd                                            transitivity (lines 19,2)
+(24) (Sd+O)=Sd                                            specification (line 20)
+(25) Sd=(Sd+O)                                            symmetry
+
+
+
+
+Typographical Number Theory                                                           233
+
+(26) (d+SO)=(Sd+o)                                       transitivity (lines 23,25)
+(27) Vd:(d+5O)=(Sd+O)                                    generalization
+
+                                 *   *   *   *   *
+
+(28) Vc: Vd:(d+Sc)=(Sd+c)                                induction (lines 18,27)
+
+                  [S can be slipped back and forth in an addition]
+                                  * * * * *
+
+(29) Vb:(c+Sb)=S(c+b)                                    specification (line 1)
+(30) (c+Sd)=S(c+d)                                       specification
+(31) Vb:(d+Sb)=S(d+b)                                    specification (line 1)
+(32) (d+Sc)=S(d+c)                                       specification
+(33) S(d+c)=(d+Sc)                                       symmetry
+(34) bed:(d+Sc)=(Sd+c)                                   specification (line 28)
+(35) (d+Sc)=(Sd+c)                                       specification
+(36) [                                                   push
+(37) Vc:(c+d)=(d+c)                                      premise
+(38) (c+d)=(d+c)                                         specification
+(39) S(c+d)=S(d+c)                                       add S
+(40) (c+Sd)=S(c+d)                                       carry over 30
+(41) (c+Sd)=S(d+c)                                       transitivity
+(42) S(d+c)=(d+Sc)                                       carry over 33
+(43) (c+Sd)=(d+Sc)                                       transitivity
+(44) (d+Sc)=(Sd+c)                                       carry over 35
+(45) (c+Sd)=(Sd+c)                                       transitivity
+(46) Vc:(c+Sd)=(Sd+c)                                    generalization
+(47) ]                                                   pop
+(48) <Ve:(c+d)=(d+c) ⊃Vc:(c+Sd)=(Sd+c)>                  fantasy rule
+(49) Vd:< Vc:(c+d)=(d+c) ⊃Vc:(c+Sd)=(Sd+c)>              generalization
+
+                  [If d commutes with every c, then Sd does too.
+                                * * * * *
+(50) (c+O)=c                                           specification (line 20)
+(51) Va:(O+a)=a                                        previous theorem
+(52) (O+c)=c                                           specification
+(53) c=(O+c)                                           symmetry
+
+
+
+
+Typographical Number Theory                                                           234
+
+(54) (c+0)=(0+c)                                               transitivity (lines 50,53)
+(55) Vc:(c+0)=(O+c)                                            generalization
+
+                                 [0 commutes with every c.]
+
+(56) Vd: Vc:(c+d)=(d+c)                                        induction (lines 49,55)
+
+                       [Therefore, every d commutes with every c.]
+
+                          Tension and Resolution in TNT
+TNT has proven the commutativity of addition. Even if you do not follow this derivation
+in detail, it is important to realize that, like a piece of music, it has its own natural
+"rhythm". It is not just a random walk that happens to have landed on the desired last
+line. I have inserted "breathing marks” to show some of the "phrasing" of this derivation.
+Line 28 in particular turning point in the derivation, something like the halfway point it
+AABB type of piece, where you resolve momentarily, even if not in the t key. Such
+important intermediate stages are often called "lemmas".
+         It is easy to imagine a reader starting at line 1 of this derivation ignorant of where
+it is to end up, and getting a sense of where it is going as he sees each new line. This
+would set up an inner tension, very much the tension in a piece of music caused by chord
+progressions that let know what the tonality is, without resolving. Arrival at line 28 w,
+confirm the reader's intuition and give him a momentary feeling of satisfaction while at
+the same time strengthening his drive to progress tow what he presumes is the true goal.
+         Now line 49 is a critically important tension-increaser, because of "almost-there"
+feeling which it induces. It would be extremely unsatisfactory to leave off there! From
+there on, it is almost predictable how things must go. But you wouldn't want a piece of
+music to quit on you just when had made the mode of resolution apparent. You don't
+want to imagine ending-you want to hear the ending. Likewise here, we have to c things
+through. Line 55 is inevitable, and sets up all the final tension which are resolved by Line
+56.
+         This is typical of the structure not only of formal derivations, but of informal
+proofs. The mathematician's sense of tension is intimately related to his sense of beauty,
+and is what makes mathematics worthy doing. Notice, however, that in TNT itself, there
+seems to be no reflection of these tensions. In other words, TNT doesn't formalize the
+notions of tension and resolution, goal and subgoal, "naturalness" and "inevitable any
+more than a piece of music is a book about harmony and rhythm. Could one devise a
+much fancier typographical system which is aware of the tensions and goals inside
+derivations?
+
+
+
+
+Typographical Number Theory                                                                 235
+
+                   Formal Reasoning vs. Informal Reasoning
+         I would have preferred to show how to derive Euclid's Theorem (the infinitude of
+primes) in TNT, but it would probably have doubled the length of the book. Now after
+this theorem, the natural direction to go would be to prove the associativity of addition,
+the commutativity and associativity of multiplication and the distributivity of
+multiplication over addition. These would give a powerful base to work from.
+         As it is now formulated, TNT has reached "critical mass" (perhaps a strange
+metaphor to apply to something called "TNT"). It is of the same strength as the system of
+Principia Mathematica; in TNT one can now prove every theorem which you would find
+in a standard treatise on number theory. Of course, no one would claim that deriving
+theorems in TNT is the best way to do number theory. Anybody who felt that way would
+fall in the same class of people as those who think that the best way to know what 1000 x
+1000 is, is to draw a 1000 by 1000 grid, and count all the squares in it ... No; after total
+formalization, the only way to go is towards relaxation of the formal system. Otherwise,
+it is so enormously unwieldy as to be, for all practical purposes, useless. Thus, it is
+important to embed TNT within a wider context, a context which enables new rules of
+inference to be derived, so that derivations can be speeded up. This would require
+formalization of the language in which rules of inference are expressed-that is, the
+metalanguage. And one could go considerably further. However, none of these speeding-
+up tricks would make TNT any more powerful; they would simply make it more usable.
+The simple fact is that we have put into TNT every mode of thought that number
+theorists rely on. Embedding it in ever larger contexts will not enlarge the space of
+theorems; it will just make working in TNT-or in each "new, improved version"-look
+more like doing conventional number theory.
+
+                          Number Theorists Go out of Business
+        Suppose that you didn't have advance knowledge that TNT will turn out to be
+incomplete, but rather, expected that it is complete-that is, that every true statement
+expressible in the TNT-notation is a theorem. In that case, you could make a decision
+procedure for all of number theory. The method would be easy: if you want to know if N-
+statement X is true or false, code it into TNT-sentence x. Now if X is true, completeness
+says that x is a theorem; and conversely, if not-X is true, then completeness says that ~x
+is a theorem. So either x or ~x must be a theorem, since either X or not-X is true. Now
+begin systematically enumerating all the theorems of TNT, in the way we did for the
+MIU-system and pq-system. You must come to x or ~x after a while; and whichever one
+you hit tells you which of X and not-X is true. (Did you follow this argument? It crucially
+depends on your being able to hold separate in your mind the formal system TNT and its
+informal counterpart N. Make sure you understand it.) Thus, in prince-
+
+
+
+
+Typographical Number Theory                                                             236
+
+ple, if TNT were complete, number theorists would be put out of business any question
+in their field could be resolved, with sufficient time, in a purely mechanical way. As it
+turns out, this is impossible, which, depending on your point of view, is a cause either for
+rejoicing, or for mourning.
+
+
+                                      Hilbert's Program
+        The final question which we will take up in this Chapter is whether should have
+as much faith in the consistency of TNT as we did consistency of the Propositional
+Calculus; and, if we don't, whether possible to increase our faith in TNT, by proving it to
+be consistent could make the same opening statement on the "obviousness" of TNT’s
+consistency as Imprudence did in regard to the Propositional Calculus namely, that each
+rule embodies a reasoning principle which we believe in, and therefore to question the
+consistency of TNT is to question our own sanity. To some extent, this argument still
+carries weight-but not quite so much weight as before. There are just too many rules of
+inference and some of them just might be slightly "off ". Furthermore, how do we know
+that this mental model we have of some abstract entities called "natural numbers" is
+actually a coherent construct? Perhaps our own thought processes, those informal
+processes which we have tried to capture in the formal rules of the system, are themselves
+inconsistent! It is of course not the kind of thing we expect, but it gets more and more
+conceivable that our thoughts might lead us astray, the more complex the subject matter
+gets-and natural numbers are by no means a trivial subject matter. Prudence's cry for a
+proof of consistency has to be taken more seriously in this case. It's not that we seriously
+doubt that TNT could be inconsistent but there is a little doubt, a flicker, a glimmer of a
+doubt in our minds, and a proof would help to dispel that doubt.
+        But what means of proof would we like to see used? Once again, faced with the
+recurrent question of circularity. If we use all the equipment in a proof about our system
+as we have inserted into it, what will we have accomplished? If we could manage to
+convince ourselves consistency of TNT, but by using a weaker system of reasoning than
+we will have beaten the circularity objection! Think of the way a heavy rope is passed
+between ships (or so I read when I was a kid): first a light arrow is fired across the gap,
+pulling behind it a thin rope. Once a connection has been established between the two
+ships this way, then the heavy rope pulled across the gap. If we can use a "light" system
+to show that a system is consistent, then we shall have really accomplished something.
+        Now on first sight one might think there is a thin rope. Our goal is to prove that
+TNT has a certain typographical property (consistency): that no theorems of the form x
+and .~x ever occur. This is similar to trying to show that MU is not a theorem of the
+MIU-system. Both are statements about typographical properties of symbol-
+manipulation systems. The visions of a thin rope are based on the presumption that facts
+about number theory won’t be
+
+
+
+
+Typographical Number Theory                                                             237
+
+needed in proving that such a typographical property holds. In other words, if properties
+of integers are not used-or if only a few extremely simple ones are used-then we could
+achieve the goal of proving TNT consistent, by using means which are weaker than its
+own internal modes of reasoning.
+         This is the hope which was held by an important school of mathematicians and
+logicians in the early part of this century, led by David Hilbert. The goal was to prove the
+consistency of formalizations of number theory similar to TNT by employing a very
+restricted set of principles of reasoning called "finitistic" methods of reasoning. These
+would be the thin rope. Included among finitistic methods are all of propositional
+reasoning, as embodied in the Propositional Calculus, and additionally some kinds of
+numerical reasoning. But Gödel’s work showed that any effort to pull the heavy rope of
+TNT's consistency across the gap by using the thin rope of finitistic methods is doomed
+to failure. Gödel showed that in order to pull the heavy rope across the gap, you can't use
+a lighter rope; there just isn't a strong enough one. Less metaphorically, we can say: Any
+system that is strong enough to prove TNT's consistency is at least as strong as TNT
+itself. And so circularity is inevitable.
+
+
+
+
+Typographical Number Theory                                                             238
+
