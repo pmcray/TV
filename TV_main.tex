@@ -7,7 +7,9 @@
 
 % --- Founts ---
 \fontfam[EBGaramond] 
-\font\Albertus=[texgyreheros-bold] at 18pt
+\font\serifbold=[EBGaramond-Bold] at 18pt
+\font\serifboldlarge=[EBGaramond-Bold] at 26pt
+\font\serifboldhuge=[EBGaramond-Bold] at 32pt
 \font\sans="[texgyreheros-regular]" at 10pt
 \font\sansbold="[texgyreheros-bold]" at 10pt
 \font\tt="[texgyrecursor-regular]" at 10pt
@@ -29,6 +31,11 @@
 % --- Legacy Compatibility Shims ---
 \def\twelvesl{\it\typosize[12/14]}  
 \def\twmoveit{\it\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twelverm{\rm\typosize[12/14]}  
 \def\twelveit{\it\typosize[12/14]}  
 \def\twelvebf{\bf\typosize[12/14]}  
 \def\twelverm{\rm\typosize[12/14]}  
@@ -40,20 +47,33 @@
 \raggedbottom
 
 % --- Headers & Footers ---
-\def\booktitle{THE VISIBILITIES} 
-\def\authorname{PAUL M.~CRAY}
+\def\booktitle{The Visibilities} 
+\def\authorname{Paul M.~Cray}
+\def\currmonth{}
+\def\currdaytitle{}
+\def\currparttitle{}
+\newif\ifpartpage
+\newif\ifbackmatter
 
 \nopagenumbers 
 
-\headline={%
-   \ifodd\pageno 
-      \hfil {\caps \booktitle} \hfil 
-   \else
-      \hfil {\caps \authorname} \hfil 
+\headline={\hfil} 
+
+\footline={%
+   \ifpartpage \hfil \else
+      \ifnum\pageno<2 \hfil \else
+         \ifbackmatter
+            \hfil \the\pageno \hfil
+         \else
+            \ifodd\pageno 
+               {\bf \currparttitle} \hfil \the\pageno 
+            \else
+               \the\pageno \hfil {\bf \currparttitle}
+            \fi
+         \fi
+      \fi
    \fi
 }
-
-\footline={\hfil \the\pageno \hfil} 
 
 % --- Layout Macros ---
 \def\frontmattergap{\vskip 15mm}
@@ -72,50 +92,98 @@
 
 \def\suppressindent{\par\nobreak\everypar={\setbox0=\lastbox \everypar={}}}
 
-% --- OpTeX Redefinitions for ToC ---
-% Redefining internal OpTeX print macros to match our style
-\def\_printchap#1{%
-   \vfill\eject
-   \ifodd\pageno \else \blankpage \fi 
-   \blankpage 
-   \null\vskip 50mm
-   {\leftskip=0pt plus 1fill \rightskip=0pt plus 1fill \parindent=0pt
-    {\Albertus\typosize[26/30] #1} \par}
-   \vskip 25mm
+\def\bookepigraph #1#2#3{%
+   \begingroup
+      \leftskip=35mm \rightskip=20mm \parindent=0pt
+      {\it #1} \par \smallskip
+      {\rm \noindent --- #2\ifx\empty#3\empty\else, {\it #3}\fi} \par
+   \endgroup
+   \bigskip
 }
+
+% --- OpTeX Redefinitions for Part and Section Layout ---
+\newcount\partnum \partnum=0
+\newif\iffirstpart \firstparttrue
+
+\def\_printchap#1{} % Handled in \parttitle
 
 \def\_printsec#1{%
    \vfill\eject
-   \ifodd\pageno \blankpage \fi 
-   \begingroup
-      \null\vskip 12mm
-      {\leftskip=0pt plus 1fill \rightskip=0pt plus 1fill \parindent=0pt
-       #1 \par}
-      \vskip 12mm
-   \endgroup
+   \partpagefalse
+   \ifodd\pageno \blankpage \fi % Ensure we are on a Verso page
+   \null\vskip 12mm
+   {\parindent=0pt \leftskip=0pt \rightskip=0pt \hsize=116mm
+    {\serifbold\typosize[14/16] \the\currdaynum.\quad #1} \par \vskip 2mm \hrule height 0.4pt \vskip 4mm}
    \suppressindent
 }
 
 % CUSTOM MACROS THAT CALL STANDARD OpTeX \chap AND \sec
-\def\parttitle #1#2#3{%
-   \chap {#1}
-   \begingroup
-      \leftskip=35mm \rightskip=25mm \it
-      #2
-      \smallskip
-      \rm \noindent --- #3 \par
-   \endgroup
+\def\parttitle #1#2#3#4#5#6#7{%
+   \advance\partnum by 1
+   \xdef\currparttitle{#1}%
+   \xdef\currmonth{}% 
+   \xdef\currdaytitle{}%
+   \partpagetrue
+   \ifnum\partnum=1 
+      % Handled by front matter sequence
+   \else
+      \vfill\eject
+      \ifodd\pageno \else \blankpage \fi 
+   \fi
+   \null\vskip 12mm
+   % Header and Rule - Explicitly left justified
+   {\parindent=0pt \leftskip=0pt \rightskip=0pt \hsize=116mm
+    \noindent {\serifboldlarge PART \the\partnum.\quad #1} \par 
+    \vskip 2mm \hrule height 0.4pt \vskip 15mm}
+   % Registry for ToC
+   \_inchap{#1}%
+   % Epigraphs
+   \bookepigraph{#2}{#3}{#4}
+   \bookepigraph{#5}{#6}{#7}
    \vfill\eject
+   \partpagefalse
 }
 
+\newcount\currdaynum
 \def\daytitle #1#2#3#4{%
-   \sec {{\tt #1 #2} \par \vskip 6mm {\Albertus\typosize[18/22] #3} \par \vskip 10mm {\it Section #4}}
+   \xdef\currmonth{#1}%
+   \xdef\currdaytitle{#3}%
+   \currdaynum=#4
+   \sec {#3}
+}
+
+\def\appendixsection #1#2{%
+   \vfill\eject
+   \ifodd\pageno \blankpage \fi % Verso
+   \null\vskip 12mm
+   {\parindent=0pt \leftskip=0pt \rightskip=0pt \hsize=116mm
+    {\serifbold\typosize[14/16] Appendix #1.\quad #2} \par \vskip 2mm \hrule height 0.4pt \vskip 4mm}
+   \suppressindent
+}
+
+\def\filler{%
+   The logic of the seen and the unseen unfolds here, in the space between the lines. 
+   Every neutron scattered is a thought redirected; every loop closed is a story begun. 
+   Shadows are not absences of light, but presences of geometry. 
+   The map is not the territory, but the territory is often influenced by the map. 
+   Consistency is a fragile thing, easily shattered by a single self-referential remark. \par
+}
+
+% Black block that takes a height argument to prevent overflow
+\def\blackblock#1{%
+   \vfill
+   \hrule height #1 width \hsize
+   \vfill
+}
+
+\def\startdialogue{%
+   \vfill\eject
+   \ifodd\pageno \else \errmessage{Narrative exceeded one page on \currmonth\space Day \currdaytitle!} \fi
 }
 
 \def\endday{%
    \vfill\eject
-   \ifodd\pageno \else \errmessage{Day section exceeded 2 pages!} \fi
-   \vfill\eject
+   \ifodd\pageno \errmessage{Dialogue exceeded one page on \currmonth\space Day \currdaytitle!} \fi
 }
 
 % --- Document Content ---
@@ -123,11 +191,31 @@
   \headline={} 
   \footline={}
   \input TV_front_matter.tex
-\endgroup
 
+% Physical Page 9 was Dedication (Recto).
+% Physical Page 10 is next (Verso).
 \vfill\eject
-\chaptertitle{Contents}
+{\leftskip=0pt plus 1fill \rightskip=0pt plus 1fill \parindent=0pt
+ {\serifboldlarge Contents} \par}
+\vskip 10mm
 \maketoc
+
+% Physical Page 11 is next (Recto).
+\vfill\eject
+\blankpage % Move to Recto (Page 12)
+\vfill\eject
+\null\vfill
+\bookepigraph{‘The past is never dead. It’s not even past.’}{William Faulkner}{Requiem for a Nun}
+\bookepigraph{‘The past is a foreign country; they do things differently there.’}{L.P. Hartley}{The Go-Between}
+\bookepigraph{‘Why do we remember the past but not the future?’}{Stephen W. Hawking}{A Brief History of Time}
+\bookepigraph{‘History is a nightmare from which I am trying to awake.’}{James Joyce}{Ulysses}
+\vfill\eject
+
+% Physical Page next is Verso.
+\blankpage
+
+% Physical Page next is Part 1 Title (Recto).
+\endgroup
 
 \pageno=1
 
@@ -146,7 +234,20 @@
 \input TV_december.tex
 
 % --- BACK MATTER ---
-\parttitle{BACK MATTER}{"The map is not the territory."}{Alfred Korzybski}
+\backmattertrue
+\parttitle{Back Matter}{"The map is not the territory."}{Alfred Korzybski}{}{"The territory is not the map."}{Unknown}{}
+
+\appendixsection{A}{The Visibility Protocol}
+\filler \filler
+\startdialogue
+\filler \filler
+\vfill\eject
+
+\appendixsection{B}{On the Lore of the Seen}
+\filler \filler
+\startdialogue
+\filler \filler
+\vfill\eject
 
 \chaptertitle{Annotated Bibliography}
 {\bf Gödel, Escher, Bach Bibliography} \par\smallskip
@@ -154,14 +255,5 @@
 \bigskip
 {\bf Metamagical Themas Bibliography} \par\smallskip
 \input MT/MT_Bibliography.tex
-
-\chaptertitle{Appendix A: The Visibility Protocol}
-\suppressindent
-{\tt [REDACTED]}
-This appendix contains the operational details of the scattering experiments performed at Salford. Due to the sensitive nature of the results, certain sections have been picowaved for extra security.
-
-\chaptertitle{Appendix B: On the Lore of the Seen}
-\suppressindent
-A brief history of the words we use to describe that which we cannot see, from the Old English {\it unsewen} to the modern quantum {\it unobserved}.
 
 \bye
