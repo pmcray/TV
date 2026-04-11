@@ -3,6 +3,13 @@
 % Aesthetic: Douglas Hofstadter (GEB/MT)
 % Conventions: British (UK English)
 
+\directlua{
+  function lastphysicalpage()
+    tex.print(status.total_pages + 1)
+  end
+}
+\def\lastphysicalpage{\directlua{lastphysicalpage()}}
+
 \input hofstadter.opm 
 
 % --- Founts ---
@@ -27,6 +34,7 @@
 % --- Page Dimensions (Royal Octavo) ---
 \pdfpagewidth=156mm \pdfpageheight=234mm
 \margins/2 (156,234) (20,20,24,28)mm 
+\hsize=116mm
 
 % --- Legacy Compatibility Shims ---
 \def\twelvesl{\it\typosize[12/14]}  
@@ -36,6 +44,38 @@
 \def\twbundleit{\it\typosize[12/14]}  
 \def\twbundlebf{\bf\typosize[12/14]}  
 \def\twelverm{\rm\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
+\def\twbundleit{\it\typosize[12/14]}  
+\def\twbundlebf{\bf\typosize[12/14]}  
 \def\twelveit{\it\typosize[12/14]}  
 \def\twelvebf{\bf\typosize[12/14]}  
 \def\twelverm{\rm\typosize[12/14]}  
@@ -105,8 +145,20 @@
 \newcount\partnum \partnum=0
 \newif\iffirstpart \firstparttrue
 
-\def\_printchap#1{} % Handled in \parttitle
-
+\def\_printchap#1{%
+   \partpagetrue
+   \ifnum\partnum=1
+      % Already handled by front matter alignment
+   \else
+      \vfill\eject
+      \blankpage % Move from Verso to next Recto
+   \fi
+   \null\vskip 12mm
+   % Header and Rule - Explicitly left justified
+   {\parindent=0pt \leftskip=0pt \rightskip=0pt \hsize=116mm
+    \noindent {\serifboldlarge PART \the\partnum.\quad #1} \par 
+    \vskip 2mm \hrule height 0.4pt \vskip 15mm}
+}
 \def\_printsec#1{%
    \vfill\eject
    \partpagefalse
@@ -119,25 +171,14 @@
 
 % CUSTOM MACROS THAT CALL STANDARD OpTeX \chap AND \sec
 \def\parttitle #1#2#3#4#5#6#7{%
-   \advance\partnum by 1
    \xdef\currparttitle{#1}%
    \xdef\currmonth{}% 
    \xdef\currdaytitle{}%
-   \partpagetrue
-   \ifnum\partnum=1 
-      % Handled by front matter sequence
-   \else
-      \vfill\eject
-      \ifodd\pageno \else \blankpage \fi 
-   \fi
-   \null\vskip 12mm
-   % Header and Rule - Explicitly left justified
-   {\parindent=0pt \leftskip=0pt \rightskip=0pt \hsize=116mm
-    \noindent {\serifboldlarge PART \the\partnum.\quad #1} \par 
-    \vskip 2mm \hrule height 0.4pt \vskip 15mm}
-   % Registry for ToC
-   \_inchap{#1}%
-   % Epigraphs
+   \advance\partnum by 1
+   \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\the\pageno}}%
+   \immediate\write 1{\string\_Xtoc{1}{chap}{\the\partnum}{}{#1}}%
+   \_printchap{#1}%
+   % Epigraphs follow on same page
    \bookepigraph{#2}{#3}{#4}
    \bookepigraph{#5}{#6}{#7}
    \vfill\eject
@@ -149,7 +190,9 @@
    \xdef\currmonth{#1}%
    \xdef\currdaytitle{#3}%
    \currdaynum=#4
-   \sec {#3}
+   \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\the\pageno}}%
+   \immediate\write 1{\string\_Xtoc{2}{sec}{\the\currdaynum}{}{#3}}%
+   \_printsec{#3}%
 }
 
 \def\appendixsection #1#2{%
@@ -159,6 +202,8 @@
    {\parindent=0pt \leftskip=0pt \rightskip=0pt \hsize=116mm
     {\serifbold\typosize[14/16] Appendix #1.\quad #2} \par \vskip 2mm \hrule height 0.4pt \vskip 4mm}
    \suppressindent
+   \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\the\pageno}}%
+   \immediate\write 1{\string\_Xtoc{1}{chap}{#1}{}{#2}}%
 }
 
 \def\filler{%
@@ -192,17 +237,25 @@
   \footline={}
   \input TV_front_matter.tex
 
-% Physical Page 9 was Dedication (Recto).
-% Physical Page 10 is next (Verso).
+% Physical Page 7 was Main Title (Recto).
+% Physical Page 8 is next (Verso) - Blank.
+\vfill\eject
+
+% Physical Page 9 is next (Recto) - Dedication.
+\vfill\eject
+\startcentered
+\frontmattergap
+{\twelveit For those who look closely enough to see the gaps.}
+\stopcentered 
+
+% Physical Page 10 is next (Verso) - Contents.
 \vfill\eject
 {\leftskip=0pt plus 1fill \rightskip=0pt plus 1fill \parindent=0pt
  {\serifboldlarge Contents} \par}
 \vskip 10mm
 \maketoc
 
-% Physical Page 11 is next (Recto).
-\vfill\eject
-\blankpage % Move to Recto (Page 12)
+% Physical Page next is next (Recto) - Book Epigraphs.
 \vfill\eject
 \null\vfill
 \bookepigraph{‘The past is never dead. It’s not even past.’}{William Faulkner}{Requiem for a Nun}
@@ -217,6 +270,7 @@
 % Physical Page next is Part 1 Title (Recto).
 \endgroup
 
+\openref
 \pageno=1
 
 % --- MONTHS ---
@@ -250,6 +304,8 @@
 \vfill\eject
 
 \chaptertitle{Annotated Bibliography}
+\immediate\write 1{\string\_Xpage{\lastphysicalpage}{\the\pageno}}
+\immediate\write 1{\string\_Xtoc{1}{chap}{}{}{Annotated Bibliography}}
 {\bf Gödel, Escher, Bach Bibliography} \par\smallskip
 \input GEB/GEB_Bibliography.tex
 \bigskip

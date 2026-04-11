@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=optex 2025.12.3)  10 APR 2026 16:43
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=optex 2025.12.3)  11 APR 2026 12:20
  restricted system commands enabled.
 **TV_main.tex
 (./TV_main.tex This is OpTeX (Olsak's Plain TeX), version <1.18 May 2025>
@@ -45,19 +45,19 @@ Loading hyphenation for UKenglish: \language=2 (en-gb)
 gb.tex)
 \partnum=\count300
 \currdaynum=\count301
- (./TV_front_matter.tex [1] [1{/usr/local/texlive/2025/texmf-var/fonts/map/pdfte
-x/updmap/pdftex.map}] [2] [3] [4] [5] [6])
-WARNING l.201: \maketoc -- data unavailable, TeX me again.
-[7] [8] [9] [10] (./TV_january.tex [1] [2] [3] [4] [5] [6] [7] [8] [9] [10]
-[11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]
-[26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40]
-[41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55]
-[56] [57] [58] [59] [60] [61] [62] [63]) (./TV_february.tex [64] [65] [66]
-[67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81]
-[82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96]
-[97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109]
-[110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121]
-[122] [123]) (./TV_march.tex [124]
+ (./TV_front_matter.tex [1] [-1{/usr/local/texlive/2025/texmf-var/fonts/map/pdft
+ex/updmap/pdftex.map}] [-2] [-3] [-4] [-5] [-6]) [-7] [-8] [-9]
+[-10] [-11] [-12] [-13] [-14] [-15] [-16] [-17] [-18] [-19] [-20]
+(./TV_january.tex [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13]
+[14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28]
+[29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43]
+[44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58]
+[59] [60] [61] [62] [63]) (./TV_february.tex [64] [65] [66] [67] [68] [69]
+[70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84]
+[85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98] [99]
+[100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110] [111]
+[112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122] [123])
+(./TV_march.tex [124]
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
 \serifboldlarge PART 3. The In-vis-ible
 
@@ -109,7 +109,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 Underfull \hbox (badness 6825) in paragraph at lines 1--1
  \_tenrm --- Robert Brown-ing, \_tenit Home-Thoughts, 
 
-\hbox(7.777+3.19)x330.05199, glue set 4.08781, direction TLT
+\hbox(7.777+3.19)x330.05196, glue set 4.0878, direction TLT
 .\glue(\leftskip) 99.58464
 .\localpar
 ..\localinterlinepenalty=0
@@ -161,7 +161,7 @@ Underfull \hbox (badness 6825) in paragraph at lines 1--1
 Underfull \hbox (badness 2409) in paragraph at lines 1--1
  []\_tenit April is the cruellest month, breed-ing / 
 
-\hbox(7.799+3.19)x330.05199, glue set 2.89056, direction TLT
+\hbox(7.799+3.19)x330.05196, glue set 2.89056, direction TLT
 .\glue(\leftskip) 99.58464
 .\localpar
 ..\localinterlinepenalty=0
@@ -350,10 +350,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 aramond/EBGaramond-Italic.otf></usr/local/texlive/2025/texmf-dist/fonts/opentype
 /public/ebgaramond/EBGaramond-Bold.otf></usr/local/texlive/2025/texmf-dist/fonts
 /opentype/public/ebgaramond/EBGaramond-Regular.otf>
-Output written on TV_main.pdf (815 pages, 1028600 bytes).
+Output written on TV_main.pdf (825 pages, 1044517 bytes).
 
-PDF statistics: 2579 PDF objects out of 2984 (max. 8388607)
- 1735 compressed objects within 18 object streams
+PDF statistics: 2610 PDF objects out of 2984 (max. 8388607)
+ 1756 compressed objects within 18 object streams
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

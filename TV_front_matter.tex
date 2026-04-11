@@ -1,6 +1,6 @@
 \blankpage % Physical Page 1: Blank Recto (Page 0)
 
-\pageno=1
+\pageno=-1 % Start Roman numeral numbering (i, ii, iii, ...)
 
 % --- Author Bio ---
 % Physical Page 2: Verso (Page i)
@@ -13,7 +13,7 @@ He lives with his wife in Seattle, Washington.
 {\twelvesl THE VISIBILITIES} is his magnum opus, a recursive exploration of the seen and unseen.
 \stopcentered 
 
-\blankpage % Physical Page 3: Recto (Page ii)
+\blankpage % Physical Page 3: Recto (Page ii) - EXACTLY ONE BLANK PAGE AFTER BIO
 
 % --- Half Title ---
 % Physical Page 4: Verso (Page iii)
@@ -59,9 +59,4 @@ Typeset with \OpTeX\ by Atomic Razor Press
 {\bf Preston and Seattle}
 \stopcentered 
 
-% --- Dedication ---
-% Physical Page 7: Recto (Page vi)
-\startcentered
-\frontmattergap
-{\twelveit For those who look closely enough to see the gaps.}
-\stopcentered 
+\blankpage % Physical Page 7: Recto (Page vi) - BLANK PAGE AFTER MAIN TITLE

@@ -52,9 +52,9 @@ def generate_month_file(part_title, days, e1, a1, b1, e2, a2, b2, start_day_num,
 
             # Use \daytitle macro for sections
             f.write(f"\\daytitle{{{month_name_real}}}{{{d}}}{{{title}}}{{{day_num}}}\n")
-            f.write("\\filler \\filler \\filler \\filler \\filler \n\n")
+            f.write("\\filler \\filler \\filler \\filler \n\n")
             f.write("\\startdialogue\n")
-            f.write("\\filler \\filler \\filler \\filler \\filler \n\n")
+            f.write("\\filler \\filler \\filler \\filler \n\n")
             f.write("\\endday\n\n")
     return day_num + 1
 
