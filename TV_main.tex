@@ -11,15 +11,22 @@
 \def\lastphysicalpage{\directlua{lastphysicalpage()}}
 
 \input hofstadter.opm 
+\load[minim-mp]
 
 % --- Founts ---
 \fontfam[EBGaramond] 
 \font\serifbold=[EBGaramond-Bold] at 18pt
 \font\serifboldlarge=[EBGaramond-Bold] at 26pt
 \font\serifboldhuge=[EBGaramond-Bold] at 32pt
+\font\greekbold=[GFSDidotBold.otf] at 14pt
+\font\greekboldsmall=[GFSDidotBold.otf] at 11pt
+\font\elvish=[tengtelc.ttf] at 14pt
+\font\elvishbold=[tengtelcb.ttf] at 14pt
+\font\punk="[punknova-regular.otf]" at 12pt
 \font\sans="[texgyreheros-regular]" at 10pt
 \font\sansbold="[texgyreheros-bold]" at 10pt
 \font\tt="[texgyrecursor-regular]" at 10pt
+
 
 % --- British Typographic Settings ---
 \enlang \uselanguage{ukenglish}
@@ -33,7 +40,7 @@
 
 % --- Page Dimensions (Royal Octavo) ---
 \pdfpagewidth=156mm \pdfpageheight=234mm
-\margins/2 (156,234) (20,20,24,28)mm 
+\margins/1 (156,234) (20,20,24,28)mm 
 \hsize=116mm
 
 % --- Legacy Compatibility Shims ---
@@ -41,41 +48,7 @@
 \def\twmoveit{\it\typosize[12/14]}  
 \def\twbundleit{\it\typosize[12/14]}  
 \def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
 \def\twelverm{\rm\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
-\def\twbundleit{\it\typosize[12/14]}  
-\def\twbundlebf{\bf\typosize[12/14]}  
 \def\twelveit{\it\typosize[12/14]}  
 \def\twelvebf{\bf\typosize[12/14]}  
 \def\twelverm{\rm\typosize[12/14]}  
@@ -99,16 +72,28 @@
 
 \headline={\hfil} 
 
+\def\getpagenum{%
+   \ifnum\pageno=41 George%
+   \else\ifnum\pageno=462 Michael%
+   \else\the\pageno\fi\fi
+}
+
+\newcount\pageshift \pageshift=0
+
 \footline={%
    \ifpartpage \hfil \else
       \ifnum\pageno<2 \hfil \else
          \ifbackmatter
-            \hfil \the\pageno \hfil
+            \ifodd\pageno 
+               {\bf \currdaytitle} \hfil \getpagenum 
+            \else
+               \getpagenum \hfil {\bf \currdaytitle}
+            \fi
          \else
             \ifodd\pageno 
-               {\bf \currparttitle} \hfil \the\pageno 
+               {\bf \currdaynum.\quad \currdaytitle} \hfil \getpagenum 
             \else
-               \the\pageno \hfil {\bf \currparttitle}
+               \getpagenum \hfil {\bf PART \the\partnum.\quad \currparttitle}
             \fi
          \fi
       \fi
@@ -121,6 +106,14 @@
 \def\publishergap{\vfill}
 \def\copyrightgap{\vskip 4mm}
 \def\blankpage{\null\vfill\eject}
+
+\def\startcenter{%
+   \begingroup
+   \leftskip=0pt plus 1fill
+   \rightskip=0pt plus 1fill
+   \parindent=0pt
+}
+\def\stopcenter{\par\endgroup}
 
 \def\startcentered{%
    \begingroup
@@ -158,6 +151,8 @@
    {\parindent=0pt \leftskip=0pt \rightskip=0pt \hsize=116mm
     \noindent {\serifboldlarge PART \the\partnum.\quad #1} \par 
     \vskip 2mm \hrule height 0.4pt \vskip 15mm}
+   \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\getpagenum}}%
+   \immediate\write 1{\string\_Xtoc{1}{chap}{\the\partnum}{}{#1}}%
 }
 \def\_printsec#1{%
    \vfill\eject
@@ -165,7 +160,7 @@
    \ifodd\pageno \blankpage \fi % Ensure we are on a Verso page
    \null\vskip 12mm
    {\parindent=0pt \leftskip=0pt \rightskip=0pt \hsize=116mm
-    {\serifbold\typosize[14/16] \the\currdaynum.\quad #1} \par \vskip 2mm \hrule height 0.4pt \vskip 4mm}
+    {\serifbold\typosize[14/16] #1} \par \vskip 2mm \hrule height 0.4pt \vskip 4mm}
    \suppressindent
 }
 
@@ -175,8 +170,12 @@
    \xdef\currmonth{}% 
    \xdef\currdaytitle{}%
    \advance\partnum by 1
-   \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\the\pageno}}%
-   \immediate\write 1{\string\_Xtoc{1}{chap}{\the\partnum}{}{#1}}%
+   % If this is Part 7, we shift pageno by 2 BEFORE printing the chapter page
+   \ifnum\partnum=7 
+      \immediate\write 1{\string\_Xpage{\lastphysicalpage}{376}}%
+      \immediate\write 1{\string\_Xtoc{2}{sec}{6.31}{}{It Doesn't Look Like Anywhere}}%
+      \global\advance\pageno by 2 
+   \fi
    \_printchap{#1}%
    % Epigraphs follow on same page
    \bookepigraph{#2}{#3}{#4}
@@ -185,25 +184,48 @@
    \partpagefalse
 }
 
-\newcount\currdaynum
+\def\currdaynum{}
 \def\daytitle #1#2#3#4{%
    \xdef\currmonth{#1}%
    \xdef\currdaytitle{#3}%
-   \currdaynum=#4
-   \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\the\pageno}}%
-   \immediate\write 1{\string\_Xtoc{2}{sec}{\the\currdaynum}{}{#3}}%
-   \_printsec{#3}%
+   \xdef\currdaynum{#4}%
+   \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\getpagenum}}%
+   \immediate\write 1{\string\_Xtoc{2}{sec}{\currdaynum}{}{#3}}%
+   \_printsec{\currdaynum.\quad #3}%
 }
 
 \def\appendixsection #1#2{%
-   \vfill\eject
-   \ifodd\pageno \blankpage \fi % Verso
-   \null\vskip 12mm
-   {\parindent=0pt \leftskip=0pt \rightskip=0pt \hsize=116mm
-    {\serifbold\typosize[14/16] Appendix #1.\quad #2} \par \vskip 2mm \hrule height 0.4pt \vskip 4mm}
-   \suppressindent
+   \xdef\currdaytitle{Appendix #1.\quad #2}%
    \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\the\pageno}}%
    \immediate\write 1{\string\_Xtoc{1}{chap}{#1}{}{#2}}%
+   \_printsec{Appendix #1.\quad #2}%
+}
+
+\def\bibliographysection #1{%
+   \xdef\currdaytitle{#1}%
+   \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\the\pageno}}%
+   \immediate\write 1{\string\_Xtoc{1}{chap}{}{}{#1}}%
+   \_printsec{#1}%
+}
+
+\def\sovietstamp#1{%
+   \rlap{\vbox to 0pt{\vss \hskip 80mm \directmetapost{
+      pickup pencircle scaled 1.5;
+      draw unitsquare xscaled 40 yscaled 15 shifted (-20,-7.5) rotated 12;
+      label(btex \tentt\bf #1 etex, origin) rotated 12;
+   }\vskip 20mm}}
+}
+
+\def\startsoviet{%
+   \begingroup
+   \tt \typosize[10/11]
+   \leftskip=1.5em \rightskip=1.5em
+   \parindent=0pt
+   \parskip=1ex
+   \raggedright
+}
+\def\endsoviet{%
+   \endgroup
 }
 
 \def\filler{%
@@ -216,9 +238,8 @@
 
 % Black block that takes a height argument to prevent overflow
 \def\blackblock#1{%
-   \vfill
+   \par \hrule height 0pt \vskip 0pt plus 1filll
    \hrule height #1 width \hsize
-   \vfill
 }
 
 \def\startdialogue{%
@@ -289,7 +310,6 @@
 
 % --- BACK MATTER ---
 \backmattertrue
-\parttitle{Back Matter}{"The map is not the territory."}{Alfred Korzybski}{}{"The territory is not the map."}{Unknown}{}
 
 \appendixsection{A}{The Visibility Protocol}
 \filler \filler
@@ -303,13 +323,120 @@
 \filler \filler
 \vfill\eject
 
-\chaptertitle{Annotated Bibliography}
-\immediate\write 1{\string\_Xpage{\lastphysicalpage}{\the\pageno}}
-\immediate\write 1{\string\_Xtoc{1}{chap}{}{}{Annotated Bibliography}}
-{\bf Gödel, Escher, Bach Bibliography} \par\smallskip
-\input GEB/GEB_Bibliography.tex
+\bibliographysection{Bibliography}
+The presence of two asterisks indicates that the book or article was a prime
+motivator of my book. The presence of a single asterisk means that
+the book or article has some special feature or quirk which I want to single out.
+\par\bigskip
+
+{\bf Foundational Inspirations \& The Architecture of the Page} \par\smallskip
+
+\par\noindent\hangindent=2em {\bf Borges, Jorge Luis.} {\it Labyrinths.} \par
+\par\noindent\hangindent=2em {\bf Eco, Umberto.} {\it The Name of the Rose.} \par
+\par\noindent\hangindent=2em \llap{**\enspace}{\bf Hofstadter, Douglas R.} {\it Gödel, Escher, Bach: An Eternal Golden Braid.} \par
+\par\noindent\hangindent=2em \llap{**\enspace}{\bf Hofstadter, Douglas R.} {\it Metamagical Themas.} \par
+\par\noindent\hangindent=2em {\bf Joyce, James.} {\it Ulysses.} \par
+\par\noindent\hangindent=2em {\bf Knuth, Donald E.} {\it The TeXbook.} \par
+\par\noindent\hangindent=2em {\bf Schwendele, Robert August.} {\it Our Land.} \par
+
 \bigskip
-{\bf Metamagical Themas Bibliography} \par\smallskip
-\input MT/MT_Bibliography.tex
+{\bf Literature, Metafiction \& Labyrinths} \par\smallskip
+
+\par\noindent\hangindent=2em {\bf Atwood, Margaret.} {\it The Handmaid's Tale.} \par
+\par\noindent\hangindent=2em {\bf Byatt, A. S.} {\it Possession: A Romance.} \par
+\par\noindent\hangindent=2em {\bf Coe, Jonathan.} {\it What a Carve Up!} \par
+\par\noindent\hangindent=2em {\bf Fowles, John.} {\it The Magus.} \par
+\par\noindent\hangindent=2em {\bf Frayn, Michael.} {\it Sweet Dreams.} \par
+\par\noindent\hangindent=2em {\bf Le Guin, Ursula K.} {\it A Wizard of Earthsea.} \par
+\par\noindent\hangindent=2em {\bf Lodge, David.} {\it How Far Can You Go?} \par
+\par\noindent\hangindent=2em {\bf Mitchell, David.} {\it Cloud Atlas.} \par
+\par\noindent\hangindent=2em {\bf Nabokov, Vladimir.} {\it Pale Fire.} \par
+\par\noindent\hangindent=2em {\bf Perec, Georges.} {\it A Void.} \par
+\par\noindent\hangindent=2em {\bf Priest, Christopher.} {\it The Affirmation.} \par
+\par\noindent\hangindent=2em {\bf Pynchon, Thomas.} {\it Gravity's Rainbow.} \par
+\par\noindent\hangindent=2em {\bf Vonnegut, Kurt.} {\it Slaughterhouse-Five.} \par
+\par\noindent\hangindent=2em {\bf Wallace, David Foster.} {\it Infinite Jest.} \par
+\par\noindent\hangindent=2em {\bf Stephenson, Neal.} {\it Cryptonomicon.} \par
+\par\noindent\hangindent=2em {\bf Unknown.} {\it A City of Fire.} \par
+
+\bigskip
+{\bf Deep England, Psychogeography \& British Culture} \par\smallskip
+
+\par\noindent\hangindent=2em {\bf Amis, Kingsley.} {\it Lucky Jim.} \par
+\par\noindent\hangindent=2em {\bf Bond, Michael.} {\it A Bear Called Paddington.} \par
+\par\noindent\hangindent=2em {\bf Buckeridge, Anthony.} {\it Jennings' Little Hut.} \par
+\par\noindent\hangindent=2em {\bf Cooper, William.} {\it Scenes from Provincial Life.} \par
+\par\noindent\hangindent=2em {\bf David, Elizabeth.} {\it French Provincial Cooking.} \par
+\par\noindent\hangindent=2em {\bf Garner, Alan.} {\it Red Shift.} \par
+\par\noindent\hangindent=2em {\bf Gosse, Edmund.} {\it Father and Son.} \par
+\par\noindent\hangindent=2em {\bf Waterhouse, Keith.} {\it Billy Liar.} \par
+\par\noindent\hangindent=2em {\bf Waugh, Evelyn.} {\it A Handful of Dust.} \par
+\par\noindent\hangindent=2em {\bf Waugh, Evelyn.} {\it Sword of Honour.} \par
+
+\bigskip
+{\bf Science, Systems, and Sense-Making} \par\smallskip
+
+\par\noindent\hangindent=2em {\bf Asimov, Isaac.} {\it Extraterrestrial Civilizations.} \par
+\par\noindent\hangindent=2em {\bf Clarke, Arthur C.} {\it Rendezvous with Rama.} \par
+\par\noindent\hangindent=2em {\bf Dixon, Dougal.} {\it After Man: A Zoology of the Future.} \par
+\par\noindent\hangindent=2em {\bf Fowler, Karen Joy.} {\it Sarah Canary.} \par
+\par\noindent\hangindent=2em {\bf Gardner, Martin.} {\it Science: Good, Bad and Bogus.} \par
+\par\noindent\hangindent=2em {\bf Gibson, William.} {\it Pattern Recognition.} \par
+\par\noindent\hangindent=2em {\bf Gribbin, John.} {\it In Search of Schrödinger's Cat.} \par
+\par\noindent\hangindent=2em {\bf Lunan, Duncan.} {\it New Worlds for Old.} \par
+\par\noindent\hangindent=2em {\bf Lyall, Gavin and Bernard.} {\it Operation Warboard.} \par
+\par\noindent\hangindent=2em {\bf Narayan, R. \& R. Nityananda.} {\it Maximum Entropy Image Restoration in Astronomy.} \par
+\par\noindent\hangindent=2em {\bf Pournelle, Jerry.} {\it A Step Further Out.} \par
+\par\noindent\hangindent=2em {\bf Stross, Charles.} {\it Accelerando.} \par
+\par\noindent\hangindent=2em {\bf Vinge, Vernor.} {\it Marooned in Realtime.} \par
+
+\bigskip
+{\bf The Physics of Chronology and Time Travel} \par\smallskip
+
+\par\noindent\hangindent=2em {\bf Gott, J. Richard.} {\it Time Travel in Einstein's Universe.} \par
+\par\noindent\hangindent=2em {\bf Masson, David I.} {\it The Caltraps of Time.} \par
+\par\noindent\hangindent=2em {\bf Nahin, Paul J.} {\it Time Machines: Time Travel in Physics, Metaphysics, and Science Fiction.} \par
+\par\noindent\hangindent=2em {\bf Thorne, Kip S.} {\it Black Holes \& Time Warps: Einstein's Outrageous Legacy.} \par
+
+\bigskip
+{\bf Alternate Histories and the Multiverse} \par\smallskip
+
+\par\noindent\hangindent=2em {\bf Dick, Philip K.} {\it The Man in the High Castle.} \par
+\par\noindent\hangindent=2em {\bf Moore, Ward.} {\it Bring the Jubilee.} \par
+\par\noindent\hangindent=2em {\bf Roberts, Keith.} {\it Pavane.} \par
+\par\noindent\hangindent=2em {\bf Wells, H. G.} {\it The Time Machine.} \par
+
+\bigskip
+{\bf Espionage, Power \& Conflict} \par\smallskip
+
+\par\noindent\hangindent=2em {\bf Deighton, Len.} {\it The IPCRESS File.} \par
+\par\noindent\hangindent=2em {\bf Fleming, Ian.} {\it From Russia, with Love.} \par
+\par\noindent\hangindent=2em {\bf Shakespeare, William.} {\it Julius Caesar.} \par
+
+\bigskip
+{\bf Encyclopedias, References \& Bounded Systems} \par\smallskip
+
+\par\noindent\hangindent=2em {\bf Clute, John and John Grant.} {\it The Encyclopedia of Fantasy.} \par
+\par\noindent\hangindent=2em {\bf Eco, Umberto.} {\it The Infinity of Lists.} \par
+\par\noindent\hangindent=2em {\bf Featherstone, Donald F.} {\it Battles with Model Soldiers.} \par
+\par\noindent\hangindent=2em {\bf Kyle, David A.} {\it The Illustrated Book of Science Fiction Ideas and Dreams.} \par
+\par\noindent\hangindent=2em {\bf Nicholls, Peter and John Clute.} {\it The Encyclopedia of Science Fiction.} \par
+\par\noindent\hangindent=2em {\bf Raphael, Frederic and Kenneth McLeish.} {\it The List of Books.} \par
+\par\noindent\hangindent=2em {\bf Sandifer, Elizabeth.} {\it TARDIS Eruditorium.} \par
+\par\noindent\hangindent=2em {\bf Wood, Tat and Lawrence Miles.} {\it About Time.} \par
+
+\bigskip
+{\bf Additional Queued / Fictional Interloper Texts} \par\smallskip
+
+\par\noindent\hangindent=2em {\bf Amis, Martin.} {\it Money.} \par
+\par\noindent\hangindent=2em {\bf Barnes, Julian.} {\it A History of the World in 10½ Chapters.} \par
+\par\noindent\hangindent=2em {\bf Brunner, John.} {\it Stand on Zanzibar.} \par
+\par\noindent\hangindent=2em {\bf Dos Passos, John.} {\it U.S.A.} \par
+\par\noindent\hangindent=2em {\bf Egan, Greg.} {\it Permutation City.} \par
+\par\noindent\hangindent=2em {\bf Heriot-Shaw, Zoe Elizabeth.} {\it The Mechanics of Duration (or Clocks and the Curvature of Reality).} \par
+\par\noindent\hangindent=2em {\bf Richards, Frank.} {\it Billy Bunter and the Greyfriars Pretender.} \par
+\par\noindent\hangindent=2em {\bf Stapledon, Olaf.} {\it Last and First Men.} \par
+\par\noindent\hangindent=2em {\bf Stapledon, Olaf.} {\it Star Maker.} \par
+\par\noindent\hangindent=2em {\bf Unknown.} {\it Wisden Cricketers' Almanack 1977.} \par
 
 \bye
