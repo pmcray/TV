@@ -74,7 +74,7 @@
 
 \def\getpagenum{%
    \ifnum\pageno=41 George%
-   \else\ifnum\pageno=462 Michael%
+   \else\ifnum\pageno=464 Michael%
    \else\the\pageno\fi\fi
 }
 
@@ -91,9 +91,9 @@
             \fi
          \else
             \ifodd\pageno 
-               {\bf \currdaynum.\quad \currdaytitle} \hfil \getpagenum 
+               {\bf \currdaynum\quad \currdaytitle} \hfil \getpagenum 
             \else
-               \getpagenum \hfil {\bf PART \the\partnum.\quad \currparttitle}
+               \getpagenum \hfil {\bf PART \the\partnum\quad \currparttitle}
             \fi
          \fi
       \fi
@@ -149,7 +149,7 @@
    \null\vskip 12mm
    % Header and Rule - Explicitly left justified
    {\parindent=0pt \leftskip=0pt \rightskip=0pt \hsize=116mm
-    \noindent {\serifboldlarge PART \the\partnum.\quad #1} \par 
+    \noindent {\serifboldlarge PART \the\partnum\quad #1} \par 
     \vskip 2mm \hrule height 0.4pt \vskip 15mm}
    \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\getpagenum}}%
    \immediate\write 1{\string\_Xtoc{1}{chap}{\the\partnum}{}{#1}}%
@@ -191,14 +191,14 @@
    \xdef\currdaynum{#4}%
    \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\getpagenum}}%
    \immediate\write 1{\string\_Xtoc{2}{sec}{\currdaynum}{}{#3}}%
-   \_printsec{\currdaynum.\quad #3}%
+   \_printsec{\currdaynum\quad #3}%
 }
 
 \def\appendixsection #1#2{%
-   \xdef\currdaytitle{Appendix #1.\quad #2}%
+   \xdef\currdaytitle{Appendix #1\quad #2}%
    \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\the\pageno}}%
    \immediate\write 1{\string\_Xtoc{1}{chap}{#1}{}{#2}}%
-   \_printsec{Appendix #1.\quad #2}%
+   \_printsec{Appendix #1\quad #2}%
 }
 
 \def\bibliographysection #1{%
