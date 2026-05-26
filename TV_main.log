@@ -1,6 +1,6 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=optex 2025.12.3)  29 APR 2026 19:54
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=optex 2025.12.3)  19 MAY 2026 23:20
  restricted system commands enabled.
-**TV_main.tex
+**TV_main
 (./TV_main.tex This is OpTeX (Olsak's Plain TeX), version <1.18 May 2025>
 (./TV_main.ref)
 \openout1 = TV_main.ref
@@ -117,9 +117,9 @@ gb.tex)
 \pageshift=\count316
 \partnum=\count317
  (./TV_front_matter.tex [1] [-1{/usr/local/texlive/2025/texmf-var/fonts/map/pdft
-ex/updmap/pdftex.map}] [-2] [-3] [-4] [-5<./atomic_razor.pdf>] [-6])
-[-7] [-8] [-9] [-10] [-11] [-12] [-13] [-14] [-15] [-16] [-17] [-18] [-19]
-[-20] (./TV_january.tex [1]
+ex/updmap/pdftex.map}] [-2] [-3] [-4<./joyce_symbol.pdf>] [-5<./atomic_razor.pdf
+>] [-6]) [-7] [-8] [-9] [-10] [-11] [-12] [-13] [-14] [-15] [-16]
+[-17] [-18] [-19] [-20] [-21] [-22] [-23] (./TV_january.tex [1]
 WARNING l.4: {} \cite [GEB_Allen_1] unknown. Try to TeX me again.
 WARNING l.5: {} \cite [MT_Axelrod_3] unknown. Try to TeX me again.
 [2] [3] [4] [5]
@@ -584,7 +584,7 @@ Underfull \hbox (badness 2111) in paragraph at lines 1--1
 \mp:inst:post:mp:1=\toks320
 \mp:inst:post:tex:1=\toks321
 ┌ opening metapost instance {:metapost:} (1)
-│ This is MetaPost, Version 2.11  29 APR 2026 19:54 (/usr/local/texlive/2025/t
+│ This is MetaPost, Version 2.11  19 MAY 2026 23:20 (/usr/local/texlive/2025/t
 exmf-dist/metapost/base/plain.mp
 │ Preloading the plain mem file, version 1.005)
 │ (/usr/local/texlive/2025/texmf-dist/metapost/minim-mp/minim.mp
@@ -602,7 +602,7 @@ exmf-dist/metapost/base/plain.mp
 \mp:inst:post:mp:2=\toks324
 \mp:inst:post:tex:2=\toks325
 ┌ opening metapost instance {:metapost:} (2)
-│ This is MetaPost, Version 2.11  29 APR 2026 19:54 (/usr/local/texlive/2025/t
+│ This is MetaPost, Version 2.11  19 MAY 2026 23:20 (/usr/local/texlive/2025/t
 exmf-dist/metapost/base/plain.mp
 │ Preloading the plain mem file, version 1.005)
 │ (/usr/local/texlive/2025/texmf-dist/metapost/minim-mp/minim.mp
@@ -632,10 +632,10 @@ mf-dist/fonts/opentype/public/ebgaramond/EBGaramond-Italic.otf></usr/local/texli
 ve/2025/texmf-dist/fonts/opentype/public/ebgaramond/EBGaramond-Bold.otf></usr/lo
 cal/texlive/2025/texmf-dist/fonts/opentype/public/ebgaramond/EBGaramond-Regular.
 otf>
-Output written on TV_main.pdf (783 pages, 940699 bytes).
+Output written on TV_main.pdf (786 pages, 960352 bytes).
 
-PDF statistics: 2502 PDF objects out of 2984 (max. 8388607)
- 1681 compressed objects within 17 object streams
+PDF statistics: 2514 PDF objects out of 2984 (max. 8388607)
+ 1687 compressed objects within 17 object streams
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

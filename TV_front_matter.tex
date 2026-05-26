@@ -13,7 +13,7 @@ He lives with his wife in Seattle, Washington.
 {\twelvesl THE VISIBILITIES} is his magnum opus, a recursive exploration of the seen and unseen.
 \stopcentered 
 
-\blankpage % Physical Page 3: Recto (Page ii) - EXACTLY ONE BLANK PAGE AFTER BIO
+\blankpage % Physical Page 3: Recto (Page ii) - BLANK PAGE BEFORE HALF TITLE
 
 % --- Half Title ---
 % Physical Page 4: Verso (Page iii)
@@ -22,8 +22,31 @@ He lives with his wife in Seattle, Washington.
 {\serifbold THE VISIBILITIES}
 \stopcentered 
 
-% --- Copyright Page ---
+% --- Homage to James Joyce ---
 % Physical Page 5: Recto (Page iv)
+\startcentered
+\frontmattergap
+\centerline{\hbox{\inspic{joyce_symbol.pdf}}}
+\stopcentered
+
+% --- Full Title Page ---
+% Physical Page 6: Verso (Page v)
+\startcentered
+\frontmattergap
+{\serifboldhuge THE VISIBILITIES\par}
+\vskip 4mm
+{\serifboldlarge A Fantasy of Love and Discord\par}
+\titlegap
+{\serifboldlarge PAUL M.~CRAY\par}
+\vfill
+\centerline{\hbox{\inspic{atomic_razor.pdf}}}
+\vskip 10mm
+{\bf ATOMIC RAZOR PRESS\par}
+{\bf SEATTLE AND PRESTON\par}
+\stopcentered
+
+% --- Copyright Page ---
+% Physical Page 7: Recto (Page vi)
 \startcentered
 \twelverm
 PUBLISHED BY ATOMIC RAZOR PRESS
@@ -43,22 +66,4 @@ First published in the United States in 2026 by
 Atomic Razor Press
 \copyrightgap
 Typeset with \OpTeX\ by Atomic Razor Press
-\stopcentered 
-
-% --- Full Title Page ---
-% Physical Page 6: Verso (Page v)
-\startcentered
-\frontmattergap
-{\serifboldhuge THE VISIBILITIES\par}
-\vskip 4mm
-{\serifboldlarge A Fantasy of Love and Discord\par}
-\titlegap
-{\serifboldlarge PAUL M.~CRAY\par}
-\vfill
-\centerline{\hbox{\inspic{atomic_razor.pdf}}}
-\vskip 10mm
-{\bf ATOMIC RAZOR PRESS\par}
-{\bf SEATTLE AND PRESTON\par}
-\par\endgroup\eject 
-
-\blankpage % Physical Page 7: Recto (Page vi) - BLANK PAGE AFTER MAIN TITLE
+\stopcentered
