@@ -93,7 +93,7 @@
             \ifodd\pageno 
                {\bf \currdaynum\quad \currdaytitle} \hfil \getpagenum 
             \else
-               \getpagenum \hfil {\bf PART \the\partnum\quad \currparttitle}
+               \getpagenum \hfil {\bf \partitionword{\the\partnum}: \currparttitle}
             \fi
          \fi
       \fi
@@ -149,10 +149,12 @@
    \null\vskip 12mm
    % Header and Rule - Explicitly left justified
    {\parindent=0pt \leftskip=0pt \rightskip=0pt \hsize=116mm
-    \noindent {\serifboldlarge PART \the\partnum\quad #1} \par 
+    \noindent {\serifboldlarge \partitionword{\the\partnum}:} \par 
+    \vskip 1.5mm
+    \noindent {\serifboldlarge #1} \par 
     \vskip 2mm \hrule height 0.4pt \vskip 15mm}
    \immediate\write 1{\string\_Xpage{\lastphysicalpage}{\getpagenum}}%
-   \immediate\write 1{\string\_Xtoc{1}{chap}{\the\partnum}{}{#1}}%
+   \immediate\write 1{\string\_Xtoc{1}{chap}{\partitionword{\the\partnum}}{}{#1}}%
 }
 \def\_printsec#1{%
    \vfill\eject
@@ -252,14 +254,35 @@
    \ifodd\pageno \errmessage{Dialogue exceeded one page on \currmonth\space Day \currdaytitle!} \fi
 }
 
+\def\partitionword#1{%
+   \ifcase#1\or
+   The First Partition\or
+   The Second Partition\or
+   The Third Partition\or
+   The Fourth Partition\or
+   The Fifth Partition\or
+   The Sixth Partition\or
+   The Seventh Partition\or
+   The Eighth Partition\or
+   The Ninth Partition\or
+   The Tenth Partition\or
+   The Eleventh Partition\or
+   The Twelfth Partition\else
+   Partition #1\fi
+}
+
+\_sdef{_tocl:1}#1#2#3{%
+   \_nofirst\_bigskip
+   \_noindent {\_bf \_ilink[toc:\_the\_tocrefnum]{\ifx\empty#1\empty\else#1:\ \fi#2}}%
+   \_nobreak\_hfill \_pgn{#3}\_tocpar
+}
+
 % --- Document Content ---
 \begingroup
   \headline={} 
   \footline={}
   \input TV_front_matter.tex
 
-% Physical Page 8 is next (Verso) - Blank.
-\blankpage
 
 % Physical Page 9 is next (Recto) - Dedication.
 \startcentered
