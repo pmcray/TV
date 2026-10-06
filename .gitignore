@@ -1,0 +1,10 @@
+.antigravitycli/
+__pycache__/
+*.pyc
+test.*
+test_*
+pdf.log
+*.mpx
+*.mps
+*.1
+*-mps.pdf

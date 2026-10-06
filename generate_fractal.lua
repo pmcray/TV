@@ -1,0 +1,247 @@
+-- generate_fractal.lua
+-- Lua script to generate MetaPost code for Heptabrot and Octabrot sets
+-- Uses optimized complex arithmetic and Run-Length Encoding (RLE) for fast MP compile.
+
+local args = arg or {...}
+local params = {
+   power = 7,
+   cx = 0.0,
+   cy = 0.0,
+   width = 2.4,
+   res = 300,
+   iter = 100,
+   scale = 1.0,
+   out = "fractal.mp",
+   mode = "smooth",
+   density = 0.2
+}
+
+local function print_help()
+   print("Usage: texlua generate_fractal.lua [options]")
+   print("Options:")
+   print("  -p, --power NUM    Power of the multibrot (7 = Heptabrot, 8 = Octabrot). Default: 7")
+   print("  -c, --center R,I   Center coordinate (real,imag). Default: 0,0")
+   print("  -w, --width NUM    Width of viewport in complex plane. Default: 2.4")
+   print("  -r, --res NUM      Resolution (pixels along x-axis). Default: 300")
+   print("  -i, --iter NUM     Maximum iteration count. Default: 100")
+   print("  -s, --scale NUM    MetaPost pixel size in points (bp). Default: 1.0")
+   print("  -o, --out FILE     Output filename for MetaPost file. Default: fractal.mp")
+   print("  -m, --mode MODE    Color mode ('smooth', 'binary', 'linear'). Default: smooth")
+   print("  -d, --density NUM  Density of the color wave bands. Default: 0.2")
+   os.exit(0)
+end
+
+-- Parse command line arguments
+local idx = 1
+while idx <= #args do
+   local arg = args[idx]
+   if arg == "-p" or arg == "--power" then
+      params.power = tonumber(args[idx+1])
+      idx = idx + 2
+   elseif arg == "-c" or arg == "--center" then
+      local coord_str = args[idx+1]
+      if not coord_str then
+         print("Error: --center requires a value (e.g. 0,0)")
+         os.exit(1)
+      end
+      local parts = {}
+      for val in string.gmatch(coord_str, "[^,]+") do
+         table.insert(parts, tonumber(val))
+      end
+      params.cx = parts[1] or 0.0
+      params.cy = parts[2] or 0.0
+      idx = idx + 2
+   elseif arg == "-w" or arg == "--width" then
+      params.width = tonumber(args[idx+1])
+      idx = idx + 2
+   elseif arg == "-r" or arg == "--res" then
+      params.res = tonumber(args[idx+1])
+      idx = idx + 2
+   elseif arg == "-i" or arg == "--iter" then
+      params.iter = tonumber(args[idx+1])
+      idx = idx + 2
+   elseif arg == "-s" or arg == "--scale" then
+      params.scale = tonumber(args[idx+1])
+      idx = idx + 2
+   elseif arg == "-o" or arg == "--out" then
+      params.out = args[idx+1]
+      idx = idx + 2
+   elseif arg == "-m" or arg == "--mode" then
+      params.mode = args[idx+1]
+      idx = idx + 2
+   elseif arg == "-d" or arg == "--density" then
+      params.density = tonumber(args[idx+1])
+      idx = idx + 2
+   elseif arg == "-h" or arg == "--help" then
+      print_help()
+   else
+      print("Unknown argument: " .. arg)
+      print_help()
+   end
+end
+
+-- Validate params
+if not params.power or params.power < 2 then
+   print("Error: Power must be an integer >= 2")
+   os.exit(1)
+end
+
+local power = params.power
+local res = params.res
+local max_iter = params.iter
+local mode = params.mode
+local density = params.density
+
+-- Calculate viewport parameters
+local step = params.width / res
+local min_cr = params.cx - (params.width / 2)
+local min_ci = params.cy - (params.width / 2)
+
+-- Multibrot iteration function
+local function get_escape(cr, ci)
+   local zx, zy = 0.0, 0.0
+   local iter = 0
+   local r2 = 0.0
+   
+   -- Specialized fast paths for 7 and 8 to avoid slow trig calls in loops
+   if power == 7 then
+      while iter < max_iter do
+         r2 = zx*zx + zy*zy
+         if r2 > 4.0 then break end
+         
+         local x2 = zx*zx - zy*zy
+         local y2 = 2.0*zx*zy
+         local x4 = x2*x2 - y2*y2
+         local y4 = 2.0*x2*y2
+         local x6 = x4*x2 - y4*y2
+         local y6 = x4*y2 + x2*y4
+         
+         local nx = x6*zx - y6*zy + cr
+         local ny = x6*zy + y6*zx + ci
+         zx = nx
+         zy = ny
+         iter = iter + 1
+      end
+   elseif power == 8 then
+      while iter < max_iter do
+         r2 = zx*zx + zy*zy
+         if r2 > 4.0 then break end
+         
+         local x2 = zx*zx - zy*zy
+         local y2 = 2.0*zx*zy
+         local x4 = x2*x2 - y2*y2
+         local y4 = 2.0*x2*y2
+         
+         local nx = x4*x4 - y4*y4 + cr
+         local ny = 2.0*x4*y4 + ci
+         zx = nx
+         zy = ny
+         iter = iter + 1
+      end
+   else
+      -- General power d using polar representation
+      while iter < max_iter do
+         r2 = zx*zx + zy*zy
+         if r2 > 4.0 then break end
+         
+         local r = math.sqrt(r2)
+         local theta = math.atan2(zy, zx)
+         local rd = r^power
+         local td = power * theta
+         
+         zx = rd * math.cos(td) + cr
+         zy = rd * math.sin(td) + ci
+         iter = iter + 1
+      end
+   end
+   
+   return iter, r2
+end
+
+-- Open output file
+local f, err = io.open(params.out, "w")
+if not f then
+   print("Error opening file for writing: " .. tostring(err))
+   os.exit(1)
+end
+
+-- Write MetaPost header
+f:write("% Generated by generate_fractal.lua\n")
+f:write("outputtemplate := \"%j.mps\";\n\n")
+f:write("beginfig(1);\n")
+f:write(string.format("  numeric sz; sz := %f;\n", params.scale))
+f:write("  path unitsquare;\n")
+f:write("  unitsquare = (0,0)--(1,0)--(1,1)--(0,1)--cycle;\n")
+f:write("  def r(expr x, y, w, g) =\n")
+f:write("    fill unitsquare xscaled w shifted (x, y) scaled sz withcolor (g, g, g);\n")
+f:write("  enddef;\n\n")
+
+local rle_lines = 0
+
+-- Compute fractal grid and write output using horizontal run-length encoding
+for row = 0, res - 1 do
+   local ci = min_ci + row * step
+   local current_run_length = 0
+   local current_color = nil
+   local run_start_x = 0
+   
+   for col = 0, res - 1 do
+      local cr = min_cr + col * step
+      local iter, r2 = get_escape(cr, ci)
+      
+      -- Calculate grayscale value
+      local g = 0.0
+      if iter < max_iter then
+         if mode == "binary" then
+            g = 1.0
+         elseif mode == "linear" then
+            g = 1.0 - (iter / max_iter)
+         else -- smooth
+            -- Smooth coloring formula
+            local nsmooth = iter + 1.0 - math.log(0.5 * math.log(r2)) / math.log(power)
+            g = 0.5 + 0.5 * math.cos(density * nsmooth)
+         end
+         -- Clamp value to [0, 1]
+         g = math.max(0.0, math.min(1.0, g))
+      else
+         -- Inside the set is always black
+         g = 0.0
+      end
+      
+      -- Discretize to 3 decimal places to group close values
+      g = math.floor(g * 1000 + 0.5) / 1000
+      
+      if current_color == nil then
+         current_color = g
+         run_start_x = col
+         current_run_length = 1
+      elseif g == current_color then
+         current_run_length = current_run_length + 1
+      else
+         -- Output completed run
+         f:write(string.format("  r(%d, %d, %d, %s);\n", run_start_x, row, current_run_length, tostring(current_color)))
+         rle_lines = rle_lines + 1
+         
+         -- Start new run
+         current_color = g
+         run_start_x = col
+         current_run_length = 1
+      end
+   end
+   
+   -- Output final run of the row
+   if current_run_length > 0 then
+      f:write(string.format("  r(%d, %d, %d, %s);\n", run_start_x, row, current_run_length, tostring(current_color)))
+      rle_lines = rle_lines + 1
+   end
+end
+
+-- Write MetaPost footer
+f:write("\nendfig;\nend\n")
+f:close()
+
+print(string.format("Success! Fractal MetaPost code written to '%s'.", params.out))
+print(string.format("  Type: %s (power %d)", power == 7 and "Heptabrot" or (power == 8 and "Octabrot" or "Multibrot"), power))
+print(string.format("  Viewport center: (%f, %f), width: %f", params.cx, params.cy, params.width))
+print(string.format("  Resolution: %d x %d, Color mode: %s", res, res, mode))
+print(string.format("  RLE compression: %d draw operations (compared to %d pixels, %.1f%% reduction)", rle_lines, res * res, (1.0 - rle_lines / (res * res)) * 100))

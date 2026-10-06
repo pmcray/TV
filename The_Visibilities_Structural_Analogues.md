@@ -1,0 +1,89 @@
+# Thirty Structural Analogues for *The Visibilities*
+
+### An annotated shelf of novels sharing TV's kind of architectural constraint
+
+> *Companion to [The_Visibilities_Reading_Skein.md](./The_Visibilities_Reading_Skein.md), which maps the book's* content *bibliography. This one maps its* chassis *— books that don't just tell a story but engineer a physical or combinatorial system for the story to run inside, the way TV runs inside a 366-section leap-year almanac with a deliberate crater at June 31st.*
+
+Not included, because you've already logged them: B.S. Johnson's *The Unfortunates* (the box of unbound sections), Geoff Ryman's *253* (the fixed 253×253 grid), Lawrence Miles's *This Town Will Never Let Us Go* (already scaffolding, §V of the project brief), and Perec's *Life: A User's Manual* (the knight's-tour apartment block). Also skipped as already-claimed lineage: *Gravity's Rainbow*, *The Anatomy of Melancholy*, and Crowley's *Little, Big* (already in your bibliographical scaffolding, already glossed via Adam Roberts's Substack).
+
+Grouped into nine strands, each keyed to a specific piece of TV's own architecture.
+
+---
+
+## I. The Shuffled Book
+### *for the almanac's claim that reading order is itself a structural choice*
+
+1. **Marc Saporta — *Composition No. 1* (1962).** The ur-text of the loose-page novel: 150 unbound, unnumbered leaves in a box, shuffled before each reading. Predates *The Unfortunates* by four years and is more radical — Johnson at least fixes a first and last section; Saporta fixes nothing. Worth reading precisely *because* it's the limit case your own June 31st defect refuses to go all the way to — TV keeps its 366 slots fixed and empties exactly one, rather than randomising the whole grid.
+2. **Julio Cortázar — *Hopscotch* / *Rayuela* (1963).** Two official reading orders: straight through chapters 1–56, or a "Table of Instructions" hopscotch sequence that loops back through the "expendable" chapters. The Table of Instructions is itself a second table of contents laid over the first — a direct precedent for a Table of Contents that lists a section (6.31) the main text block omits.
+3. **Julio Cortázar — *62: A Model Kit* (1968).** Cortázar's own sequel-in-spirit to a single throwaway chapter (62) of *Hopscotch*, expanded into a "model kit" of interchangeable narrative pieces explicitly offered for the reader to assemble. Less famous than *Hopscotch*, more useful as a study in how much narrative can survive total modularity.
+
+## II. The Encyclopedic Apparatus
+### *for the index, the appendices, the Master Ledger as narrative organ*
+
+4. **Vladimir Nabokov — *Pale Fire* (1962).** A 999-line poem plus a deranged commentator's index and line-notes that gradually become the real novel. The apparatus *is* the plot. Closest existing model for any TV section where the footnote or cross-reference layer starts to out-narrate the main text.
+5. **Milorad Pavić — *Dictionary of the Khazars* (1984).** A novel in the form of a lexicon, split into three cross-contradicting books (Christian/Red, Islamic/Green, Jewish/Yellow) about the same vanished event, explicitly built for non-sequential entry-hopping. It also exists in "male" and "female" editions differing by a single paragraph — a published precedent for a text that forks on one deliberately tiny variant, which is more or less what your Left/Right page superposition does at chapter scale.
+6. **Alasdair Gray — *Lanark: A Life in Four Books* (1981).** Published out of numerical order — Book Three, then One, then Two, then Four — with a prologue *inside* Book Three and an "Index of Plagiarisms" as epilogue that annotates the novel's own sources. The clearest precedent for a book whose apparatus (index, bibliography) sits inside the fiction rather than outside it, which is exactly what your Key Bibliographical Scaffolding is doing to *The Visibilities* itself.
+7. **Flann O'Brien — *The Third Policeman* (written 1939–40, published 1967).** A main narrative running above a second, increasingly deranged scholarly narrative — the footnotes on the mad savant de Selby — that eventually swallows entire pages. The two-track page (story above, apparatus below, both escalating) is a direct ancestor of a Left-page/Right-page spread held in cognitive tension.
+8. **Ursula K. Le Guin — *Always Coming Home* (1985).** A future-anthropological "novel" assembled as ethnography: songs, glossary, appendices on the Kesh people's language and cosmology, with the narrative strand only one thread among many documentary genres. The model for how an almanac of forms (not just of days) can still cohere as a novel.
+
+## III. The Grid and the Building
+### *for the Non-Euclidean Page and the physical geometry of the book-object*
+
+9. **Mark Z. Danielewski — *House of Leaves* (2000).** A house that is larger inside than outside, rendered typographically — text that shrinks, spirals, runs backward, or empties into blank pages as the characters get lost in the house's impossible geometry. The most direct working example in print of "the page as a geometric manifold" enforcing spatial constraint on the reader's body, not just the character's.
+10. **Mark Z. Danielewski — *Only Revolutions* (2006).** Two narrators, Sam and Hailey, each get one end of the physical book; you read one to the middle, flip the whole object over and upside-down, and read the other back to the same midpoint, with a synchronized historical timeline running down the margin of every page. About as literal a "Double-Page Superposition" as exists — except Danielewski does it across the whole spine rather than across a single spread.
+11. **Doug Dorst & J. J. Abrams — *S.* (2013).** A found library book (a novel called *Ship of Theseus* by a fictitious "V. M. Straka") annotated in the margins, in different-coloured inks, by two readers across several re-readings — with loose physical ephemera (postcards, letters, a napkin map) tucked between the pages. Closest contemporary precedent for a book whose apparatus is physically superposed on its own fiction rather than typeset alongside it.
+
+## IV. The Superposed Page
+### *for the Left/Right, Seen/Unseen contract specifically*
+
+12. **B. S. Johnson — *House Mother Normal* (1971).** Nine elderly narrators at a geriatric-home dinner, each given an identical chapter of the same page-length, so that page 24 of every chapter renders the *same instant* from nine incompatible interior states — you can read straight down the page-numbers as a cross-section, or straight through a single narrator. This is arguably the single closest existing precedent for the Double-Page Superposition principle, because the constraint isn't spatial (a house, a grid) but temporal-simultaneous.
+13. **Georges Perec — *W, or the Memory of Childhood* (1975).** Alternates, chapter by chapter, between a fragmentary childhood autobiography and a dystopian sports-island fiction, the two strands never touching directly but rhyming ever more horribly as the book goes on. A second Perec precedent (beyond *Life: A User's Manual*) for exactly the Seen/Unseen alternation your Partition structure runs.
+14. **David Foster Wallace — *Infinite Jest* (1996).** 388 endnotes, some pages long, that constitute a whole second narrative track running beneath the main text — and a chronology (the "Year of the Depend Adult Undergarment" calendar-naming, the novel's events resequenced achronologically) that critics have mapped as a Sierpinski-gasket fractal, the plot repeating its own shape at shrinking scale. Directly relevant to both the footnote-apparatus-as-second-narrative idea and to your own "Blogofractal" — the claim that the small-scale detail contains the whole book's blueprint.
+
+## V. Alphabet, Number, Tense
+### *for the Oulipian, rule-first constraint — the discipline behind the TeX-typeset "unyielding rules"*
+
+15. **Walter Abish — *Alphabetical Africa* (1974).** Chapter 1 uses only words starting with A; chapter 2 admits A and B; by chapter 26 the whole alphabet is available — then the book contracts back down to A again by chapter 52. A pure demonstration of a hard, escalating-then-reversing formal cage, the same shape (build outward, then symmetrically retract) as your ternary logic's three-valued oscillation.
+16. **Anne Garréta — *Not One Day* (2002; tr. Emma Ramadan).** Each day's chapter — about a different woman the narrator has desired or been desired by — is written only after the day's *subject* has been chosen by drawing lots from a jar, a randomising procedure baked into the compositional method itself, not just the reading order. A rare case of chance-procedure applied to *writing* rather than *reading*, worth sitting next to the Vacancy Defect as another way of letting procedure, not plot logic, decide what a day contains.
+17. **Raymond Queneau — *Cent mille milliards de poèmes / A Hundred Thousand Billion Sonnets* (1961).** Ten sonnets printed on strips that can be recombined line-by-line into 10¹⁴ distinct (metrically and rhyme-valid) poems. Not a novel, but the foundational Oulipo combinatorial-machine object — the ancestor of treating a text block as a matrix to be permuted rather than a sequence to be read once.
+18. **Jacques Roubaud — *The Great Fire of London* (1989; tr. Dominic Di Bernardi).** A "project" built explicitly out of "branches," "bifurcations," and "insertions" that Roubaud narrates the compositional rules for as he goes — prose that keeps interrupting itself to describe its own scaffolding. The most self-conscious book on this list about exposing its own load-bearing structure mid-narrative, which is close kin to your interstitial "the map is not the territory" refrain.
+
+## VI. The Almanac and the Calendar
+### *for the macro-structure closest to TV's own — the 366-grid itself*
+
+19. **John Barth — *LETTERS* (1979).** Seven correspondents (including "the author" and five characters recycled from Barth's earlier novels) exchange dated letters across a calendar year; plotted onto a grid, the initial letters of the dated entries spell out the book's own subtitle, and the marked dates spell "LETTERS." A rare case of a novel's calendar *literally encoding text*, the closest analogue to running numerological or acrostic constraint through a year-structure the way your almanac runs the twelve-strand contract through twelve months.
+20. **Italo Calvino — *Invisible Cities* (1972; tr. William Weaver).** Marco Polo describes fifty-five invented cities to Kublai Khan, sorted into eleven thematic categories (Cities & Memory, Cities & Desire, Cities & Signs, etc.) deployed in a precise interleaving numerical pattern across nine chapters — a bounded combinatorial system standing in for an infinite empire. The title alone makes the kinship to *The Visibilities* obvious; read for the numerical interleaving as much as the prose.
+21. **Italo Calvino — *If on a winter's night a traveler* (1979; tr. William Weaver).** Ten different novels-in-embryo, each broken off at its most suspenseful point and replaced by the next, framed by a second-person narrative about "you," the reader, trying to read this very book. A structural cousin of the Vacancy Defect: a book built as much from its interruptions as its content.
+
+## VII. Esoteric Rule-Systems as Cosmology
+### *for treating a game's rulebook as a legitimate branch of physics*
+
+22. **Robert Coover — *The Universal Baseball Association, Inc., J. Henry Waugh, Prop.* (1968).** A lonely accountant runs an entire fictional baseball league by dice-table alone — until the dice-generated "history" of the league becomes realer to him, and to the reader, than his actual life. The clearest existing precedent for treating a rule-bound tabletop system (your *Ars Magica*/*Luther Arkwright* register) as a genuine ontological engine rather than a hobby the narrative merely depicts.
+23. **John Barth — *Giles Goat-Boy* (1966).** An entire campus-as-cosmos allegory run by WESCAC, a Cold War supercomputer god-figure whose tape-driven logic structures the whole plot — direct kin to your Obsolete Computing strand (Sinclair BASIC, DEC VMS, Setun) standing in for cosmic law.
+24. **Umberto Eco — *Foucault's Pendulum* (1988; tr. William Weaver).** Three bored editors feed occult conspiracy theories into a computer they nickname Abulafia until the combinatorial "Plan" they generate for fun starts getting people killed; the book's ten sections are named for the ten Sefirot of the Kabbalistic Tree of Life. A cautionary, self-aware companion to your own esoteric-systems-as-physics strand — Eco's characters make exactly the category error TV is diagnosing rather than endorsing.
+
+## VIII. The Defect, the Void, the Broken Page
+### *for June 31st itself — the typographic crater listed but not printed*
+
+25. **B. S. Johnson — *Albert Angelo* (1964).** Contains a physical die-cut hole through several pages, so a line of text on a later page is visible, out of context, through the hole in an earlier one — a literal typographic wound in the book-object, years before Johnson's better-known *Unfortunates*.
+26. **Iain M. Banks — *Feersum Endjinn* (1994).** One of four rotating narrators, the boy Bascule, is rendered entirely in phonetic, dyslexic-eye spelling ("A dyslexic's Sinclair BASIC," more or less) while the other three narrators run in standard prose — a hard orthographic defect built into a quarter of the book, load-bearing rather than decorative, much as your typographical friction rules are meant to be felt rather than merely followed.
+27. **Tom Phillips — *A Humument* (begun 1966, continually revised through many editions).** Phillips took a forgotten Victorian novel (W. H. Mallock's *A Human Document*) and painted over every page, leaving only fragments of the original text visible as a new, recursive narrative threaded through the old one's corpse — a treated book that is quite literally the map drawn directly onto an earlier, buried territory.
+28. **Steven Hall — *The Raw Shark Texts* (2007).** A conceptual predator made of language hunts the amnesiac narrator; midway through, a wordless flip-book sequence built entirely from typographic marks renders a shark swimming toward the reader across dozens of pages. The clearest recent instance of the page itself, not just its content, being pressed into representing a threat.
+29. **David Mitchell — *Cloud Atlas* (2004).** Six nested stories, each interrupted at its midpoint by the next (Russian-doll style), then resumed and closed in mirrored, reverse order in the book's second half — a palindromic macro-structure (ABCDEFFEDCBA) that a reader can only perceive by holding the whole architecture in mind at once, exactly like the almanac's fractal self-similarity.
+
+## IX. The Strange Loop, Applied
+### *for the recursive spine your own Reading Skein already names Hofstadterian*
+
+30. **Adam Roberts — *The Thing Itself* (2015).** Already adjacent to your bibliography via his Substack reading of *Little, Big* — worth the direct read too. A Kant-haunted, multi-period novel (Antarctic research station, a Grand Tour diary, a Joycean pastiche, a post-scarcity "Applied Kant" future, and — startlingly for your purposes — a near-future *time-war* narrative) that keeps circling back to ask what happens if the thing-in-itself, the noumenal world behind appearance, turns out to be reachable. Reviewers are divided on exactly how tightly the interludes map onto Kant's categories of understanding, but the ambition — a novel that treats a philosopher's formal system as load-bearing plot machinery, the way TV treats balanced ternary logic — is the point of including it here.
+
+---
+
+## How to shelve it against the existing skein
+
+The Reading Skein maps content — the physics, the espionage, the 2001 lineage, the Goodian AGI engine. This list maps chassis only: what a novel can be made to *do structurally* before it stops being readable as a novel at all. Saporta (1) is the outer limit on one axis (total unbound chance), Barth's *LETTERS* (19) and Calvino's *Invisible Cities* (20) are the outer limit on the other (a rigid, almost numerological grid you can in principle solve). TV's own almanac sits deliberately between those poles: fixed like Barth's grid, but with one cell — June 31st — punched out like Saporta's chance and Johnson's die-cut hole.
+
+If a next pass is wanted, the four richest single candidates to *read* rather than skim are: *House Mother Normal* (12, for the Double-Page Superposition proof-of-concept), *LETTERS* (19, for calendar-as-cipher), *Lanark* (6, for apparatus-inside-the-fiction), and *Composition No. 1* (1, for the shuffle limit case).
+
+---
+
+Sources consulted for structural detail: [LETTERS — Wikipedia](https://en.wikipedia.org/wiki/LETTERS), [Dictionary of the Khazars — Wikipedia](https://en.wikipedia.org/wiki/Dictionary_of_the_Khazars), [Feersum Endjinn review — Distorted Visions](https://distorted-visions.medium.com/book-review-feersum-endjinn-iain-m-banks-57d30ac56606), [Composition No. 1 — Critique: Studies in Contemporary Fiction](https://www.tandfonline.com/doi/full/10.1080/00111619.2014.905446), [Lanark — Wikipedia](https://en.wikipedia.org/wiki/Lanark:_A_Life_in_Four_Books), [The Universal Baseball Association — Wikipedia](https://en.wikipedia.org/wiki/The_Universal_Baseball_Association,_Inc.,_J._Henry_Waugh,_Prop.), [House Mother Normal — Wikipedia](https://en.wikipedia.org/wiki/House_Mother_Normal), [Infinite Jest as Sierpinski gasket — Math with Bad Drawings](https://mathwithbaddrawings.com/2019/11/13/in-what-sense-is-infinite-jest-a-sierpinski-gasket/), [The Thing Itself — Strange Horizons](http://strangehorizons.com/wordpress/non-fiction/reviews/the-thing-itself-by-adam-roberts/), [The Thing Itself — Reactor](https://reactormag.com/book-reviews-the-thing-itself-by-adam-roberts/).
