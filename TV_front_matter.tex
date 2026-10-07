@@ -1,9 +1,12 @@
-\blankpage % Physical Page 1: Blank Recto (Page 0)
+% Physical page 1 is a recto.  Every page below must keep the side
+% (recto = odd, verso = even) given in its comment: the main text relies on
+% the Partition 1 title landing on a recto so that each day is a facing
+% spread (narrative on the verso, dialogue on the recto).
 
 \pageno=-1 % Start Roman numeral numbering (i, ii, iii, ...)
 
 % --- Author Bio ---
-% Physical Page 2: Verso (Page i)
+% Physical Page 1: Recto
 \startcentered
 \frontmattergap
 Paul M. Cray was born in Preston, Lancashire in 1968.
@@ -13,24 +16,24 @@ He lives with his wife in Seattle, Washington.
 {\twelvesl THE VISIBILITIES} is his magnum opus, a recursive exploration of the seen and unseen.
 \stopcentered 
 
-\blankpage % Physical Page 3: Recto (Page ii) - BLANK PAGE BEFORE HALF TITLE
+\blankpage % Physical Page 2: Verso - blank, backing the bio
 
 % --- Half Title ---
-% Physical Page 4: Verso (Page iii)
+% Physical Page 3: Recto
 \startcentered
 \frontmattergap
 {\serifbold THE VISIBILITIES}
 \stopcentered 
 
 % --- Homage to James Joyce ---
-% Physical Page 5: Recto (Page iv)
+% Physical Page 4: Verso - frontispiece, facing the title page
 \startcentered
 \frontmattergap
 \centerline{\hbox{\inspic{joyce_symbol.pdf}}}
 \stopcentered
 
 % --- Full Title Page ---
-% Physical Page 6: Verso (Page v)
+% Physical Page 5: Recto
 \startcentered
 \frontmattergap
 {\serifboldhuge THE VISIBILITIES\par}
@@ -46,7 +49,7 @@ He lives with his wife in Seattle, Washington.
 \stopcentered
 
 % --- Copyright Page ---
-% Physical Page 7: Recto (Page vi)
+% Physical Page 6: Verso - backing the title page
 \startcentered
 \twelverm
 PUBLISHED BY ATOMIC RAZOR PRESS

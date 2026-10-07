@@ -284,26 +284,27 @@
   \input TV_front_matter.tex
 
 
-% Physical Page 9 is next (Recto) - Dedication.
+% Physical Page 7 is next (Recto) - Dedication.
 \startcentered
 \frontmattergap
 {\twelveit For my mother and the memory of my father}
 \stopcentered 
 
-% Physical Page 10 is next (Verso) - Blank.
+% Physical Page 8 is next (Verso) - Blank.
 \blankpage
 
-% Physical Page 11 is next (Recto) - Contents.
+% Physical Page 9 is next (Recto) - Contents (11 pages, to p. 19).
+% The contents must run to an odd number of pages to keep the parity below.
 {\leftskip=0pt plus 1fill \rightskip=0pt plus 1fill \parindent=0pt
  {\serifboldlarge Contents} \par}
 \vskip 10mm
 \maketoc
 \vfill\eject
 
-% Physical Page 12 is next (Verso) - Blank.
+% Physical Page 20 is next (Verso) - Blank.
 \blankpage
 
-% Physical Page 13 is next (Recto) - Book Epigraphs.
+% Physical Page 21 is next (Recto) - Book Epigraphs.
 \null\vfill
 \bookepigraph{‘The past is never dead. It’s not even past.’}{William Faulkner}{Requiem for a Nun}
 \bookepigraph{‘The past is a foreign country; they do things differently there.’}{L.P. Hartley}{The Go-Between}
@@ -311,13 +312,21 @@
 \bookepigraph{‘History is a nightmare from which I am trying to awake.’}{James Joyce}{Ulysses}
 \vfill\eject
 
-% Physical Page 14 is next (Verso) - Woodworth University Institutional Crest.
+% Physical Page 22 is next (Verso) - Woodworth University Institutional Crest.
 \startcentered
 \null\vfill
 \centerline{\hbox{\inspic{woodworth_crest.pdf}}}
 \stopcentered
 
-% Physical Page 15 is next (Recto) - Part 1 Title.
+% Physical Page 23 is next (Recto) - Part 1 Title.
+% Guard: stop if the front matter has drifted so that the title would land
+% on a verso (that would split every day's spread across one leaf).
+\directlua{
+  if math.fmod(status.total_pages + 1, 2) == 0 then
+    tex.error("Partition 1 title would fall on a verso (physical page "
+      .. (status.total_pages + 1) .. "): the front matter needs one page more or less")
+  end
+}
 \endgroup
 
 \openref
